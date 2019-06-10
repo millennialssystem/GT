@@ -10,10 +10,11 @@ namespace GroupTransfers.Controllers
 {
     public class HomeController : Controller
     {
+        private WebSettings WebSetting = new WebSettings();
         public IActionResult Index()
         {
-            ViewBag.Versionjs = 3;
-            ViewBag.Versioncss = 3;
+            ViewBag.Versionjs = WebSetting.Versionjs;
+            ViewBag.Versioncss = WebSetting.Versioncss;
             return View();
         }
 
