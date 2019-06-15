@@ -14,7 +14,7 @@ namespace GroupTransfers.Models
         public int Versioncss { get; set; }
         public WebSettings()
         {
-            Versionjs = 5;
+            Versionjs = (int)DateTime.Now.Ticks;
             Versioncss = 5;
 
         }
