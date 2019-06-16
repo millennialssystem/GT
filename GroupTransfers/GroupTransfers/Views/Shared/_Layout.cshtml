@@ -24,7 +24,11 @@
         <link rel="stylesheet" href="~/lib/agency/vendor/bootstrap/css/bootstrap.min.css?v=@ViewBag.Versioncss" />
 
         <!-- Custom fonts for this template -->
-        <link rel="stylesheet" href="~/lib/agency/vendor/fontawesome-free/css/all.min.css?v=@ViewBag.Versioncss" />
+        <link rel="stylesheet" type="text/css" href="~/lib/agency/vendor/fontawesome-free/css/all.min.css?v=@ViewBag.Versioncss" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="~/lib/agency/css/agency.min.css?v=@ViewBag.Versioncss" />
@@ -39,7 +43,7 @@
         <link rel="stylesheet" href="~/css/site.min.css?v=@ViewBag.Versioncss" asp-append-version="true" />*@
     </environment>
 </head>
-<body>
+<body id="page-top">
     @*<nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -60,33 +64,33 @@
             </div>
         </div>
     </nav>*@
-    <div class="container body-content">
+    @*<div class="container body-content">*@
         @RenderBody()
-        <hr />
+        @*<hr />
         <footer>
             <p>&copy; 2019 - GroupTransfers</p>
-        </footer>
-    </div>
+        </footer>*@
+    @*</div>*@
 
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js?v=@ViewBag.Versionjs"></script>
+        @*<script src="~/lib/jquery/dist/jquery.js?v=@ViewBag.Versionjs"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js?v=@ViewBag.Versionjs"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>*@
         @* Begin Agency *@
-
-        <!-- Custom scripts for this template -->
-        <script src="~/lib/agency/js/agency.min.js?v=@ViewBag.Versionjs"></script>
-
-        <!-- Contact form JavaScript -->        
-        @*<script src="~/lib/agency/js/jqBootstrapValidation.js?v=@ViewBag.Versionjs"   ></script>*@
-        @*<script src="~/lib/agency/js/contact_me.js?v=@ViewBag.Versionjs"></script>*@
-
-        <!-- Plugin JavaScript -->
-        <script src="~/lib/agency/vendor/js/jquery.easing.min.js?v=@ViewBag.Versionjs"></script>
 
         <!-- Bootstrap core JavaScript -->
         <script src="~/lib/agency/vendor/jquery/jquery.min.js?v=@ViewBag.Versionjs"></script>
         <script src="~/lib/agency/vendor/bootstrap/js/bootstrap.bundle.min.js?v=@ViewBag.Versionjs"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="~/lib/agency/vendor/js/jquery.easing.min.js?v=@ViewBag.Versionjs"></script>
+
+        <!-- Contact form JavaScript -->
+        <script src="~/lib/agency/js/jqBootstrapValidation.js?v=@ViewBag.Versionjs"></script>
+        <script src="~/lib/agency/js/contact_me.js?v=@ViewBag.Versionjs"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="~/lib/agency/js/agency.min.js?v=@ViewBag.Versionjs"></script>
         @* End agency *@
     </environment>
     <environment exclude="Development">
