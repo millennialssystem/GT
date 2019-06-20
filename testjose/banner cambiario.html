@@ -52,15 +52,35 @@
     function CalculateToSell(valor) {
         debugger;
         var regex = new RegExp("[0-9]");
-        
+        var regextwo = new RegExp("[1-9]");
+        valor.target.value = valor.target.value.replace(".","");
         if(regex.test(valor.data))
         {
-           
+            if(valor.target.value.substr(0,4) == "0000")
+            {
+                valor.target.value = valor.target.value.replace("0","")  
+            }else if(valor.target.value.substr(0,3) == "000")
+            {
+                valor.target.value = valor.target.value.replace("0","")  
+            }else if(valor.target.value.substr(0,2) == "00")
+            {
+                valor.target.value = valor.target.value.replace("0","")  
+            }else if(valor.target.value.substr(0,1) == "0")
+            {
+                valor.target.value = valor.target.value.replace("0","")  
+            }            
         }
         else
         {
             valor.target.value = valor.target.value.replace(valor.data,"");
         }
+        valor.target.value = valor.target.value.substr(0,valor.target.value.length -2) + "." + valor.target.value.substr(valor.target.value.length -2,2);
+
+        if(valor.target.value.length<5)
+        {
+            valor.target.value = "0"+valor.target.value; 
+        }
+
                     /*  txb.value = txb.value.replace(/[^\0-9]/ig, "");
                       txb.value = txb.value.replace(".", "");
 
