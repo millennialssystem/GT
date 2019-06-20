@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h2 align="center" class="small">Calculadora PayPal para Recibir</h2>
+
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <td>
+      Vender:
+      </td>
+      <td>
+      <input id="tosell" type="text" value="00.00">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      Transferir:
+      </td>
+      <td>
+      <input id="totransfer" type="number" step=".01"  required="">
+      </td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function (e) {
+        Init();
+    //console.log("Cargada pagina.....")
+    });
+    function Init() {    
+        var el = document.getElementById("tosell");
+        el.addEventListener('input', function(event) {
+            //debugger;
+            //event.target.value = event.target.valueAsNumber.toFixed(2)
+            CalculateToSell(event)
+        });
+    }
+    function CalculateToSell(valor) {
+        debugger;
+        var regex = new RegExp("[0-9]");
+        
+        if(regex.test(valor.data))
+        {
+           
+        }
+        else
+        {
+            valor.target.value = valor.target.value.replace(valor.data,"");
+        }
+                    /*  txb.value = txb.value.replace(/[^\0-9]/ig, "");
+                      txb.value = txb.value.replace(".", "");
+
+                      if (typeof form != 'undefined') {
+                        if (type == 'charge') {
+                          calculatetocharge(form);
+                        } else if (type == 'fees') {
+                          calculatefees(form);
+                        }
+
+                        form = $(form);
+                        $.each(form.find('input[disabled]'), function(index, originalInput) {
+                          input = $(originalInput);
+                          //var parent = input.parent();
+
+                          if (input.val() != '') {
+                            input.removeAttr('disabled');
+                            input.attr('readonly', 'readonly');
+                            input.attr('title', 'Presione Ctrl+C para copiar');
+
+                            var instance = input.tooltipster({}).tooltipster('instance');
+                            instance.on('before', function(){
+                                originalInput.setSelectionRange(0, originalInput.value.length);
+                            });
+                          } else {
+                            input.removeAttr('title');
+                            input.tooltipster('destroy');
+                          }
+                        });
+                      }*/
+                    }
+</script>
