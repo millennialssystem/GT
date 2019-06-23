@@ -6,18 +6,41 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Protocols;
 using GroupTransfers.Services;
+using System.Data;
+
 namespace GroupTransfers.Models
 {
-    public class WebSettings: PageModel
+    public class WebSettings : PageModel
     {
         private MSutils MSutil;
         public int Versionjs { get; set; }
         public int Versioncss { get; set; }
         public WebSettings()
         {
-            MSutil = new MSutils("");
-            Versionjs = MSutil.GetversionJs();
-            Versioncss = MSutil.GetversionCss();
+            try
+            {
+                MSutil = new MSutils("SERVER=localhost;" + "DATABASE=gt;" + "UID=root;" + "PASSWORD=;");
+                List<MSParameters> parameter = new List<MSParameters>();
+                DataTable datosinit = MSutil.ExecuteStopProcedure("GetWebSettings", parameter);
+                foreach (DataRow row in datosinit.Rows)
+                {
+                    switch (row["wse_key"])
+                    {
+                        case "versionjs":
+                            Versionjs = int.Parse(row["wse_value"].ToString());
+                            break;
+                        case "versioncss":
+                            Versioncss = int.Parse(row["wse_value"].ToString());
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {                
+                MSutil.ConsoleLogError("WebSettings.cs;WebSettings", ex);
+                Versionjs = 1;
+                Versioncss = 1;
+            }
         }
     }
 }
