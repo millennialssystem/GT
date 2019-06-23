@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 
 namespace GroupTransfers.Services
 {
@@ -23,6 +24,61 @@ namespace GroupTransfers.Services
 
                 throw;
             }
+        }
+
+        public string ExecuteStopProcedureToJson(string NameSP, List<MSParameters> parameters)
+        {
+            DataTable dt = new DataTable("Result");
+            try
+            {
+                ConnectionString.Open();
+                string rtn = NameSP;
+                MySqlCommand cmd = new MySqlCommand(rtn, ConnectionString);
+                cmd.CommandType = CommandType.StoredProcedure;
+                parameters.ForEach(item =>
+                {
+                    cmd.Parameters.AddWithValue(item.Name, item.Value);
+                });
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                //Beginmomentaneo
+                switch (NameSP)
+                {
+                    case "GetWebSettings":
+                        dt.Columns.Add("wse_id");
+                        dt.Columns.Add("wse_key");
+                        dt.Columns.Add("wse_value");
+                        break;
+                    case "Getcurrentprice":
+                        dt.Columns.Add("prc_id");
+                        dt.Columns.Add("prc_bank");
+                        dt.Columns.Add("prc_name");
+                        dt.Columns.Add("prc_value");
+                        dt.Columns.Add("prc_update");
+                        break;
+                }
+                //Endmomentaneo
+                DataRow row;
+                while (rdr.Read())
+                {
+                    row = dt.NewRow();
+                    for (int i = 0; i < rdr.FieldCount; i++)
+                    {
+                        if(rdr[i].GetType() == DateTime.Now.GetType())
+                            row[i] = String.Format("{0:u}", rdr[i]);
+                        else
+                        row[i] = rdr[i];
+                    }
+                    dt.Rows.Add(row);
+                }
+                rdr.Close();
+                ConnectionString.Close();                
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+                ConsoleLogError("MSUtils.cs;ExecuteStopProcedureSelect", ex);
+            }
+            return JsonConvert.SerializeObject(dt);
         }
 
         public DataTable ExecuteStopProcedure(string NameSP, List<MSParameters> parameters)

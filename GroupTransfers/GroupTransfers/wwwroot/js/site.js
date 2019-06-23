@@ -3,6 +3,7 @@ let percenComission = 0.054;
 const constTosell = 0.9487666034155598;
 $(document).ready(function (e) {
     Init();
+    Initcurrencyprice(document.getElementById("valuescurrencyprice").value, document.getElementById("currencypricetbody"), document.getElementById("lastupdatelable"));
 });
 function Init() {
     var el = document.getElementById("tosell");
@@ -42,9 +43,37 @@ function CalculateToSell(valor) {
 
 
 
+function Initcurrencyprice(tasas, tblBody, lastupdatelable) {
+    var fila;
+    var celda;
+    var textoCelda;
+    var actualizacion;
+    JSON.parse(tasas).forEach(function (item) {
+        fila = document.createElement("tr");
+        fila.id = item.prc_id;
 
+        celda = document.createElement("th");
+        celda.scope = "row";
+        textoCelda = document.createTextNode(item.prc_name);
+        celda.appendChild(textoCelda);
+        fila.appendChild(celda);
+
+        celda = document.createElement("td");
+        textoCelda = document.createTextNode(item.prc_value);
+        celda.appendChild(textoCelda);
+        fila.appendChild(celda);
+
+        tblBody.appendChild(fila);
+        if (actualizacion == undefined || new Date(item.prc_update) > actualizacion)
+            actualizacion = new Date(item.prc_update);
+    });
+    lastupdatelable.innerText = "Ultima Actualizacion: " + actualizacion.getDate() + "/" + (actualizacion.getMonth() + 1) + "/" + actualizacion.getFullYear() + " " + actualizacion.getHours() + ":" + actualizacion.getMinutes();
+}
 
 
 function completeRight(cadena, item, length) {
     return (cadena.length < length) ? completeRight(cadena + item, item, length) : cadena;
+}
+function completeLeft(cadena, item, length) {
+    return (cadena.length < length) ? completeLeft(item + cadena, item, length) : cadena;
 }
