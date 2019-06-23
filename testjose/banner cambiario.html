@@ -13,13 +13,13 @@
 <h2 align="center" class="small">Calculadora PayPal para Recibir</h2>
 
 <div class="table-responsive">
-  <table class="table">
+  <table class="table">  
     <tr>
       <td>
       Vender:
       </td>
       <td>
-      <input id="tosell" type="text" value="00.00">
+      <input id="tosell" type="text" >
       </td>
     </tr>
     <tr>
@@ -27,7 +27,7 @@
       Transferir:
       </td>
       <td>
-      <input id="totransfer" type="number" step=".01"  required="">
+      <input id="totransfer" type="text" >
       </td>
     </tr>
   </table>
@@ -37,6 +37,9 @@
 </html>
 
 <script>
+    let fixedCommission = 0.30;
+    let percenComission = 0.054;
+    const constTosell = 0.9487666034155598;
     $(document).ready(function (e) {
         Init();
     //console.log("Cargada pagina.....")
@@ -48,14 +51,20 @@
             //event.target.value = event.target.valueAsNumber.toFixed(2)
             CalculateToSell(event)
         });
+        el = document.getElementById("totransfer");
+        el.addEventListener('input', function(event) {
+            //debugger;
+            //event.target.value = event.target.valueAsNumber.toFixed(2)
+            CalculateToSell(event)
+        });
     }
-    function CalculateToSell(valor) {
-        debugger;
+    function CalculateToSell(valor) {   
         var regex = new RegExp("[0-9]");
-        var regextwo = new RegExp("[1-9]");
-        valor.target.value = valor.target.value.replace(".","");
-        if(regex.test(valor.data))
-        {
+        //var regextwo = new RegExp("[1-9]");
+        //valor.target.value = valor.target.value.replace(".","");
+        let Calculando = -1;       debugger;
+        if(!regex.test(valor.data)&&  valor.data!=".")
+        /*{
             if(valor.target.value.substr(0,4) == "0000")
             {
                 valor.target.value = valor.target.value.replace("0","")  
@@ -68,48 +77,51 @@
             }else if(valor.target.value.substr(0,1) == "0")
             {
                 valor.target.value = valor.target.value.replace("0","")  
-            }            
+            }          
+            Calculando = parseInt( valor.target.value);
         }
-        else
+        else*/  
         {
+            if(valor.target.value.length > 0)
             valor.target.value = valor.target.value.replace(valor.data,"");
         }
-        valor.target.value = valor.target.value.substr(0,valor.target.value.length -2) + "." + valor.target.value.substr(valor.target.value.length -2,2);
+        
+        Calculando = (valor.target.value.length > 0)?parseFloat( valor.target.value):0;
 
-        if(valor.target.value.length<5)
+        if(Calculando > 0)
         {
-            valor.target.value = "0"+valor.target.value; 
+            let result = 0;
+            if(valor.target.id=="tosell")
+            {               
+                document.getElementById("totransfer").value = (Calculando + (Calculando * percenComission)+fixedCommission).toFixed(2);
+                Calculando = Calculando;
+             //document.getElementById("totransfer").value= (parseInt(valor.target.value) + (valor.target.value * percenComission)+fixedCommission).toFixed(2);
+            }
+            else
+            {
+           debugger;     
+           document.getElementById("tosell").value = (Calculando-fixedCommission)* constTosell;
+            //document.getElementById("tosell").value = ((valor.target.value * percenComission)+fixedCommission).toFixed(2);
+            }
         }
+        else{
+            Calculando = 0;  
+            document.getElementById("tosell").value = 0;
+            document.getElementById("totransfer").value = 0;
+        }
+        //valor.target.value = completeRight(Calculando.toString(),"0",3); 
+        //valor.target.value = valor.target.value.substr(0,valor.target.value.length -2) + "." + valor.target.value.substr(valor.target.value.length -2,2);    
+         
 
-                    /*  txb.value = txb.value.replace(/[^\0-9]/ig, "");
-                      txb.value = txb.value.replace(".", "");
+    }
 
-                      if (typeof form != 'undefined') {
-                        if (type == 'charge') {
-                          calculatetocharge(form);
-                        } else if (type == 'fees') {
-                          calculatefees(form);
-                        }
 
-                        form = $(form);
-                        $.each(form.find('input[disabled]'), function(index, originalInput) {
-                          input = $(originalInput);
-                          //var parent = input.parent();
 
-                          if (input.val() != '') {
-                            input.removeAttr('disabled');
-                            input.attr('readonly', 'readonly');
-                            input.attr('title', 'Presione Ctrl+C para copiar');
 
-                            var instance = input.tooltipster({}).tooltipster('instance');
-                            instance.on('before', function(){
-                                originalInput.setSelectionRange(0, originalInput.value.length);
-                            });
-                          } else {
-                            input.removeAttr('title');
-                            input.tooltipster('destroy');
-                          }
-                        });
-                      }*/
-                    }
+
+
+    function completeRight(cadena, item, length){
+debugger;
+        return (cadena.length < length)? completeRight(cadena+item, item, length):cadena ;
+    }
 </script>

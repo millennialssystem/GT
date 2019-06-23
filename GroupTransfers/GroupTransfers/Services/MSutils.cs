@@ -10,11 +10,19 @@ namespace GroupTransfers.Services
     {
         private MySqlConnection ConnectionString;
         public MSutils(string connectionString)
-        {           
+        {
+            try
+            {            
             connectionString = "SERVER=localhost;" + "DATABASE=gt;" + "UID=root;" + "PASSWORD=;";
 
             ConnectionString = new MySqlConnection(connectionString);
             ConnectionString.Open();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
         public int GetversionJs()
         {
