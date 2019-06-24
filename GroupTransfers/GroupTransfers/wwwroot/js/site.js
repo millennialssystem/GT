@@ -3,7 +3,7 @@ let percenComission = 0.054;
 const constTosell = 0.9487666034155598;
 $(document).ready(function (e) {
     Init();
-    Initcurrencyprice(document.getElementById("valuescurrencyprice").value, document.getElementById("currencypricetbody"), document.getElementById("lastupdatelable"));
+    Initcurrencyprice(document.getElementById("valuescurrencyprice").value, document.getElementById("currencypricetbody"), document.getElementById("lastupdatelable"), document.getElementById("typemoneda"));
 });
 function Init() {
     var el = document.getElementById("tosell");
@@ -43,11 +43,12 @@ function CalculateToSell(valor) {
 
 
 
-function Initcurrencyprice(tasas, tblBody, lastupdatelable) {
+function Initcurrencyprice(tasas, tblBody, lastupdatelable, typemoneda) {
     var fila;
     var celda;
     var textoCelda;
     var actualizacion;
+    var typemonedaopcion;
     JSON.parse(tasas).forEach(function (item) {
         fila = document.createElement("tr");
         fila.id = item.prc_id;
@@ -66,10 +67,21 @@ function Initcurrencyprice(tasas, tblBody, lastupdatelable) {
         tblBody.appendChild(fila);
         if (actualizacion == undefined || new Date(item.prc_update) > actualizacion)
             actualizacion = new Date(item.prc_update);
+        typemonedaopcion = document.createElement("option");
+        typemonedaopcion.value = item.prc_value;
+        typemonedaopcion.innerText = item.prc_name;
+        typemoneda.appendChild(typemonedaopcion);
     });
     lastupdatelable.innerText = "Ultima Actualizacion: " + actualizacion.getDate() + "/" + (actualizacion.getMonth() + 1) + "/" + actualizacion.getFullYear() + " " + actualizacion.getHours() + ":" + actualizacion.getMinutes();
+    transferirdivisas();
 }
 
+function transferirdivisas() {
+    var moneda = document.getElementById("typemoneda").value;
+    var cantidad = document.getElementById("cantidadmoneda").value;
+    var regex = new RegExp("[0-9]");
+    document.getElementById("transferirdivisas").innerHTML ="Bs: " + ( moneda * cantidad);
+}
 
 function completeRight(cadena, item, length) {
     return (cadena.length < length) ? completeRight(cadena + item, item, length) : cadena;
