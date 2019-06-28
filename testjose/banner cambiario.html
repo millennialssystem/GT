@@ -4,44 +4,96 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  
+  <style>
+  .titlemanagerprice{
+                        text-align: center;					
+						background-color:#F8EA1A;
+            }
+  </style>
+  
 </head>
 <body>
 
-<h2 align="center" class="small">Calculadora PayPal para Recibir</h2>
 
-<div class="table-responsive">
-  <table class="table">  
-    <tr>
-      <td>
-      Vender:
-      </td>
-      <td>
-      <input id="tosell" type="text" >
-      </td>
-    </tr>
-    <tr>
-      <td>
-      Transferir:
-      </td>
-      <td>
-      <input id="totransfer" type="text" >
-      </td>
-    </tr>
-  </table>
+
+<div class="container">
+  <div class="row mr-3">
+  
+	
+    <div class="col-sm titlemanagerprice">
+       
+       <label >Moneda</label>
+    
+    </div>
+	   
+    
+    <div class="col-sm titlemanagerprice">
+     
+       <label >Bs</label>
+   
+    </div>
+	<div class="col col-lg-2 titlemanagerprice">
+    </div>
+  </div>
+  
+  <div class="container">
+  <div class="row p-2">
+
+    <div class="col-sm">
+      <input type="text" class="form-control" placeholder="Moneda">
+    </div>
+    <div class="col-sm">
+      <input type="text" class="form-control" placeholder="Precio">
+    </div>
+	
+	  <div class="col col-lg-2">
+      <button type="button" class="btn btn-danger">Eliminar</button>
+	  
+    </div>
+	
+  </div>
+   <div class="row p-2">
+
+    <div class="col-sm">
+      <input type="text" class="form-control" placeholder="Moneda">
+    </div>
+    <div class="col-sm">
+      <input type="text" class="form-control" placeholder="Precio">
+    </div>
+	
+	  <div class="col col-lg-2">
+      <button type="button" class="btn btn-danger">Eliminar</button>
+	  
+    </div>
+	
+  </div>
+  </div>
+  
+  <div class="row p-4">
+  <div class="col-10"></div>
+  <div class="col-2"><button type="button" class="btn btn-success">Guardar</button></div>
 </div>
+  
+  
+  
+</div>
+
 
 </body>
 </html>
+
+
 
 <script>
     let fixedCommission = 0.30;
     let percenComission = 0.054;
     const constTosell = 0.9487666034155598;
     $(document).ready(function (e) {
-        Init();
+        //Init();
     //console.log("Cargada pagina.....")
     });
     function Init() {    
