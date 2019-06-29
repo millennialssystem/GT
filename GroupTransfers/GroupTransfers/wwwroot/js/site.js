@@ -2,6 +2,7 @@
 let fixedCommission = 0.30;
 let percenComission = 0.054;
 const constTosell = 0.9487666034155598;
+var UpdateCoins = new Array();
 $(document).ready(function (e) {
     Init();
     Initcurrencyprice(document.getElementById("valuescurrencyprice").value, document.getElementById("currencypricetbody"), document.getElementById("lastupdatelable"), document.getElementById("typemoneda"));
@@ -78,8 +79,8 @@ function Initcurrencyprice(tasas, tblBody, lastupdatelable, typemoneda) {
     transferirdivisas();
 }
 
-function InitcurrencyManagerPrice(tasas, managerPrice) {    
-    JSON.parse(tasas).forEach(function (item) {        
+function InitcurrencyManagerPrice(tasas, managerPrice) {
+    JSON.parse(tasas).forEach(function (item) {
         var row = document.createElement("div");
         row.className = "row p-2";
         row.id = "rowManagerPrice" + item.prc_id;
@@ -91,6 +92,10 @@ function InitcurrencyManagerPrice(tasas, managerPrice) {
         bank.type = "text";
         bank.className = "form-control";
         bank.value = item.prc_bank;
+        bank.lastvalue = item.prc_bank;
+        bank.addEventListener('change', function (event) {
+            WillUpdateCurrencyPrice(item.prc_id)
+        });
         bankDiv.appendChild(bank);
         /*End Bank */
 
@@ -102,6 +107,9 @@ function InitcurrencyManagerPrice(tasas, managerPrice) {
         coin.type = "text";
         coin.className = "form-control";
         coin.value = item.prc_name;
+        coin.addEventListener('change', function (event) {
+            WillUpdateCurrencyPrice(item.prc_id)
+        });
         coinDiv.appendChild(coin);
         /*End coin */
 
@@ -113,6 +121,9 @@ function InitcurrencyManagerPrice(tasas, managerPrice) {
         value.type = "text";
         value.className = "form-control";
         value.value = item.prc_value;
+        value.addEventListener('change', function (event) {
+            WillUpdateCurrencyPrice(item.prc_id)
+        });
         valueDiv.appendChild(value);
         /*End value */
 
@@ -142,20 +153,20 @@ function InitcurrencyManagerPrice(tasas, managerPrice) {
 
 }
 
-function Inactivate(prc_id) {     
+function Inactivate(prc_id) {
     $.ajax({
         type: 'POST',
         url: 'Home/InactiveCoin',
-        data: {            
+        data: {
             id: prc_id
         },
         success: function (result) {
             document.getElementById("rowManagerPrice" + prc_id).style.display = "none";
-        }        
+        }
     });
 }
 
-function AddCoin() {   
+function AddCoin() {
     $.ajax({
         type: 'POST',
         url: 'Home/AddCoin',
@@ -164,7 +175,7 @@ function AddCoin() {
             value: document.getElementById("valueManagerPriceNew").value,
             bank: document.getElementById("bankManagerPriceNew").value
         },
-        success: function (result) {            
+        success: function (result) {
             prc_id = JSON.parse(result)[0].id;
             var row = document.createElement("div");
             row.className = "row p-2";
@@ -207,7 +218,7 @@ function AddCoin() {
             var desactivar = document.createElement("div");
             desactivar.className = "col col-lg-2";
             var btnDesactivar = document.createElement("button");
-            btnDesactivar.id = "rowManagerPrice" +prc_id;
+            btnDesactivar.id = "rowManagerPrice" + prc_id;
             btnDesactivar.type = "button";
             btnDesactivar.className = "btn btn-danger";
             btnDesactivar.addEventListener('click', function (event) {
@@ -227,8 +238,30 @@ function AddCoin() {
     });
 }
 
+function WillUpdateCurrencyPrice(row) {
+    if (UpdateCoins.indexOf(row) == -1)
+        UpdateCoins.push(row);
+}
 function UpdateCurrencyPrice() {
-    debugger;
+    
+
+    UpdateCoins.forEach(function (item) {
+        $.ajax({
+            type: 'POST',
+            url: 'Home/UpdateCoins',
+            data: {
+                id:item,
+                name: document.getElementById("coinManagerPrice"+item).value,
+                value: document.getElementById("valueManagerPrice" + item).value,
+                bank: document.getElementById("bankManagerPrice" + item).value
+            },
+            success: function (result) {
+               
+            }
+        });
+    });
+
+
 }
 
 function transferirdivisas() {

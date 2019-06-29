@@ -45,9 +45,23 @@ namespace GroupTransfers.Controllers
             Parameter.Add(par);
             par = new MSParameters("bank", bank);
             Parameter.Add(par);
-            
-
             return new JsonResult(MSutil.ExecuteStopProcedureToJson("AddCurrenPrice", Parameter));
+        }
+
+        [Route("UpdateCoins")]
+        public IActionResult UpdateCoins(string id, string name, string value, string bank)
+        {
+            MSParameters par = new MSParameters("name", name);
+            Parameter.Add(par);
+            par = new MSParameters("valor", value);
+            Parameter.Add(par);
+            par = new MSParameters("bank", bank);
+            Parameter.Add(par);
+            par = new MSParameters("id", id);
+            Parameter.Add(par);
+            MSutil.ExecuteStopProcedureNotResult("UpdateCurrenPrice", Parameter);
+
+            return new JsonResult("true");
         }
 
         public IActionResult About()
