@@ -1,5 +1,9 @@
+
+
 $(function () {
-   
+
+    $('[data-toggle="tooltip"]').tooltip()
+
   $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
     preventSubmit: true,
     submitError: function($form, event, errors) {
