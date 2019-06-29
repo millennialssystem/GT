@@ -10,13 +10,14 @@
             <label>Bs</label>
         </div>
         <div class="col col-lg-2 rounded-right titlemanagerprice">
+            
         </div>
     </div>
 
 
 
     <div class="container" id="managerPrice">
-        <div class="row p-2" id="rowManagerPriceNew">
+        @*<div class="row p-2" id="rowManagerPriceNew">
 
             <div class="col-sm">
                 <input type="text" id="bankManagerPriceNew" class="form-control" placeholder="Banco">
@@ -29,16 +30,65 @@
             </div>
 
             <div class="col col-lg-2">
-                <button type="button" id="rowManagerPriceNew" class="btn btn-success" title="Agregar">Agregar</button>
+                <button type="button" id="rowManagerPriceNew" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" title="Agregar">Agregar</button>
             </div>
 
-        </div>
+        </div>*@
     </div>
 
 
 
     <div class="row p-4">
         <div class="col-10"></div>
-        <div class="col-2"><button type="button" class="btn btn-success">Guardar</button></div>
+        <div class="col-2">
+            <button type="button" id="rowManagerPriceNew" class="btn btn-success rounded-circle" data-toggle="modal" data-target="#exampleModalLong" title="Agregar">
+                <img class="iconoSystem" src="~/images/GT/add.png" alt="Guardar">
+            </button>
+            <button type="button" Id="saveManagerPrice" class="btn btn-success rounded-circle" title="Guardar">
+                <img class="iconoSystem" src="~/images/GT/save.png" alt="Guardar">
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Agregar Nueva Tasa de cambio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row p-2" id="rowManagerPriceNew">
+
+                        <div class="col-sm">
+                            <input type="text" id="bankManagerPriceNew" class="form-control" placeholder="Banco">
+                        </div>                       
+                    </div>
+
+                    <div class="row p-2" id="rowManagerPriceNew">
+                        <div class="col-sm">
+                            <input type="text" id="coinManagerPriceNew" class="form-control" placeholder="Moneda">
+                        </div>
+                    </div>
+
+                    <div class="row p-2" id="rowManagerPriceNew">
+                        <div class="col-sm">
+                            <input type="text" id="valueManagerPriceNew" class="form-control" placeholder="Precio">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary"  data-dismiss="modal">Agregar</button>
+            </div>
+        </div>
     </div>
 </div>
