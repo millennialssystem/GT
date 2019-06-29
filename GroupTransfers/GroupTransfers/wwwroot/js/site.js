@@ -78,9 +78,7 @@ function Initcurrencyprice(tasas, tblBody, lastupdatelable, typemoneda) {
 }
 
 function InitcurrencyManagerPrice(tasas, managerPrice) {
-
-    JSON.parse(tasas).forEach(function (item) {
-        debugger;
+    JSON.parse(tasas).forEach(function (item) {        
         var row = document.createElement("div");
         row.className = "row p-2";
         row.id = "rowManagerPrice" + item.prc_id;
