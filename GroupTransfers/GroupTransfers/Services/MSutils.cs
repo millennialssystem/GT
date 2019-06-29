@@ -81,6 +81,28 @@ namespace GroupTransfers.Services
             return JsonConvert.SerializeObject(dt);
         }
 
+        public void ExecuteStopProcedureNotResult(string NameSP, List<MSParameters> parameters)
+        {           
+            try
+            {
+                ConnectionString.Open();
+                string rtn = NameSP;
+                MySqlCommand cmd = new MySqlCommand(rtn, ConnectionString);
+                cmd.CommandType = CommandType.StoredProcedure;
+                parameters.ForEach(item =>
+                {
+                    cmd.Parameters.AddWithValue(item.Name, item.Value);
+                });
+                MySqlDataReader rdr = cmd.ExecuteReader();               
+                rdr.Close();
+                ConnectionString.Close();
+            }
+            catch (Exception ex)
+            {               
+                ConsoleLogError("MSUtils.cs;ExecuteStopProcedureSelect", ex);
+            }          
+        }
+
         public DataTable ExecuteStopProcedure(string NameSP, List<MSParameters> parameters)
         {
             DataTable dt = new DataTable("Result");

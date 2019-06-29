@@ -14,13 +14,23 @@ namespace GroupTransfers.Services
         /// <summary>
         /// Value Parameter
         /// </summary>
-        public int Value { get; set; }
+        public string Value { get; set; }
         /// <summary>
         /// Parameter Stop Procedure
         /// </summary>
         /// <param name="name">Name Parameter</param>
         /// <param name="value">Value Parameter</param>
-        public MSParameters(string name, int value)
+        public MSParameters(string name, string value)
+        {
+            Name = name;
+            Value = value;
+        }
+        /// <summary>
+        /// Add Parameter
+        /// </summary>
+        /// <param name="name">Name Parameter</param>
+        /// <param name="value">Value Parameter</param>
+        public void Add(string name, string value)
         {
             Name = name;
             Value = value;

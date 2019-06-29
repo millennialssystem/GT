@@ -123,6 +123,9 @@ function InitcurrencyManagerPrice(tasas, managerPrice) {
         btnDesactivar.id = "rowManagerPrice" + item.prc_id;
         btnDesactivar.type = "button";
         btnDesactivar.className = "btn btn-danger";
+        btnDesactivar.addEventListener('click', function (event) {
+            Inactivate(item.prc_id)
+        });
         var textDesactivar = document.createTextNode("Eliminar");
         btnDesactivar.appendChild(textDesactivar);
         desactivar.appendChild(btnDesactivar);
@@ -138,6 +141,18 @@ function InitcurrencyManagerPrice(tasas, managerPrice) {
 
 }
 
+function Inactivate(prc_id) {     
+    $.ajax({
+        type: 'POST',
+        url: 'Home/InactiveCoin',
+        data: {            
+            id: prc_id
+        },
+        success: function (result) {
+            document.getElementById("rowManagerPrice" + prc_id).style.display = "none";
+        }        
+    });
+}
 
 
 function transferirdivisas() {
