@@ -1,4 +1,5 @@
-﻿let fixedCommission = 0.30;
+﻿
+let fixedCommission = 0.30;
 let percenComission = 0.054;
 const constTosell = 0.9487666034155598;
 $(document).ready(function (e) {
@@ -77,7 +78,7 @@ function Initcurrencyprice(tasas, tblBody, lastupdatelable, typemoneda) {
     transferirdivisas();
 }
 
-function InitcurrencyManagerPrice(tasas, managerPrice) {
+function InitcurrencyManagerPrice(tasas, managerPrice) {    
     JSON.parse(tasas).forEach(function (item) {        
         var row = document.createElement("div");
         row.className = "row p-2";
@@ -154,6 +155,81 @@ function Inactivate(prc_id) {
     });
 }
 
+function AddCoin() {   
+    $.ajax({
+        type: 'POST',
+        url: 'Home/AddCoin',
+        data: {
+            name: document.getElementById("coinManagerPriceNew").value,
+            value: document.getElementById("valueManagerPriceNew").value,
+            bank: document.getElementById("bankManagerPriceNew").value
+        },
+        success: function (result) {            
+            prc_id = JSON.parse(result)[0].id;
+            var row = document.createElement("div");
+            row.className = "row p-2";
+            row.id = "rowManagerPrice" + prc_id;
+            /*Begin Bank */
+            var bankDiv = document.createElement("div");
+            bankDiv.className = "col-sm";
+            var bank = document.createElement("input");
+            bank.id = "bankManagerPrice" + prc_id;
+            bank.type = "text";
+            bank.className = "form-control";
+            bank.value = document.getElementById("bankManagerPriceNew").value;
+            bankDiv.appendChild(bank);
+            /*End Bank */
+
+            /*Begin coin */
+            var coinDiv = document.createElement("div");
+            coinDiv.className = "col-sm";
+            var coin = document.createElement("input");
+            coin.id = "coinManagerPrice" + prc_id;
+            coin.type = "text";
+            coin.className = "form-control";
+            coin.value = document.getElementById("coinManagerPriceNew").value;
+            coinDiv.appendChild(coin);
+            /*End coin */
+
+            /*Begin value */
+            var valueDiv = document.createElement("div");
+            valueDiv.className = "col-sm";
+            var value = document.createElement("input");
+            value.id = "valueManagerPrice" + prc_id;
+            value.type = "text";
+            value.className = "form-control";
+            value.value = document.getElementById("valueManagerPriceNew").value;
+            valueDiv.appendChild(value);
+            /*End value */
+
+
+            /*Begin Disable*/
+            var desactivar = document.createElement("div");
+            desactivar.className = "col col-lg-2";
+            var btnDesactivar = document.createElement("button");
+            btnDesactivar.id = "rowManagerPrice" +prc_id;
+            btnDesactivar.type = "button";
+            btnDesactivar.className = "btn btn-danger";
+            btnDesactivar.addEventListener('click', function (event) {
+                Inactivate(prc_id)
+            });
+            var textDesactivar = document.createTextNode("Eliminar");
+            btnDesactivar.appendChild(textDesactivar);
+            desactivar.appendChild(btnDesactivar);
+            /*End Disable*/
+
+            document.getElementById("managerPrice").appendChild(row);
+            row.appendChild(bankDiv);
+            row.appendChild(coinDiv);
+            row.appendChild(valueDiv);
+            row.appendChild(desactivar);
+        }
+    });
+}
+
+function UpdateCurrencyPrice() {
+    debugger;
+}
 
 function transferirdivisas() {
     var moneda = document.getElementById("typemoneda").value;

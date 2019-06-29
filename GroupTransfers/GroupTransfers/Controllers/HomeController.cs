@@ -33,7 +33,21 @@ namespace GroupTransfers.Controllers
             Parameter.Add(par);
             MSutil.ExecuteStopProcedureNotResult("SetInactivateCurrenPrice", Parameter);
 
-            return new JsonResult("acepta");
+            return new JsonResult("true");
+        }
+
+        [Route("AddCoin")]
+        public IActionResult AddCoin(string name, string value, string bank)
+        {
+            MSParameters par = new MSParameters("name", name);
+            Parameter.Add(par);
+            par = new MSParameters("valor", value);
+            Parameter.Add(par);
+            par = new MSParameters("bank", bank);
+            Parameter.Add(par);
+            
+
+            return new JsonResult(MSutil.ExecuteStopProcedureToJson("AddCurrenPrice", Parameter));
         }
 
         public IActionResult About()

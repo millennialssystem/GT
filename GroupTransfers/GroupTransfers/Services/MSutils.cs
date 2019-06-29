@@ -55,6 +55,9 @@ namespace GroupTransfers.Services
                         dt.Columns.Add("prc_value");
                         dt.Columns.Add("prc_update");
                         break;
+                    case "AddCurrenPrice":
+                        dt.Columns.Add("id");
+                        break;
                 }
                 //Endmomentaneo
                 DataRow row;
