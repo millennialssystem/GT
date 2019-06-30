@@ -277,3 +277,35 @@ function completeRight(cadena, item, length) {
 function completeLeft(cadena, item, length) {
     return (cadena.length < length) ? completeLeft(item + cadena, item, length) : cadena;
 }
+
+function login() {
+    //'@Url.Action("Login")';
+    var _usr = $('#inputUser').val();
+    var _pswd = $('#inputPassword').val();
+    var url = "Admin/Login?usr=" + _usr + "&pswd=" + _pswd;
+    $.get(url, function (data) {
+        $("#menu").html(data);
+    });
+}
+
+
+//$("#btn').on("click", login);
+
+
+$('#btn').click(function () {
+    login();
+
+//    var _usr = $('#inputUser').val();
+//    var _pswd = $('#inputPassword').val;
+
+//    $.ajax({
+
+//        url: '@Url.Action("Login", "Admin")',
+//        type: "Post",
+//        dataType: "html",
+//        data: { usr: _usr, pswd: _pswd },//this is as per your requirement
+//        success: function (data) {
+//            $('#menu').html(data);
+//        },
+//    });
+});

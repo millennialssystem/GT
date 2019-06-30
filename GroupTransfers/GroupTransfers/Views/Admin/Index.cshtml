@@ -1,3 +1,6 @@
-﻿@Html.Partial("Admin/_menu")
-@Html.Partial("Admin/_body")
-@Html.Partial("_footer")
+﻿  
+<div id="menu">
+        @Html.Partial("Admin/_menu", new List<User>());
+ </div>
+    @Html.Partial("_currencyprice")
+    @Html.Partial("_footer")

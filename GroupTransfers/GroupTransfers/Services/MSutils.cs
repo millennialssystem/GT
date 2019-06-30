@@ -41,25 +41,34 @@ namespace GroupTransfers.Services
                 });
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 //Beginmomentaneo
-                switch (NameSP)
-                {
-                    case "GetWebSettings":
-                        dt.Columns.Add("wse_id");
-                        dt.Columns.Add("wse_key");
-                        dt.Columns.Add("wse_value");
-                        break;
-                    case "Getcurrentprice":
-                        dt.Columns.Add("prc_id");
-                        dt.Columns.Add("prc_bank");
-                        dt.Columns.Add("prc_name");
-                        dt.Columns.Add("prc_value");
-                        dt.Columns.Add("prc_update");
-                        break;
-                    case "AddCurrenPrice":
-                        dt.Columns.Add("id");
-                        break;
-                }
+                //switch (NameSP)
+                //{
+                //    case "GetWebSettings":
+                //        dt.Columns.Add("wse_id");
+                //        dt.Columns.Add("wse_key");
+                //        dt.Columns.Add("wse_value");
+                //        break;
+                //    case "Getcurrentprice":
+                //        dt.Columns.Add("prc_id");
+                //        dt.Columns.Add("prc_bank");
+                //        dt.Columns.Add("prc_name");
+                //        dt.Columns.Add("prc_value");
+                //        dt.Columns.Add("prc_update");
+                //        break;
+                //    case "AddCurrenPrice":
+                //        dt.Columns.Add("id");
+                //        break;
+                //}
                 //Endmomentaneo
+
+                if (rdr.FieldCount > 0)
+                {
+                    for (int i = 0; i <= rdr.FieldCount - 1; i++)
+                    {
+                        dt.Columns.Add(rdr.GetName(i));
+                    }
+                }
+
                 DataRow row;
                 while (rdr.Read())
                 {
@@ -121,13 +130,21 @@ namespace GroupTransfers.Services
                 });
                 MySqlDataReader rdr = cmd.ExecuteReader();                
                 //Beginmomentaneo
-                switch (NameSP)
+                //switch (NameSP)
+                //{
+                //    case "GetWebSettings":
+                //        dt.Columns.Add("wse_id");
+                //        dt.Columns.Add("wse_key");
+                //        dt.Columns.Add("wse_value");
+                //        break;
+                //}
+
+                if (rdr.FieldCount > 0)
                 {
-                    case "GetWebSettings":
-                        dt.Columns.Add("wse_id");
-                        dt.Columns.Add("wse_key");
-                        dt.Columns.Add("wse_value");
-                        break;
+                    for(int i = 0; i <= rdr.FieldCount -1; i++)
+                    {
+                        dt.Columns.Add(rdr.GetName(i));
+                    }
                 }
                 //Endmomentaneo
                 DataRow row;
@@ -146,6 +163,7 @@ namespace GroupTransfers.Services
             catch (Exception ex)
             {
                 dt = null;
+                ConnectionString.Close();
                 ConsoleLogError("MSUtils.cs;ExecuteStopProcedureSelect", ex);
             }
             return dt;
