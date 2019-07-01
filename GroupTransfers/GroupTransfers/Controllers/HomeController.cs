@@ -64,6 +64,22 @@ namespace GroupTransfers.Controllers
             return new JsonResult("true");
         }
 
+        [Route("SendRecomendation")]
+        public IActionResult SendRecomendation(string name, string phone, string email, string message)
+        {
+            MSParameters par = new MSParameters("name", name);
+            Parameter.Add(par);
+            par = new MSParameters("phone", phone);
+            Parameter.Add(par);
+            par = new MSParameters("email", email);
+            Parameter.Add(par);
+            par = new MSParameters("message", message);
+            Parameter.Add(par);
+            MSutil.ExecuteStopProcedureNotResult("SendRecomendation", Parameter);
+
+            return new JsonResult("true");
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
