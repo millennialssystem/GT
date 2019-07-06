@@ -17,6 +17,10 @@ function Init() {
     el.addEventListener('input', function (event) {
         CalculateToSell(event)
     });
+    var btnsearchpackage = document.getElementById("btnsearchpackage");
+    btnsearchpackage.addEventListener('click', function (event) {
+        Getpackage(document.getElementById("refpackage"), document.getElementById("detailpackage"), document.getElementById("progresspackage"))
+    });
 }
 function CalculateToSell(valor) {
     var regex = new RegExp("[0-9]");
@@ -166,6 +170,24 @@ function Inactivate(prc_id) {
     });
 }
 
+function Getpackage(ref, detail, progress) {
+    $.ajax({
+        type: 'POST',
+        url: 'Home/Getpackage',
+        data: {
+            reference: ref.value
+        },
+        success: function (result) {            
+            var item = JSON.parse(result);
+            if (item.length > 0) {
+                detail.innerText = item[0].pck_detail;
+                progress.style.width = item[0].pck_progress + "%";
+                progress.innerText = item[0].pck_progress + "%";
+            }
+        }
+    });
+}
+
 function AddCoin() {
     $.ajax({
         type: 'POST',
@@ -243,20 +265,20 @@ function WillUpdateCurrencyPrice(row) {
         UpdateCoins.push(row);
 }
 function UpdateCurrencyPrice() {
-    
+
 
     UpdateCoins.forEach(function (item) {
         $.ajax({
             type: 'POST',
             url: 'Home/UpdateCoins',
             data: {
-                id:item,
-                name: document.getElementById("coinManagerPrice"+item).value,
+                id: item,
+                name: document.getElementById("coinManagerPrice" + item).value,
                 value: document.getElementById("valueManagerPrice" + item).value,
                 bank: document.getElementById("bankManagerPrice" + item).value
             },
             success: function (result) {
-               
+
             }
         });
     });
@@ -295,17 +317,17 @@ function login() {
 $('#btn').click(function () {
     login();
 
-//    var _usr = $('#inputUser').val();
-//    var _pswd = $('#inputPassword').val;
+    //    var _usr = $('#inputUser').val();
+    //    var _pswd = $('#inputPassword').val;
 
-//    $.ajax({
+    //    $.ajax({
 
-//        url: '@Url.Action("Login", "Admin")',
-//        type: "Post",
-//        dataType: "html",
-//        data: { usr: _usr, pswd: _pswd },//this is as per your requirement
-//        success: function (data) {
-//            $('#menu').html(data);
-//        },
-//    });
+    //        url: '@Url.Action("Login", "Admin")',
+    //        type: "Post",
+    //        dataType: "html",
+    //        data: { usr: _usr, pswd: _pswd },//this is as per your requirement
+    //        success: function (data) {
+    //            $('#menu').html(data);
+    //        },
+    //    });
 });

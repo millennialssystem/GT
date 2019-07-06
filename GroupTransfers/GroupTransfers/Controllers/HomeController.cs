@@ -64,6 +64,14 @@ namespace GroupTransfers.Controllers
             return new JsonResult("true");
         }
 
+        [Route("Getpackage")]
+        public IActionResult Getpackage(string reference)
+        {
+            MSParameters par = new MSParameters("ref", reference);
+            Parameter.Add(par);            
+            return new JsonResult(MSutil.ExecuteStopProcedureToJson("Getpackage", Parameter));
+        }
+
         [Route("SendRecomendation")]
         public IActionResult SendRecomendation(string name, string phone, string email, string message)
         {
