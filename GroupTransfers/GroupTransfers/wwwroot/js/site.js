@@ -1,8 +1,4 @@
-﻿try {
-    import { access } from "fs";
-} catch (e) {
-
-}
+﻿//import { access } from "fs";
 
 
 let fixedCommission = 0.30;
@@ -248,6 +244,26 @@ function InitcurrencyManagerPackage(managerQuestionmensajes){
     });
 }
 
+function mensajecorecto(obj,texto) {
+    $('#' + obj).html("<div class='alert alert-success'>");
+    $('#'+ obj +'> .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+        .append("</button>");
+    $('#' + obj + '> .alert-success')
+        .append("<strong>" + texto + "</strong>");
+    $('#' + obj  +'> .alert-success')
+        .append('</div>');
+}
+function mensajeIncorecto(obj, texto) {   
+    $('#' + obj).html("<div class='alert alert-danger'>");
+    $('#' + obj + '> .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+        .append("</button>");
+    $('#' + obj + '> .alert-danger')
+        .append("<strong>" + texto + "</strong>");
+    $('#' + obj + '> .alert-danger')
+        .append('</div>');
+}
+
+
 function atent(men_id) {    
     $.ajax({
         type: 'POST',
@@ -258,6 +274,7 @@ function atent(men_id) {
         success: function (result) {
             document.getElementById("rowManagerPackagedetail" + men_id).style.display = "none";
             document.getElementById("rowManagerPackagemensaje" + men_id).style.display = "none";
+            mensajecorecto("mensagemanagerquestion","Mensaje atendido");
         }
     });
 }
@@ -271,6 +288,7 @@ function Inactivate(prc_id) {
         },
         success: function (result) {
             document.getElementById("rowManagerPrice" + prc_id).style.display = "none";
+            mensajecorecto("mensagemanagerprice", "Moneda eliminada exitosamente.");
         }
     });
 }
@@ -289,6 +307,8 @@ function Getpackage(ref, detail, progress, MostrarOcultarPackageDetail) {
                 progress.style.width = item[0].pck_progress + "%";
                 progress.innerText = item[0].pck_progress + "%";
                 MostrarOcultarPackageDetail.style.display = "block";
+            } else {
+                mensajeIncorecto("mensagepackage", "Referencia no encontrada");
             }
         }
     });
@@ -304,6 +324,7 @@ function AddCoin() {
             bank: document.getElementById("bankManagerPriceNew").value
         },
         success: function (result) {
+            mensajecorecto("mensagemanagerprice", "Moneda agregada exitosamente.");
             prc_id = JSON.parse(result)[0].id;
             var row = document.createElement("div");
             row.className = "row p-2";
@@ -375,7 +396,8 @@ function AddPackage() {
             detail: document.getElementById("detailManagerPackageNew").value,
             progress: document.getElementById("progressManagerPackageNew").value
         },
-        success: function (result) {            
+        success: function (result) { 
+            mensajecorecto("mensagemanagerpackage", "Informacion agregada correctamente");
         }
     });
 }
@@ -398,7 +420,7 @@ function UpdateCurrencyPrice() {
                 bank: document.getElementById("bankManagerPrice" + item).value
             },
             success: function (result) {
-
+                mensajecorecto("mensagemanagerprice", "Cambios guardados exitosamente.");
             }
         });
     });
