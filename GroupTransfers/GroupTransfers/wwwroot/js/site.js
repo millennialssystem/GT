@@ -1,4 +1,10 @@
-﻿
+﻿try {
+    import { access } from "fs";
+} catch (e) {
+
+}
+
+
 let fixedCommission = 0.30;
 let percenComission = 0.054;
 const constTosell = 0.9487666034155598;
@@ -19,8 +25,12 @@ function Init() {
     });
     var btnsearchpackage = document.getElementById("btnsearchpackage");
     btnsearchpackage.addEventListener('click', function (event) {
-        Getpackage(document.getElementById("refpackage"), document.getElementById("detailpackage"), document.getElementById("progresspackage"))
+        Getpackage(document.getElementById("refpackage"), document.getElementById("detailpackage"), document.getElementById("progresspackage"), document.getElementById("MostrarOcultarPackageDetail"))
     });
+    var managerQuestionmensajes = document.getElementById("managerQuestionmensajes");
+    if (managerQuestionmensajes != undefined)
+        InitcurrencyManagerPackage(managerQuestionmensajes);
+
 }
 function CalculateToSell(valor) {
     var regex = new RegExp("[0-9]");
@@ -157,6 +167,101 @@ function InitcurrencyManagerPrice(tasas, managerPrice) {
 
 }
 
+function getDateGT(fecha) {
+    var fechaformateada = new Date(fecha);    
+    return fechaformateada.getDate() + "/" + (fechaformateada.getMonth() + 1) + "/" + fechaformateada.getFullYear() + " " + fechaformateada.getHours() + ":" + fechaformateada.getMinutes();
+}
+
+function InitcurrencyManagerPackage(managerQuestionmensajes){    
+    $.ajax({
+        type: 'POST',
+        url: 'Home/GetMensagges',        
+        success: function (result) {                        
+            JSON.parse(result).forEach(function (item) {                
+                var row = document.createElement("div");
+                row.className = "row p-2 text-center";
+                row.id = "rowManagerPackagedetail" + item.men_id;
+                var divNombre = document.createElement("div");
+                divNombre.className = "col-sm";
+                divNombre.id = "divNombreManagerPackagemensaje" + item.men_id;
+                var nombre = document.createElement("label");
+                nombre.id = "nombreManagerPackagemensaje" + item.men_id;
+                nombre.innerHTML = "<strong>Nombre:</strong> "+ item.men_name;            
+                var divTelefono = document.createElement("div");
+                divTelefono.className = "col-sm";
+                divTelefono.id = "divTelefonoManagerPackagemensaje" + item.men_id;            
+                var Telefono = document.createElement("label");
+                Telefono.id = "TelefonoManagerPackagemensaje" + item.men_id;
+                Telefono.innerHTML = "<strong>Teléfono:</strong> " + item.men_phone;
+                var divEmail = document.createElement("div");
+                divEmail.className = "col-sm";
+                divEmail.id = "divEmailManagerPackagemensaje" + item.men_id;
+                var Email = document.createElement("label");
+                Email.id = "EmailManagerPackagemensaje" + item.men_id;
+                Email.innerHTML = "<strong>Email:</strong> " + item.men_email;
+                var divfecha = document.createElement("div");
+                divfecha.className = "col-sm";
+                divfecha.id = "divfechaManagerPackagemensaje" + item.men_id;
+                var fecha = document.createElement("label");
+                fecha.id = "fechaManagerPackagemensaje" + item.men_id;
+                fecha.innerHTML = "<strong>Fecha:</strong> " + getDateGT(item.men_date);            
+                managerQuestionmensajes.appendChild(row);
+                row.appendChild(divNombre);
+                divNombre.appendChild(nombre);
+                row.appendChild(divTelefono);
+                divTelefono.appendChild(Telefono);
+                row.appendChild(divEmail);
+                divEmail.appendChild(Email);
+                row.appendChild(divfecha);
+                divfecha.appendChild(fecha);
+
+                var rowMensaje = document.createElement("div");
+                rowMensaje.className = "row";
+                rowMensaje.id = "rowManagerPackagemensaje" + item.men_id;
+                var divMensaje = document.createElement("div");
+                divMensaje.className = "col-sm border border-primary rounded";
+                divMensaje.id = "divManagerPackagemensaje" + item.men_id;
+                var Mensaje = document.createElement("label");                
+                Mensaje.id = "labelManagerPackagemensaje" + item.men_id;
+                Mensaje.innerHTML = item.men_menssage;
+                var divAtender = document.createElement("div");
+                divAtender.className = "col col-lg-1 text-center";
+                divAtender.id = "divatenderManagerPackagemensaje" + item.men_id;
+                var atender = document.createElement("button");
+                atender.className = "btn btn-success";
+                atender.id = "atenderManagerPackagemensaje" + item.men_id;
+                atender.title = "Atender";
+                atender.innerHTML = '<span aria-hidden="true">&checkmark;</span>';
+                atender.addEventListener('click', function (event) {
+                    atent(item.men_id)
+                });
+                managerQuestionmensajes.appendChild(rowMensaje);
+                rowMensaje.appendChild(divMensaje);
+                divMensaje.appendChild(Mensaje);
+                rowMensaje.appendChild(divAtender);
+                divAtender.appendChild(atender);
+
+                var hr = document.createElement("hr");
+                managerQuestionmensajes.appendChild(hr);
+            });
+        }
+    });
+}
+
+function atent(men_id) {    
+    $.ajax({
+        type: 'POST',
+        url: 'Home/Attent',
+        data: {
+            id: men_id
+        },
+        success: function (result) {
+            document.getElementById("rowManagerPackagedetail" + men_id).style.display = "none";
+            document.getElementById("rowManagerPackagemensaje" + men_id).style.display = "none";
+        }
+    });
+}
+
 function Inactivate(prc_id) {
     $.ajax({
         type: 'POST',
@@ -170,7 +275,7 @@ function Inactivate(prc_id) {
     });
 }
 
-function Getpackage(ref, detail, progress) {
+function Getpackage(ref, detail, progress, MostrarOcultarPackageDetail) {    
     $.ajax({
         type: 'POST',
         url: 'Home/Getpackage',
@@ -183,6 +288,7 @@ function Getpackage(ref, detail, progress) {
                 detail.innerText = item[0].pck_detail;
                 progress.style.width = item[0].pck_progress + "%";
                 progress.innerText = item[0].pck_progress + "%";
+                MostrarOcultarPackageDetail.style.display = "block";
             }
         }
     });
@@ -256,6 +362,20 @@ function AddCoin() {
             row.appendChild(coinDiv);
             row.appendChild(valueDiv);
             row.appendChild(desactivar);
+        }
+    });
+}
+
+function AddPackage() {    
+    $.ajax({
+        type: 'POST',
+        url: 'Home/Setpackage',
+        data: {         
+            reference: document.getElementById("refManagerPackageNew").value,
+            detail: document.getElementById("detailManagerPackageNew").value,
+            progress: document.getElementById("progressManagerPackageNew").value
+        },
+        success: function (result) {            
         }
     });
 }

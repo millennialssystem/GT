@@ -36,6 +36,16 @@ namespace GroupTransfers.Controllers
             return new JsonResult("true");
         }
 
+        [Route("Attent")]
+        public IActionResult Attent(int id)
+        {
+            MSParameters par = new MSParameters("id", id.ToString());
+            Parameter.Add(par);
+            MSutil.ExecuteStopProcedureNotResult("Attent", Parameter);
+
+            return new JsonResult("true");
+        }
+
         [Route("AddCoin")]
         public IActionResult AddCoin(string name, string value, string bank)
         {
@@ -70,6 +80,26 @@ namespace GroupTransfers.Controllers
             MSParameters par = new MSParameters("ref", reference);
             Parameter.Add(par);            
             return new JsonResult(MSutil.ExecuteStopProcedureToJson("Getpackage", Parameter));
+        }
+
+        [Route("GetMensagges")]
+        public IActionResult GetMensagges()
+        {           
+            return new JsonResult(MSutil.ExecuteStopProcedureToJson("GetMensagges", Parameter));
+        }
+
+        [Route("Setpackage")]
+        public IActionResult Setpackage(string reference, string detail, string progress)
+        {
+            MSParameters par = new MSParameters("ref", reference);
+            Parameter.Add(par);
+            par = new MSParameters("detail", detail);
+            Parameter.Add(par);
+            par = new MSParameters("progress", progress);
+            Parameter.Add(par);
+            MSutil.ExecuteStopProcedureNotResult("Setpackage", Parameter);
+
+            return new JsonResult("true");
         }
 
         [Route("SendRecomendation")]
