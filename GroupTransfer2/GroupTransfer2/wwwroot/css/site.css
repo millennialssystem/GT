@@ -1,0 +1,52 @@
+﻿.WhatsAppLogo{
+    width:100px;
+    height:100px;
+}
+.iconoSystem {
+    width: 20px;
+    height: 25px;
+}
+.titlemanagerprice {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+    background-color: #fed136;
+}
+
+.table .thead-primary th {
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+}
+
+.subtitlelef {
+    width: 100%;
+    height: 75%;
+    background: #dee2e6;
+    padding-top: 5%;
+}
+
+.subtitlelefdet {
+    background: #dee2e6;
+    height: 100%;
+    min-height:30px;
+}
+
+.detailpackage {
+    border: solid;
+    border-color: #8ea3e1;
+    border-top-width: thin;
+    border-right-width: thin;
+    border-bottom-width: thin;
+    border-left-width: thin;
+    padding: 2px;
+    min-height:30px;
+}
+
+.action {
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+}

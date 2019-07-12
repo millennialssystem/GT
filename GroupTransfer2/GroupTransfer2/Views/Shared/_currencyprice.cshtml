@@ -1,0 +1,101 @@
+﻿<input type="hidden" id="valuescurrencyprice" value="@ViewBag.currencyprice">
+<section class="page-section" id="currencyprice">
+    <div id="currencypricedetail">
+
+        <div class="container">
+            <div class="row">
+                @* Inicio de detales de  *@
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Tasas de cambio</h2>
+                </div>
+
+                <div class="table-responsive rounded-left rounded-right">
+                    <table class="table table-striped">
+                        <thead class="thead-primary rounded-top">
+                            <tr>
+                                <th scope="col">
+                                    Moneda
+                                </th>
+                                <th scope="col">
+                                    Bs
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="currencypricetbody">
+                            @*
+                    <tr>
+                        <th scope="row">
+                            euro
+                        </th>
+                        <td>
+                            5000
+                        </td>
+                    </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-lg-12 text-right">
+                    <h3 id="lastupdatelable" class="section-subheading text-muted"></h3>
+                </div>
+                @* Fin de detales de  *@
+                @* Inicio calculadoras *@                
+                <div id="calculadoras" class="col-lg-12 row">
+                    @* Inicio calculadora transferir *@
+                    <div class="col-sm-6 row">
+                        <div class="text-center panel panel-danger">
+                            <h2 class="section-subheading text-uppercase">Calculadora Cambio</h2>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Cantidad de divisas</label>
+                            <input type="number" id="cantidadmoneda" class="form-control" min="1" value="1" onchange="transferirdivisas()" onkeypress="transferirdivisas()" >
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="sel1">Moneda</label>
+                                <select class="form-control" id="typemoneda" onchange="transferirdivisas()">                                                                       
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label id="transferirdivisas">  </label>                            
+                        </div>
+
+                    </div>
+                    @* Inicio calculadora transferir *@
+                    @* Inicio calculadora paypal *@
+                    <div class="col-sm-6 table-responsive">
+                        <div class="col-xs-12 text-center">
+                            <h2 class="section-subheading text-uppercase">Calculadora PayPal</h2>
+                        </div>
+                        <div class="col-xs-4 table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        Vender:
+                                    </td>
+                                    <td>
+                                        <input id="tosell" type="text" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Transferir:
+                                    </td>
+                                    <td>
+                                        <input id="totransfer" type="text" class="form-control">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    @* Fin calculadora paypal *@
+                </div>
+                @* Fin calculadoras *@
+            </div>
+        </div>
+
+    </div>
+</section>
+

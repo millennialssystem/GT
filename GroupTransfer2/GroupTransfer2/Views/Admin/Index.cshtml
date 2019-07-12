@@ -1,0 +1,15 @@
+﻿{
+    @ViewData["Title"] = "Home";
+}  
+
+<div id="menu">
+    <partial name="Admin/_menu" model="new List<User>()" />
+        @*@Html.Partial("Admin/_menu", new List<User>());*@
+ </div>
+<partial name="_currencyprice" />
+<partial name="Admin/_managerPrice" />
+<partial name="_footer" />
+
+@*@Html.Partial("_currencyprice")
+@Html.Partial("_footer")
+@Html.Partial("Admin/_managerPrice")*@
