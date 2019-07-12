@@ -11,7 +11,8 @@ function Init() {
     if (btnsearchpackage != undefined) {
     btnsearchpackage.addEventListener('click', function (event) {
         Getpackage(document.getElementById("refpackage"), document.getElementById("detailpackage"), document.getElementById("progresspackage"), document.getElementById("MostrarOcultarPackageDetail"))
-    });
+        });
+    } 
     var managerQuestionmensajes = document.getElementById("managerQuestionmensajes");
     if (managerQuestionmensajes != undefined)
         InitcurrencyManagerPackage(managerQuestionmensajes);
