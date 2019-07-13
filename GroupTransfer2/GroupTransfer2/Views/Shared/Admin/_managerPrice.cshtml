@@ -6,7 +6,7 @@
         <div class="col-sm titlemanagerprice">
             <label>Moneda</label>
         </div>
-        <div class="col-sm titlemanagerprice">
+        <div class="col-sm titlemanagerprice ">
             <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                     <a data-toggle="tooltip" data-html="true" data-placement="right" title="Dolares" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
@@ -51,14 +51,27 @@
 
 
     <div class="row p-4">
-        <div class="col-10"></div>
-        <div class="col-2">
-            @*<button type="button" id="rowManagerPriceNew" class="btn btn-success rounded-circle" data-toggle="modal" data-target="#exampleModalLong" title="Agregar">
-                <img class="iconoSystem" src="~/images/GT/add.png" alt="Guardar">
-            </button>*@
+        <div class="col col-lg-10"></div>
+        @*<div class="col col-lg-2">
+            <ul class="list-inline social-buttons">
+                <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalLong">
+                    <a data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </li>
+            </ul>
             <button type="button" Id="saveManagerPrice" class="btn btn-success rounded-circle" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()">
                 <img class="iconoSystem" src="~/images/GT/save.png" alt="Actualizar">
             </button>
+        </div>*@
+        <div class="col col-lg-2 rounded-circle text-center">
+            <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                    <a data-toggle="tooltip" data-placement="right" class="linkbuttoncircle text-center" data-html="true" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">                        
+                        <i class="fas fa-share-square"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -273,7 +273,7 @@
 
             /*Begin Disable*/
             var desactivar = document.createElement("div");
-            desactivar.className = "col col-lg-2";
+            desactivar.className = "col col-lg-2 text-center";
 
             var listActions = document.createElement("ul");
             listActions.className = "list-inline social-buttons";
@@ -290,7 +290,7 @@
             btnDesactivar.setAttribute("data-html", "true");
             btnDesactivar.setAttribute("data-placement", "right");
             btnDesactivar.setAttribute("title", "Eliminar");
-            btnDesactivar.style = "height: 40px;width: 40px;line-height: 40px;background-color:#fed136;color:#fff;";
+            btnDesactivar.style = "height: 40px;width: 40px;line-height: 40px;background-color:#d60f22;color:#fff;";
             btnDesactivar.addEventListener('click', function (event) {
                 currencyprice.Inactivate(item.prc_id)
             });
