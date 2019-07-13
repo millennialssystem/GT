@@ -17,7 +17,13 @@
                                     Moneda
                                 </th>
                                 <th scope="col">
-                                    Bs
+                                    <ul class="list-inline social-buttons">
+                                        <li class="list-inline-item">
+                                            <a data-toggle="tooltip" data-html="true" data-placement="right" title="Dolares" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
+                                                <i class="fas fa-dollar-sign"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </th>
                             </tr>
                         </thead>
@@ -43,23 +49,33 @@
                 <div id="calculadoras" class="col-lg-12 row">
                     @* Inicio calculadora transferir *@
                     <div class="col-sm-6 row">
-                        <div class="text-center panel panel-danger">
+                        <div class="col col-sm-12 text-center panel panel-danger">
                             <h2 class="section-subheading text-uppercase">Calculadora Cambio</h2>
                         </div>
-                        <div class="col-sm-6">
-                            <label>Cantidad de divisas</label>
-                            <input type="number" id="cantidadmoneda" class="form-control" min="1" value="1" onchange="currencyprice.transferirdivisas()" onkeypress="transferirdivisas()" >
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="sel1">Moneda</label>
-                                <select class="form-control" id="typemoneda" onchange="currencyprice.transferirdivisas()">                                                                       
-                                </select>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-6">
+                                <label>Cantidad de divisas</label>
+                                <input type="number" id="cantidadmoneda" class="form-control" min="1" value="1"  onchange="currencyprice.transferirdivisas()" onkeyup="currencyprice.transferirdivisas()">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="sel1">Vender</label>
+                                    <select class="form-control" id="typemoneda" onchange="currencyprice.transferirdivisas()">
+                                        <option value="0">Moneda</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sel1">Recibir</label>
+                                    <select class="form-control" id="typemonedato" onchange="currencyprice.transferirdivisas()">
+                                        <option value="0">Moneda</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-12">
-                            <label id="transferirdivisas">  </label>                            
+                        <div class="col-sm-6 text-center">
+                            <label id="transferirdivisas"> </label>                            
                         </div>
 
                     </div>
