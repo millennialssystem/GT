@@ -14,7 +14,7 @@
         });
 
         if (document.getElementById("valuescurrencyprice") != undefined) {
-            this.Initcurrencyprice(document.getElementById("valuescurrencyprice").value, document.getElementById("currencypricetbody"), document.getElementById("lastupdatelable"), document.getElementById("typemoneda"));
+            this.Initcurrencyprice(document.getElementById("valuescurrencyprice").value, document.getElementById("currencypricetbody"), document.getElementById("lastupdatelable"), document.getElementById("typemoneda"), document.getElementById("typemonedato"));
         }
         if (document.getElementById("managerPrice") != undefined) {
             this.InitcurrencyManagerPrice(document.getElementById("valuescurrencyprice").value, document.getElementById("managerPrice"));
@@ -171,19 +171,26 @@
         });
         return false;
     },
-    transferirdivisas: function () {
-        
-        var moneda = document.getElementById("typemoneda").value;
+
+    transferirdivisas: function () {       
+        var vender = document.getElementById("typemoneda").value;
+        var recibir = document.getElementById("typemonedato").value;
         var cantidad = document.getElementById("cantidadmoneda").value;
-        var regex = new RegExp("[0-9]");
-        document.getElementById("transferirdivisas").innerHTML = "Bs: " + (moneda * cantidad);
+        if (vender != "0" && recibir != "0") {
+            debugger;
+            var calculo = cantidad / vender;
+            document.getElementById("transferirdivisas").innerHTML = "<strong>Total: </strong>" + (calculo * recibir);
+        }        
+        //var regex = new RegExp("[0-9]");        
     },
-    Initcurrencyprice: function (tasas, tblBody, lastupdatelable, typemoneda) {
+
+    Initcurrencyprice: function (tasas, tblBody, lastupdatelable, typemoneda, typemonedato) {
         var fila;
         var celda;
         var textoCelda;
         var actualizacion;
         var typemonedaopcion;
+        var typemonedatoopcion;
         JSON.parse(tasas).forEach(function (item) {
             fila = document.createElement("tr");
             fila.id = item.prc_id;
@@ -206,6 +213,11 @@
             typemonedaopcion.value = item.prc_value;
             typemonedaopcion.innerText = item.prc_name;
             typemoneda.appendChild(typemonedaopcion);
+
+            typemonedatoopcion = document.createElement("option");
+            typemonedatoopcion.value = item.prc_value;
+            typemonedatoopcion.innerText = item.prc_name;
+            typemonedato.appendChild(typemonedatoopcion);
         });
         lastupdatelable.innerText = "Ultima Actualizacion: " + actualizacion.getDate() + "/" + (actualizacion.getMonth() + 1) + "/" + actualizacion.getFullYear() + " " + actualizacion.getHours() + ":" + actualizacion.getMinutes();
         this.transferirdivisas();
@@ -261,7 +273,7 @@
 
             /*Begin Disable*/
             var desactivar = document.createElement("div");
-            desactivar.className = "col col-lg-2";
+            desactivar.className = "col col-lg-2 text-center";
 
             var listActions = document.createElement("ul");
             listActions.className = "list-inline social-buttons";
@@ -278,7 +290,7 @@
             btnDesactivar.setAttribute("data-html", "true");
             btnDesactivar.setAttribute("data-placement", "right");
             btnDesactivar.setAttribute("title", "Eliminar");
-            btnDesactivar.style = "height: 40px;width: 40px;line-height: 40px;background-color:#fed136;color:#fff;";
+            btnDesactivar.style = "height: 40px;width: 40px;line-height: 40px;background-color:#d60f22;color:#fff;";
             btnDesactivar.addEventListener('click', function (event) {
                 currencyprice.Inactivate(item.prc_id)
             });
