@@ -19,7 +19,17 @@
             });
 
             document.getElementById("btnsavepackage").addEventListener('click', function (event) {
-                package.AddPackage();
+                package.AddPackage(
+                    document.getElementById("codegtackinput")
+                );
+            });
+
+            document.getElementById("addcontainerpackage").addEventListener('click', function (event) {
+                package.containerpackagechange(event);
+            });
+
+            document.getElementById("editcontainerpackage").addEventListener('click', function (event) {
+                package.containerpackagechange(event);
             });
         }
     },
@@ -43,7 +53,7 @@
             }
         });
     },
-    AddPackage: function () {
+    AddPackage: function (codegtackinput) {
         debugger;
         //$.ajax({
         //    type: 'POST',
@@ -78,5 +88,16 @@
             }
         }
         //document.getElementById("esg").children /// saber los hijos de un elemento para saber si el telefono esta activo
+    },
+    containerpackagechange: function (item) {        
+        var obj = document.getElementById("codegtackinput");
+        switch (item.currentTarget.id) {
+            case "addcontainerpackage":
+                obj.disabled = true;
+                break;  
+            case "editcontainerpackage":
+                obj.disabled = false;
+                break;  
+        }
     }
 }
