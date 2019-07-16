@@ -176,8 +176,7 @@
         var vender = document.getElementById("typemoneda").value;
         var recibir = document.getElementById("typemonedato").value;
         var cantidad = document.getElementById("cantidadmoneda").value;
-        if (vender != "0" && recibir != "0") {
-            debugger;
+        if (vender != "0" && recibir != "0") {            
             var calculo = cantidad / vender;
             document.getElementById("transferirdivisas").innerHTML = "<strong>Total: </strong>" + (calculo * recibir);
         }        

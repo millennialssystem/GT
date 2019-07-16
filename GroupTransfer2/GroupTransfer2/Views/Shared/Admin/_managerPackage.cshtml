@@ -1,70 +1,320 @@
 ﻿<section class="page-section" id="managerpackage">
     <div class="container">
         <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Adminisrador de Paqueteria</h2>
+            </div>
+        </div>
+        <div class="row">
             <div class="col col-md-6 rounded-left titlemanagerprice">
-                <label>Agregar uno</label>
+
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item" data-toggle="collapse" data-target="#containerpackage">
+                        <a data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
             <div class="col col-md-6 rounded-right titlemanagerprice">
                 <label>Importar Excell</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col col-md-6 text-center">
-
-                <button type="button" id="rowManagerPackageNew" class="btn btn-success rounded-circle" data-toggle="modal" data-target="#ModalPackage" title="Agregar">
-                    <img class="iconoSystem" src="~/images/GT/add.png" alt="Agregar">
-                </button>
-
-            </div>
-            <div class="col col-md-6 text-center">
-                <label>Importar Excell</label>
-            </div>
-        </div>
         <div id="mensagemanagerpackage"></div>
     </div>
-    
-</section>
 
-
-<!-- Modal -->
-<div class="modal fade" id="ModalPackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Agregar Nuevo Status</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <div class="container collapse" id="containerpackage">
+        <div class="row">
+            <div class="col col-lg-4">
+                <strong>DECLARACION</strong>
             </div>
+            <div class="col col-lg-5">
+                <strong>FECHA:</strong> 15/07/2019
+            </div>
+            <div class="col col-lg-3">
+                <strong>CODIGO G-TRACK:</strong> 74568
+            </div>
+        </div>
+        <!-- Data customer Begin -->
+        <div class="row border border-warning rounded-top" id="datacustomer">
+            <div class="container ">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>DATOS DEL CLIENTE:</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-8">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="namecustomer">NOMBRES</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Jose Miguel" aria-label="namecustomer" aria-describedby="namecustomer">
+                        </div>
+                    </div>
+                    <div class="col col-lg-4">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="identificationcustomer">IDENTIFICACION</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="123456" aria-label="identificationcustomer" aria-describedby="identificationcustomer">
+                        </div>
+                    </div>
+                </div>
 
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row p-2" id="rowRefManagerPackageNew">
+                <div class="row">
+                    <div class="col col-lg-8">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="lastnamecustomer">APELLIDOS</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Perez Marquez" aria-label="lastnamecustomer" aria-describedby="lastnamecustomer">
+                        </div>
+                    </div>
+                    <div class="col col-lg-4">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="agecustomer">EDAD</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="18" aria-label="agecustomer" aria-describedby="agecustomer">
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="col-sm">
-                            <input type="text" id="refManagerPackageNew" class="form-control" placeholder="Referencia">
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="phonecustomer">TELEFONOS</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-label="phonecustomer" id="inputphonecustomer" aria-describedby="phonecustomer">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="btnphonecustomer">
+                                    +
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row p-2" id="rowDetailManagerPackageNew">
-                        <div class="col-sm">
-                            <input type="text" id="detailManagerPackageNew" class="form-control" placeholder="Detalles">
+                    <div class="col col-lg-6">
+                        <div class="container ">
+                            <div id="customerphonesdiv" class="row">
+                                <div class="col col-sm" id="customerphone1">
+
+                                </div>
+                                <div class="col col-sm" id="customerphone2">
+
+                                </div>
+                                <div class="col col-sm" id="customerphone3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="directioncustomer">DIRECCION DE PROCEDENCIA</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-label="directioncustomer" aria-describedby="directioncustomer">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="emailcustomer">CORREO ELECTRONICO</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-label="emailcustomer" aria-describedby="emailcustomer">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Data customer End -->
+        <!-- Data beneficiary Begin -->
+        <div class="row border border-warning" id="databeneficiary">
+            <div class="container ">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>DATOS DEL BENEFICIARIO:</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="namelastnamebeneficiary">NOMBRES Y APELLIDOS</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" aria-label="namelastnamebeneficiary" aria-describedby="namelastnamebeneficiary">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="phonebeneficiary">TELEFONOS</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-label="phonebeneficiary" id="inputphonebeneficiary" aria-describedby="phonebeneficiary">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="btnphonebeneficiary">
+                                    +
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row p-2" id="rowProgressManagerPackageNew">
-                        <div class="col-sm">
-                            <input type="text" id="progressManagerPackageNew" class="form-control" placeholder="Progreso">
+                    <div class="col col-lg-6">
+                        <div class="container ">
+                            <div id="beneficiaryphonesdiv" class="row">
+                                <div class="col col-sm" id="beneficiaryphone1">
+
+                                </div>
+                                <div class="col col-sm" id="beneficiaryphone2">
+
+                                </div>
+                                <div class="col col-sm" id="beneficiaryphone3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="deliverybeneficiary">DIRECCION DE ENTREGA</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-label="deliverybeneficiary" aria-describedby="deliverybeneficiary">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- Data beneficiary End -->
+        <!-- Data detail Begin -->
+        <div class="row border border-warning rounded-bottom" id="datadetail">
+            <div class="container ">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>Detalles:</strong>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="namecollector">NOMBRES RECAUDADOR</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" aria-label="namecollector" aria-describedby="namecollector">
+                        </div>
+                    </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="BtnAddPackage" data-dismiss="modal" onclick="AddPackage()">Guardar</button>
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="idcollector">ID RECAUDADOR</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="123456" aria-label="idcollector" aria-describedby="idcollector">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="pricebykg">PRECIO POR KG</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="pricebykg" aria-describedby="pricebykg">
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="kginsuitcase">TOTAL KG EN VALIJA</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="kginsuitcase" aria-describedby="kginsuitcase">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailpackagecoin">MONEDA</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailpackagecoin" aria-describedby="detailpackagecoin">
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailexchangerate">TIPO DE CAMBIO</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailexchangerate" aria-describedby="detailexchangerate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailpaytotal">TOTAL A CANCELAR</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailpaytotal" aria-describedby="detailpaytotal">
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailpackagedate">FECHA</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailpackagedate" aria-describedby="detailpackagedate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">detallar artículos</span>
+                            </div>
+                            <textarea class="form-control" id="detailarticlessend" aria-label="detallar artículos"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <br />
             </div>
         </div>
+        <!-- Data detail End -->
+        <!-- Data save Begin -->
+        <br />
+        <div class="row text-center" id="datadetailsave">
+            <div class="col col-lg-3 ">
+            </div>
+            <div class="col col-lg-6 ">
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="btnsavepackage">Guardar</button>
+            </div>
+        </div>
+        <!-- Data save End -->
     </div>
-</div>
+
+</section>
+
