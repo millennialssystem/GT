@@ -1,38 +1,34 @@
-﻿@model List<User>
+﻿@*@model GroupTransfer2.Models.Users*@
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#212529;padding-top:0;padding-bottom:0;">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Grupo Transfer Xpress    </a>
+    @*<div class="container">*@
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Grupo Transferxpress    </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                @if (Model.Count > 0)
+                @if (User.Identity.IsAuthenticated)
                 {
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">Package</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Currency Price</a>
-                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link js-scroll-trigger dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" id="logindropdown"><i class="fa fa-user fa-lg"></i>@Model[0].usr_Nameperson</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="#"><i class="fa fa-sign-out-alt fa-lg"></i> Logout</a></li>
-                        </ul>
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item dropdown">
-                        <a class="nav-link js-scroll-trigger dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" id="logindropdown"><i class="fa fa-user fa-lg"></i> Iniciar Sesión</a>
-                        <partial name="Admin/_login" />
+                        <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><i class="fa fa-user fa-lg"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <h6 class="dropdown-header">@User.Identity.Name</h6>
+                            <div class="dropdown-divider"></div>
+                            <a asp-action="Logout" class="dropdown-item"><i class="fa fa-sign-out-alt fa-lg"></i> Cerrar Sesión</a>
+                        </div>
+
+                        @*<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>@User.Identity.Name</li>
+                            <div class="dropdown-divider"></div>
+                            <li><a asp-action="Logout" class="dropdown-item"><i class="fa fa-sign-out-alt fa-lg"></i> Cerrar Sesión</a></li>
+                        </ul>*@
                     </li>
                 }
             </ul>
         </div>
-    </div>
+    @*</div>*@
 </nav>

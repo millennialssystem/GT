@@ -17,6 +17,7 @@ $(document).ready(function (e) {
         InitcurrencyManagerPrice(document.getElementById("valuescurrencyprice").value, document.getElementById("managerPrice"));
     }
 });
+
 function Init() {
     var el = document.getElementById("tosell");
     el.addEventListener('input', function (event) {
@@ -33,6 +34,7 @@ function Init() {
         });
     }
 }
+
 function CalculateToSell(valor) {
     var regex = new RegExp("[0-9]");
     let Calculando = -1;
@@ -58,8 +60,6 @@ function CalculateToSell(valor) {
     if (valor.data != ".")
         valor.target.value = Calculando;
 }
-
-
 
 function Initcurrencyprice(tasas, tblBody, lastupdatelable, typemoneda) {
     var fila;
@@ -363,35 +363,3 @@ function completeRight(cadena, item, length) {
 function completeLeft(cadena, item, length) {
     return (cadena.length < length) ? completeLeft(item + cadena, item, length) : cadena;
 }
-
-function login() {
-    //'@Url.Action("Login")';
-    var _usr = $('#inputUser').val();
-    var _pswd = $('#inputPassword').val();
-    var url = "Account/Login?usr=" + _usr + "&pswd=" + _pswd;
-    $.get(url, function (data) {
-        $("#menu").html(data);
-    });
-}
-
-
-//$("#btn').on("click", login);
-
-
-$('#btnLogin').click(function () {
-    login();
-
-    //    var _usr = $('#inputUser').val();
-    //    var _pswd = $('#inputPassword').val;
-
-    //    $.ajax({
-
-    //        url: '@Url.Action("Login", "Admin")',
-    //        type: "Post",
-    //        dataType: "html",
-    //        data: { usr: _usr, pswd: _pswd },//this is as per your requirement
-    //        success: function (data) {
-    //            $('#menu').html(data);
-    //        },
-    //    });
-});

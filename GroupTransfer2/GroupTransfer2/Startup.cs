@@ -32,9 +32,14 @@ namespace GroupTransfer2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
+                options =>
+                {
+                    options.LoginPath = "/Account/Login/";
+                });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +68,10 @@ namespace GroupTransfer2
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "administrator",
-                    template: "{controller=Admin}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
+                //routes.MapRoute(
+                //    name: "account",
+                //    template: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

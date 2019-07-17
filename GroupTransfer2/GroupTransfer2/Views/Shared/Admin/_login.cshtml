@@ -1,11 +1,46 @@
-﻿<div class="dropdown-menu form-login" role="menu">
-    <div class="form-group">
-        <label for="exampleInputEmail1"><i class="fa fa-envelope"></i> Usuario o Correo Electrónico</label>
-        <input type="text" class="form-control" id="inputUser" name="usr" placeholder="Ingrese Usuario o Correo Electrónico" />
+﻿@{
+        ViewData["Title"] = "Login";
+        Layout = "_Layout";
+}
+
+@model GroupTransfer2.Models.Users
+@{ 
+    ViewData["Title"] = "Login";
+}
+
+<h2>User</h2>
+<h4>Login</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        @if (TempData["UserLoginFailed"] != null)
+        {
+            <p class="alert alert-danger">
+                @TempData["UserLoginFailed"]
+            </p>
+        }
+
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @**@
+                <label asp-for="usr_Name"><i class="fa fa-envelope"></i> Usuario</label>
+                <input asp-for="usr_Name" class="form-control" />
+                <span asp-validation-for="usr_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @**@
+                <label asp-for="usr_Pswd"><i class="fa fa-lock"></i> Contraseña</label>
+                <input asp-for="usr_Pswd" class="form-control" />
+                <span asp-validation-for="usr_Pswd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Entrar</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1"><i class="fa fa-lock"></i> Contraseña</label>
-        <input type="password" class="form-control" id="inputPassword" name="pswd" placeholder="Contraseña" />
-    </div>
-    <button type="submit" class="btn btn-primary btn-block" id="btnLogin"><i class="fa fa-check"></i> Entrar</button>
 </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

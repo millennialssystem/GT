@@ -1,0 +1,32 @@
+[
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/site.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/agency/js/contact_me.min.js",
+    "inputFiles": [
+      "wwwroot/lib/agency/js/contact_me.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/agency/js/jqBootstrapValidation.min.js",
+    "inputFiles": [
+      "wwwroot/lib/agency/js/jqBootstrapValidation.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/agency/vendor/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js",
+    "inputFiles": [
+      "wwwroot/lib/agency/vendor/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"
+    ]
+  }
+]
