@@ -68,7 +68,7 @@ namespace GroupTransfer2
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "administrator",
-                    template: "{controller=Account}/{action=Login}/{id?}");
+                    template: "{controller=Admin}/{action=Index}/{id?}");
                 //routes.MapRoute(
                 //    name: "account",
                 //    template: "{controller=Account}/{action=Login}/{id?}");
