@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Paquetes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <style>
+        .labelcolor {            
+            color: gray;
+        }
+        .labelcustomersprint20 {
+            width: 20%;             
+        }
+        .labelcustomersprint45 {
+            width: 45%;
+        }
+        .labelcustomersprint25 {
+            width: 25%;          
+        }
+
+        .datacustomersprint75 {
+            width: 75%;
+        }
+        .datacustomersprint50 {
+            width: 50%;
+        }
+        .datacustomersprint74 {
+            width: 74%;
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-4">
+                <strong>DECLARACION</strong>
+            </div>
+            <div class="col col-lg-5">
+                <strong>FECHA:</strong> 15/07/2019
+            </div>
+            <div class="col col-lg-3">
+                <strong>CODIGO G-TRACK:</strong> 74568
+            </div>
+        </div>
+        <!-- Data customer Begin -->
+        <div class="row border border-primary rounded-top" id="datacustomer">
+            <div class="container ">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>DATOS DEL CLIENTE:</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-8">
+                        <strong>
+                            <label class=" labelcustomersprint20 labelcolor">NOMBRE:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint75 text-center" id="namecustomerprint">Jose Miguel</label>
+                    </div>
+                    <div class="col col-lg-4">
+                        <strong>
+                            <label class="text-center labelcustomersprint45 labelcolor">IDENTIFICACION:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint50 text-center" id="identificationcustomerprint">123456</label>
+                    </div>
+                </div>
+
+                <div class="row">                 
+                    <div class="col col-lg-8">
+                        <strong>
+                            <label class=" labelcustomersprint20 labelcolor">APELLIDOS:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint75 text-center" id="lastnamecustomerprint">Marquez otro</label>
+                    </div>
+                    <div class="col col-lg-4">
+                        <strong>
+                            <label class=" labelcustomersprint20 labelcolor">EDAD:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint75 text-center" id="agecustomerprint">18</label>                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-2">
+                        <strong>
+                            <label class=" labelcustomersprint20 labelcolor">TELEFONOS:</label>
+                        </strong>
+                    </div>
+                    <div class="col col-lg-3">                       
+                            <label class="border-bottom text-center datacustomersprint75 text-center" id="customerphone1print">18</label>
+                    </div>
+                    <div class="col col-lg-3">
+                            <label class="border-bottom text-center datacustomersprint75 text-center" id="customerphone2print">28</label>
+                    </div>
+                    <div class="col col-lg-3">
+                            <label class="border-bottom text-center datacustomersprint75 text-center" id="customerphone3print">38</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>
+                            <label class="labelcustomersprint25 labelcolor">DIRECCION DE PROCEDENCIA:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint74 text-center" id="directioncustomerprint">123456</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>
+                            <label class="labelcustomersprint25 labelcolor">CORREO ELECTRONICO:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint74 text-center" id="emailcustomerprint">123456</label>
+                    </div>                    
+                </div>
+
+            </div>
+        </div>
+        <!-- Data customer End -->
+        <!-- Data beneficiary Begin -->
+        <div class="row border border-primary" id="databeneficiary">
+            <div class="container ">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>DATOS DEL BENEFICIARIO:</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>
+                            <label class="labelcustomersprint25 labelcolor">NOMBRES Y APELLIDOS:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint74 text-center" id="namelastnamebeneficiaryprint">123456</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-2">
+                        <strong>
+                            <label class=" labelcustomersprint20 labelcolor">TELEFONOS:</label>
+                        </strong>
+                    </div>
+                    <div class="col col-lg-3">
+                        <label class="border-bottom text-center datacustomersprint75 text-center" id="beneficiaryphone1print">18</label>
+                    </div>
+                    <div class="col col-lg-3">
+                        <label class="border-bottom text-center datacustomersprint75 text-center" id="beneficiaryphone2print">28</label>
+                    </div>
+                    <div class="col col-lg-3">
+                        <label class="border-bottom text-center datacustomersprint75 text-center" id="beneficiaryphone3print">38</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>
+                            <label class="labelcustomersprint25 labelcolor">DIRECCION DE ENTREGA:</label>
+                        </strong>
+                        <label class="border-bottom datacustomersprint74 text-center" id="deliverybeneficiaryprint">123456</label>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12 text-center">
+                        <strong>
+                            <label class="labelcolor">TIEMPO ESTIMADO DE ENTREGA: <u>15 DIAS HABILES CONTANDO DESDE EL MOMENTO DE LA FECHA DE PAGO</u></label>
+                        </strong>                      
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Data beneficiary End -->
+        <!-- Data detail Begin -->
+        <div class="row border border-warning rounded-bottom" id="datadetail">
+            <div class="container ">
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <strong>Detalles:</strong>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="namecollector">NOMBRES RECAUDADOR</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" aria-label="namecollector" aria-describedby="namecollector">
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="idcollector">ID RECAUDADOR</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="123456" aria-label="idcollector" aria-describedby="idcollector">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="pricebykg">PRECIO POR KG</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="pricebykg" aria-describedby="pricebykg">
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="kginsuitcase">TOTAL KG EN VALIJA</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="kginsuitcase" aria-describedby="kginsuitcase">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailpackagecoin">MONEDA</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailpackagecoin" aria-describedby="detailpackagecoin">
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailexchangerate">TIPO DE CAMBIO</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailexchangerate" aria-describedby="detailexchangerate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailpaytotal">TOTAL A CANCELAR</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailpaytotal" aria-describedby="detailpaytotal">
+                        </div>
+                    </div>
+                    <div class="col col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="detailpackagedate">FECHA</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="detailpackagedate" aria-describedby="detailpackagedate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-lg-12">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">detallar artículos</span>
+                            </div>
+                            <textarea class="form-control" id="detailarticlessend" aria-label="detallar artículos"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+        <!-- Data detail End -->
+        <!-- Data save Begin -->
+        <br />
+        <div class="row text-center" id="datadetailsave">
+            <div class="col col-lg-3 ">
+            </div>
+            <div class="col col-lg-6 ">
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="btnsavepackage">Guardar</button>
+            </div>
+        </div>
+        <!-- Data save End -->
+    </div>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+<script>    
+</script>
