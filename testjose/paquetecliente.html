@@ -9,28 +9,49 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <style>
-        .labelcolor {            
+        .labelcolor {
             color: gray;
         }
-        .labelcustomersprint20 {
-            width: 20%;             
-        }
-        .labelcustomersprint45 {
-            width: 45%;
-        }
-        .labelcustomersprint25 {
-            width: 25%;          
+
+        .printcanchor20 {
+            width: 20%;
         }
 
-        .datacustomersprint75 {
+        .printcanchor45 {
+            width: 45%;
+        }
+
+        .printcanchor25 {
+            width: 25%;
+        }
+
+        .printcanchor75 {
             width: 75%;
         }
-        .datacustomersprint50 {
+
+        .printcanchor50 {
             width: 50%;
         }
-        .datacustomersprint74 {
+
+        .printcanchor74 {
             width: 74%;
         }
+
+        .printcanchor20 {
+            width: 20%;
+        }
+
+        .printcanchor40 {
+            width: 40%;
+        }
+
+        .ulbulletpoint {
+            list-style-image: url(check.jpg);
+        }
+
+            .ulbulletpoint li {
+                padding-left: 25px;
+            }
     </style>
 
 </head>
@@ -51,7 +72,7 @@
             </div>
         </div>
         <!-- Data customer Begin -->
-        <div class="row border border-primary rounded-top" id="datacustomer">
+        <div class="row border border-primary rounded-top" id="datacustomerprint">
             <div class="container ">
                 <div class="row">
                     <div class="col col-lg-12">
@@ -61,73 +82,73 @@
                 <div class="row">
                     <div class="col col-lg-8">
                         <strong>
-                            <label class=" labelcustomersprint20 labelcolor">NOMBRE:</label>
+                            <label class=" printcanchor20 labelcolor">NOMBRE:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint75 text-center" id="namecustomerprint">Jose Miguel</label>
+                        <label class="border-bottom printcanchor75 text-center" id="namecustomerprint">Jose Miguel</label>
                     </div>
                     <div class="col col-lg-4">
                         <strong>
-                            <label class="text-center labelcustomersprint45 labelcolor">IDENTIFICACION:</label>
+                            <label class="text-center printcanchor45 labelcolor">IDENTIFICACION:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint50 text-center" id="identificationcustomerprint">123456</label>
+                        <label class="border-bottom printcanchor50 text-center" id="identificationcustomerprint">123456</label>
                     </div>
                 </div>
 
-                <div class="row">                 
+                <div class="row">
                     <div class="col col-lg-8">
                         <strong>
-                            <label class=" labelcustomersprint20 labelcolor">APELLIDOS:</label>
+                            <label class=" printcanchor20 labelcolor">APELLIDOS:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint75 text-center" id="lastnamecustomerprint">Marquez otro</label>
+                        <label class="border-bottom printcanchor75 text-center" id="lastnamecustomerprint">Marquez otro</label>
                     </div>
                     <div class="col col-lg-4">
                         <strong>
-                            <label class=" labelcustomersprint20 labelcolor">EDAD:</label>
+                            <label class=" printcanchor20 labelcolor">EDAD:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint75 text-center" id="agecustomerprint">18</label>                        
+                        <label class="border-bottom printcanchor75 text-center" id="agecustomerprint">18</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col col-lg-2">
                         <strong>
-                            <label class=" labelcustomersprint20 labelcolor">TELEFONOS:</label>
+                            <label class=" printcanchor20 labelcolor">TELEFONOS:</label>
                         </strong>
                     </div>
-                    <div class="col col-lg-3">                       
-                            <label class="border-bottom text-center datacustomersprint75 text-center" id="customerphone1print">18</label>
+                    <div class="col col-lg-3">
+                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone1print">18</label>
                     </div>
                     <div class="col col-lg-3">
-                            <label class="border-bottom text-center datacustomersprint75 text-center" id="customerphone2print">28</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone2print">28</label>
                     </div>
                     <div class="col col-lg-3">
-                            <label class="border-bottom text-center datacustomersprint75 text-center" id="customerphone3print">38</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone3print">38</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col col-lg-12">
                         <strong>
-                            <label class="labelcustomersprint25 labelcolor">DIRECCION DE PROCEDENCIA:</label>
+                            <label class="printcanchor25 labelcolor">DIRECCION DE PROCEDENCIA:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint74 text-center" id="directioncustomerprint">123456</label>
+                        <label class="border-bottom printcanchor74 text-center" id="directioncustomerprint">123456</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col col-lg-12">
                         <strong>
-                            <label class="labelcustomersprint25 labelcolor">CORREO ELECTRONICO:</label>
+                            <label class="printcanchor25 labelcolor">CORREO ELECTRONICO:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint74 text-center" id="emailcustomerprint">123456</label>
-                    </div>                    
+                        <label class="border-bottom printcanchor74 text-center" id="emailcustomerprint">123456</label>
+                    </div>
                 </div>
 
             </div>
         </div>
         <!-- Data customer End -->
         <!-- Data beneficiary Begin -->
-        <div class="row border border-primary" id="databeneficiary">
+        <div class="row border border-primary" id="databeneficiaryprint">
             <div class="container ">
                 <div class="row">
                     <div class="col col-lg-12">
@@ -137,34 +158,33 @@
                 <div class="row">
                     <div class="col col-lg-12">
                         <strong>
-                            <label class="labelcustomersprint25 labelcolor">NOMBRES Y APELLIDOS:</label>
+                            <label class="printcanchor25 labelcolor">NOMBRES Y APELLIDOS:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint74 text-center" id="namelastnamebeneficiaryprint">123456</label>
+                        <label class="border-bottom printcanchor74 text-center" id="namelastnamebeneficiaryprint">123456</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col col-lg-2">
                         <strong>
-                            <label class=" labelcustomersprint20 labelcolor">TELEFONOS:</label>
+                            <label class=" printcanchor20 labelcolor">TELEFONOS:</label>
                         </strong>
                     </div>
                     <div class="col col-lg-3">
-                        <label class="border-bottom text-center datacustomersprint75 text-center" id="beneficiaryphone1print">18</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone1print">18</label>
                     </div>
                     <div class="col col-lg-3">
-                        <label class="border-bottom text-center datacustomersprint75 text-center" id="beneficiaryphone2print">28</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone2print">28</label>
                     </div>
                     <div class="col col-lg-3">
-                        <label class="border-bottom text-center datacustomersprint75 text-center" id="beneficiaryphone3print">38</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone3print">38</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col col-lg-12">
                         <strong>
-                            <label class="labelcustomersprint25 labelcolor">DIRECCION DE ENTREGA:</label>
+                            <label class="printcanchor25 labelcolor">DIRECCION DE ENTREGA:</label>
                         </strong>
-                        <label class="border-bottom datacustomersprint74 text-center" id="deliverybeneficiaryprint">123456</label>
-
+                        <label class="border-bottom printcanchor74 text-center" id="deliverybeneficiaryprint">123456</label>
                     </div>
                 </div>
 
@@ -172,7 +192,7 @@
                     <div class="col col-lg-12 text-center">
                         <strong>
                             <label class="labelcolor">TIEMPO ESTIMADO DE ENTREGA: <u>15 DIAS HABILES CONTANDO DESDE EL MOMENTO DE LA FECHA DE PAGO</u></label>
-                        </strong>                      
+                        </strong>
                     </div>
                 </div>
 
@@ -180,102 +200,100 @@
         </div>
         <!-- Data beneficiary End -->
         <!-- Data detail Begin -->
-        <div class="row border border-warning rounded-bottom" id="datadetail">
+        <div class="row border border-primary rounded-bottom" id="datadetailprint">
             <div class="container ">
                 <div class="row">
-                    <div class="col col-lg-12">
-                        <strong>Detalles:</strong>
+                    <div class="col col-lg-12 text-justify">
+                        <strong>
+                            <p style="text-indent: 40px;">
+                                Estimado cliente, por medio de la presente queremos darle las gracias por elegirnos para realizar sus encomiendas Perú/Venezuela – Venezuela/Perú, NUESTRO RECAUDADOR EL SR (A) <span id="nemaecollectorprint">Angel</span> con IDENTIFICACION:<span id="idcollectorprint">123456</span>, procederá a realizar el retiro de su valija, por favor sírvase a detallar de forma resumida los artículos que desea enviar:
+                            </p>
+                        </strong>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="namecollector">NOMBRES RECAUDADOR</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" aria-label="namecollector" aria-describedby="namecollector">
-                        </div>
-                    </div>
+                    <div class="col col-lg-12 text-justify">
 
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="idcollector">ID RECAUDADOR</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="123456" aria-label="idcollector" aria-describedby="idcollector">
-                        </div>
+                        <p id="detailarticlesprint" style="text-indent: 40px;">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="pricebykg">PRECIO POR KG</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="pricebykg" aria-describedby="pricebykg">
-                        </div>
-                    </div>
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="kginsuitcase">TOTAL KG EN VALIJA</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="kginsuitcase" aria-describedby="kginsuitcase">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="detailpackagecoin">MONEDA</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="detailpackagecoin" aria-describedby="detailpackagecoin">
-                        </div>
-                    </div>
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="detailexchangerate">TIPO DE CAMBIO</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="detailexchangerate" aria-describedby="detailexchangerate">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="detailpaytotal">TOTAL A CANCELAR</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="detailpaytotal" aria-describedby="detailpaytotal">
-                        </div>
-                    </div>
-                    <div class="col col-lg-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="detailpackagedate">FECHA</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="detailpackagedate" aria-describedby="detailpackagedate">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">detallar artículos</span>
-                            </div>
-                            <textarea class="form-control" id="detailarticlessend" aria-label="detallar artículos"></textarea>
-                        </div>
-                    </div>
-                </div>
                 <br />
+                <div class="row">
+                    <div class="col col-lg-5">
+                        <label class="">PRECIO POR KG FIJADO ES DE:</label>
+                        <label class="border-bottom  text-center printcanchor40" id="pricebykgprint">50</label>
+                    </div>
+                    <div class="col col-lg-4">
+                        <label class="">TOTAL KG EN VALIJA:</label>
+                        <label class="border-bottom  text-center printcanchor45" id="kginsuitcaseprint">50</label>
+                    </div>
+                    <div class="col col-lg-3">
+                        <label class="">MONEDA:</label>
+                        <label class="border-bottom  text-center printcanchor45" id="detailpackagecoinprint">Bolivares</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- id="" id="" id=""-->
+                    <div class="col col-lg-4">
+                        <label class="">TIPO DE CAMBIO::</label>
+                        <label class="border-bottom  text-center printcanchor50" id="detailexchangerateprint">50</label>
+                    </div>
+                    <div class="col col-lg-5">
+                        <label class="">TOTAL A CANCELAR:</label>
+                        <label class="border-bottom  text-center printcanchor45" id="detailpaytotalprint">50</label>
+                    </div>
+                    <div class="col col-lg-3">
+                        <label class="">FECHA:</label>
+                        <label class="border-bottom  text-center printcanchor45" id="detailpackagedateprint">Bolivares</label>
+                    </div>
+                </div>
+                <ul class="ulbulletpoint text-justify">
+                    <li>
+                        Por medio de la presente <strong>TRASNFER & CARGO</strong>, tiene la responsabilidad de realizar el envió de la paquetería en el tiempo acordado.
+                    </li>
+                    <li>
+                        Le recordamos que el tiempo estimado para la recepción de su paquetería es de 15 días hábiles.
+                    </li>
+                    <li>
+                        Ud. podrá realizar seguimiento a su paquetería llamando a nuestro numero +51 1 7790487 o al WhatsApp +51 916935767 indicando su numero de G-TRACK el cual le a sido asignado el momento de que realice el pago.
+                    </li>
+                    <li>
+                        Yo, <strong><span id="namelastnamecustomerprint">Jose Manrrique</span></strong>, con identificación <strong> #<span id="identificationcustomerprint">123456</span></strong> hago constar BAJO JURAMENTO que todos los artículos aquí contenidos son de procedencia legal de los cuales poseo factura y registro de compra, de igual manera me hago responsable en caso de que exista alguna violación o alteración que pueda contener los artículos aquí contenidos y autorizo plenamente a Grupo Transfersxpress para llegado el caso, suministre mis datos personales tales como identificación, dirección, números telefónicos entre otros a los distintos organismos de seguridad según el país donde se remite o recibe.
+                    </li>
+                    <li>
+                        Recuerde solicitar su boleta como soporte pago de su operación.
+                    </li>
+                </ul>
             </div>
         </div>
         <!-- Data detail End -->
@@ -285,7 +303,7 @@
             <div class="col col-lg-3 ">
             </div>
             <div class="col col-lg-6 ">
-                <button type="button" class="btn btn-primary btn-lg btn-block" id="btnsavepackage">Guardar</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="btnprintpackage">Imprimir</button>
             </div>
         </div>
         <!-- Data save End -->
@@ -301,5 +319,6 @@
 
 
 
-<script>    
+<script>
+
 </script>
