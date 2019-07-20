@@ -1,0 +1,83 @@
+﻿.titlepackage {
+    color: #fff;
+    text-align: center;
+    background-color: #fed136;
+}
+
+.labelcolor {
+    color: gray;
+}
+
+.printcanchor20 {
+    width: 20%;
+}
+
+.printcanchor45 {
+    width: 45%;
+}
+
+.printcanchor25 {
+    width: 25%;
+}
+
+.printcanchor75 {
+    width: 75%;
+}
+
+.printcanchor50 {
+    width: 50%;
+}
+
+.printcanchor74 {
+    width: 74%;
+}
+
+.printcanchor20 {
+    width: 20%;
+}
+
+.printcanchor40 {
+    width: 40%;
+}
+
+.ulbulletpoint {
+    list-style-image: url(../images/GT/check.jpg);
+}
+
+    .ulbulletpoint li {
+        padding-left: 25px;
+    }
+
+@media only screen and (max-width: 800px) and (min-width: 200px) {
+    .printcanchor20 {
+        width: 80%;
+    }
+
+    .printcanchor45 {
+        width: 80%;
+    }
+
+    .printcanchor25 {
+        width: 80%;
+    }
+
+    .printcanchor75 {
+        width: 80%;
+    }
+
+    .printcanchor50 {
+        width: 80%;
+    }
+
+    .printcanchor74 {
+        width: 80%;
+    }
+
+    .printcanchor20 {
+        width: 80%;
+    }
+
+    .printcanchor40 {
+        width: 80%;
+    }
+}
