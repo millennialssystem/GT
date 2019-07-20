@@ -54,19 +54,48 @@
         });
     },
     AddPackage: function (codegtackinput) {
-        debugger;
-        //$.ajax({
-        //    type: 'POST',
-        //    url: 'Home/Setpackage',
-        //    data: {
-        //        reference: document.getElementById("refManagerPackageNew").value,
-        //        detail: document.getElementById("detailManagerPackageNew").value,
-        //        progress: document.getElementById("progressManagerPackageNew").value
-        //    },
-        //    success: function (result) {
-        //        utils.mensajecorecto("mensagemanagerpackage", "Informacion agregada correctamente");
-        //    }
-        //});
+        debugger;        
+        var params = {
+            Pck_id: 1,
+            Pck_ref: 2,
+            Pck_detailSend: "por ahi",
+            Pck_progress: 200,
+
+            Pck_IdCustomer:12346,
+            Pck_NameCustomer: "Jose Miguel",
+            Pck_LastNameCustomer: "Manrrique Daboin",
+            Pck_PhoneCustomer:["123","345"],
+            Pck_AddressCustomer:"aqui",
+            Pck_EmailCustomer:"jmanrrique",
+
+            Pck_NameLastnamebeneficiary:"primo",
+            Pck_Phonebeneficiary:["321","789"],
+            Pck_Addressbeneficiary:"alla",
+
+            Pck_NameCollector:"Angel",
+            Pck_IdCollector:65454,
+            Pck_PriceByKg:12,
+            Pck_KgInSuitCase:24,
+            Pck_Coin:"Bolvares",
+            Pck_TypeChange:"alguno",
+            Pck_TotalPrice: 1234,
+            Pck_Date: new Date(),
+            Pck_detailArticles: "lorem imsup"
+
+        };
+        $.ajax({
+            type: 'POST',
+            url: 'Home/Setpackage',
+            data: {
+                package: params
+                //reference: document.getElementById("refManagerPackageNew").value,
+                //detail: document.getElementById("detailManagerPackageNew").value,
+                //progress: document.getElementById("progressManagerPackageNew").value
+            },
+            success: function (result) {
+                utils.mensajecorecto("mensagemanagerpackage", "Informacion agregada correctamente");
+            }
+        });
     },
     addphonesdiv: function (tophone, valuephone) {
         if (valuephone.length == 0)

@@ -42,6 +42,8 @@ namespace GroupTransfer2.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+        
+
         [HttpGet]
         public IActionResult RegisterUser()
         {

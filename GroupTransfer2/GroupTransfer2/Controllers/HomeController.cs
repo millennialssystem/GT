@@ -74,6 +74,23 @@ namespace GroupTransfer2.Controllers
             return new JsonResult("true");
         }
 
+        [Route("Setpackage")]
+        public IActionResult Setpackage(PackageModel package)
+        {
+            var si = 2;
+            //MSParameters par = new MSParameters("ref", reference);
+            //Parameter.Add(par);
+            //par = new MSParameters("detail", detail);
+            //Parameter.Add(par);
+            //par = new MSParameters("progress", progress);
+            //Parameter.Add(par);
+            //MSutil.ExecuteStopProcedureNotResult("Setpackage", Parameter);
+
+            //return new JsonResult("true");
+
+            return View();
+        }
+
         [Route("Getpackage")]
         public IActionResult Getpackage(string reference)
         {
@@ -86,21 +103,7 @@ namespace GroupTransfer2.Controllers
         public IActionResult GetMensagges()
         {
             return new JsonResult(MSutil.ExecuteStopProcedureToJson("GetMensagges", Parameter));
-        }
-
-        [Route("Setpackage")]
-        public IActionResult Setpackage(string reference, string detail, string progress)
-        {
-            MSParameters par = new MSParameters("ref", reference);
-            Parameter.Add(par);
-            par = new MSParameters("detail", detail);
-            Parameter.Add(par);
-            par = new MSParameters("progress", progress);
-            Parameter.Add(par);
-            MSutil.ExecuteStopProcedureNotResult("Setpackage", Parameter);
-
-            return new JsonResult("true");
-        }
+        }        
 
         [Route("SendRecomendation")]
         public IActionResult SendRecomendation(string name, string phone, string email, string message)
