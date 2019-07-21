@@ -314,8 +314,5 @@
 
         });
         $('[data-toggle="tooltip"]').tooltip();
-    },
-    //dismiss: function () {
-    //    $('#EditUserModal').modal('hide');
-    //}
+    }
 };

@@ -3,10 +3,15 @@
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title text-uppercase" id="exampleModalLongTitle">Usuario</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" asp-action="UsersManagement" asp-controller="Admin" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main">
+            @**@
+            @*<button type="button" class="close" asp-action="UsersManagement" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="currencyprice.dismiss();">
                 <span aria-hidden="true">&times;</span>
-            </button>
+            </button>*@
+            <a class="close" asp-action="UsersManagement" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </a>
         </div>
+        @**@
         <form asp-action="EditUser" asp-controller="Admin" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#EditUserModal">
             <div class="modal-body">
                 <div class="row">
@@ -83,7 +88,7 @@
                     </div>
                 </div>
 
-                @*<div>
+               @*<div>
                     <a asp-action="Index">Back to List</a>
                 </div>*@
             </div>
@@ -91,7 +96,7 @@
             <div class="modal-footer">
                 <div class="form-group">
                     <input type="submit" value="Guardar" class="btn btn-primary" />
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" asp-action="UsersManagement" asp-controller="Admin" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main">Close</button>
+                    <a class="btn btn-secondary" data-dismiss="modal" asp-action="UsersManagement" asp-controller="Admin" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main">Close</a>
                 </div>
             </div>
         </form>
