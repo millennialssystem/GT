@@ -1,98 +1,78 @@
-﻿<section class="page-section" id="package">
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Paquetes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <style>
+        .labelcolor {
+            color: gray;
+        }
+
+        .printcanchor20 {
+            width: 20%;
+        }
+
+        .printcanchor45 {
+            width: 45%;
+        }
+
+        .printcanchor25 {
+            width: 25%;
+        }
+
+        .printcanchor75 {
+            width: 75%;
+        }
+
+        .printcanchor50 {
+            width: 50%;
+        }
+
+        .printcanchor74 {
+            width: 74%;
+        }
+
+        .printcanchor20 {
+            width: 20%;
+        }
+
+        .printcanchor40 {
+            width: 40%;
+        }
+
+        .ulbulletpoint {
+            list-style-image: url(check.jpg);
+        }
+
+            .ulbulletpoint li {
+                padding-left: 25px;
+            }
+    </style>
+
+</head>
+<body>
+
+
+
     <div class="container">
-
-
-
-
-
-
-
-    </div>
-
-    <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Paqueteria</h2>
+            <div class="col col-lg-4">
+                <strong>DECLARACION</strong>
             </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-12 text-center titlepackage" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
-                Información del traslado
-            </div>
-        </div>
-
-        <div class="row border border-warning rounded-bottom" id="datapackageprint">
-            <div class="container">
-                <br />
-                <div class="row">
-                    <div class="col col-lg-2 text-center">
-                        <div class="rounded subtitlelef">
-                            <span>Referencia</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="A12345" aria-label="Referencia" id="refpackage" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" id="btnsearchpackage" type="button">Buscar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom:15px">
-                    <div class="col-lg-2 text-center">
-                        <div class="rounded subtitlelefdet">
-                            <span>Progreso:</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="progress" style="min-height:30px; ">
-                            <div class="progress-bar" role="progressbar" id="progresspackage" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-2 text-center">
-                        <div class="rounded subtitlelefdet">
-                            <span>Detalles:</span>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-10">
-                        <div class="rounded detailpackage">
-                            <span id="detailpackage"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <br />
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">DECLARACION</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col col-lg-4 titlepackage" style="border-top-left-radius: 20px;">
-
-            </div>
-            <div class="col col-lg-5 titlepackage">
+            <div class="col col-lg-5">
                 <strong>FECHA:</strong> 15/07/2019
             </div>
-            <div class="col col-lg-3 titlepackage" style="border-top-right-radius: 20px;">
+            <div class="col col-lg-3">
                 <strong>CODIGO G-TRACK:</strong> 74568
             </div>
         </div>
         <!-- Data customer Begin -->
-        <div class="row border border-warning" id="datacustomerprint">
+        <div class="row border border-primary rounded-top" id="datacustomerprint">
             <div class="container ">
                 <div class="row">
                     <div class="col col-lg-12">
@@ -136,13 +116,13 @@
                         </strong>
                     </div>
                     <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone1print">04242609898</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone1print">18</label>
                     </div>
                     <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone2print">04242609898</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone2print">28</label>
                     </div>
                     <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone3print">04242609898</label>
+                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone3print">38</label>
                     </div>
                 </div>
 
@@ -168,7 +148,7 @@
         </div>
         <!-- Data customer End -->
         <!-- Data beneficiary Begin -->
-        <div class="row border border-warning" id="databeneficiaryprint">
+        <div class="row border border-primary" id="databeneficiaryprint">
             <div class="container ">
                 <div class="row">
                     <div class="col col-lg-12">
@@ -220,7 +200,7 @@
         </div>
         <!-- Data beneficiary End -->
         <!-- Data detail Begin -->
-        <div class="row border border-warning rounded-bottom" id="datadetailprint">
+        <div class="row border border-primary rounded-bottom" id="datadetailprint">
             <div class="container ">
                 <div class="row">
                     <div class="col col-lg-12 text-justify">
@@ -334,5 +314,11 @@
 
 
 
+</body>
+</html>
 
-</section>
+
+
+<script>
+
+</script>
