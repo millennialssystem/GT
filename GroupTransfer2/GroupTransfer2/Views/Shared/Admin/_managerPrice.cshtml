@@ -1,119 +1,136 @@
-﻿<div class="container">
-    <div class="row mr-3">
-        <div class="col-sm rounded-left titlemanagerprice">
-            <label>Banco</label>
-        </div>
-        <div class="col-sm titlemanagerprice">
-            <label>Moneda</label>
-        </div>
-        <div class="col-sm titlemanagerprice ">
-            <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                    <a data-toggle="tooltip" data-html="true" data-placement="right" title="Dolares" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
-                        <i class="fas fa-dollar-sign"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col col-lg-2 rounded-right titlemanagerprice">
-            <ul class="list-inline social-buttons">
-                <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalLong">
-                    <a data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+﻿<input type="hidden" id="valuescurrencyprice" value="@ViewBag.currencyprice">
 
+<section>
 
+    @*<div class="container">*@
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+            <h2 class="section-heading text-uppercase">Tasas de Cambio</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="float-right py-3">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item text-center" data-toggle="modal" data-target="#exampleModalLong">
+                            <a href="#" data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item text-center">
+                            @*background-color:#fed136;*@
+                            @*background-color:#fed136;*@
+                            <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()" style="width:40px;height:40px;line-height:40px;">
+                                <i class="fas fa-share-square"></i>
+                            </a>
+                        </li>
+                        @*class="linkbuttoncircle text-center"*@
+                    </ul>
+                </div>
+        </div>
 
-    <div class="container" id="managerPrice">
-        @*<div class="row p-2" id="rowManagerPriceNew">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="row">
+                    <div class="col-sm rounded-left titlemanagerprice">
+                        <label>Banco</label>
+                    </div>
+                    <div class="col-sm-3 titlemanagerprice">
+                        <label>Moneda</label>
+                    </div>
+                    <div class="col-sm-3 titlemanagerprice ">
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a data-toggle="tooltip" data-html="true" data-placement="right" title="Dolares" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-1 rounded-right titlemanagerprice">
 
-            <div class="col-sm">
-                <input type="text" id="bankManagerPriceNew" class="form-control" placeholder="Banco">
+                    </div>
+                </div>
             </div>
-            <div class="col-sm">
-                <input type="text" id="coinManagerPriceNew" class="form-control" placeholder="Moneda">
-            </div>
-            <div class="col-sm">
-                <input type="text" id="valueManagerPriceNew" class="form-control" placeholder="Precio">
-            </div>
-
-            <div class="col col-lg-2">
-                <button type="button" id="rowManagerPriceNew" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" title="Agregar">Agregar</button>
-            </div>
-
-        </div>*@
-    </div>
-
-
-
-    <div class="row p-4">
-        <div class="col col-lg-10"></div>
-        @*<div class="col col-lg-2">
-            <ul class="list-inline social-buttons">
-                <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalLong">
-                    <a data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                </li>
-            </ul>
-            <button type="button" Id="saveManagerPrice" class="btn btn-success rounded-circle" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()">
-                <img class="iconoSystem" src="~/images/GT/save.png" alt="Actualizar">
-            </button>
-        </div>*@
-        <div class="col col-lg-2 rounded-circle text-center">
-            <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                    <a data-toggle="tooltip" data-placement="right" class="linkbuttoncircle text-center" data-html="true" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">                        
-                        <i class="fas fa-share-square"></i>
-                    </a>
-                </li>
-            </ul>
         </div>
-    </div>
-</div>
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Agregar Nueva Tasa de cambio</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+        <div class="container" id="managerPrice">
+            @*<div class="row p-2" id="rowManagerPriceNew">
+
+                <div class="col-sm">
+                    <input type="text" id="bankManagerPriceNew" class="form-control" placeholder="Banco">
+                </div>
+                <div class="col-sm">
+                    <input type="text" id="coinManagerPriceNew" class="form-control" placeholder="Moneda">
+                </div>
+                <div class="col-sm">
+                    <input type="text" id="valueManagerPriceNew" class="form-control" placeholder="Precio">
+                </div>
+
+                <div class="col col-lg-2">
+                    <button type="button" id="rowManagerPriceNew" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" title="Agregar">Agregar</button>
+                </div>
+
+            </div>*@
+        </div>
+
+
+
+        @*<div class="row p-4">
+            <div class="col col-lg-10"></div>
+            @*<div class="col col-lg-2">
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalLong">
+                        <a data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;background-color:#fed136;">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+                <button type="button" Id="saveManagerPrice" class="btn btn-success rounded-circle" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()">
+                    <img class="iconoSystem" src="~/images/GT/save.png" alt="Actualizar">
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row p-2" id="rowManagerPriceNew">
+            <div class="col col-lg-2 rounded-circle text-center">
+                <ul class="list-inline social-buttons"></ul>
+            </div>
+        </div>*@
 
-                        <div class="col-sm">
-                            <input type="text" id="bankManagerPriceNew" class="form-control" placeholder="Banco">
-                        </div>                       
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Nueva Tasa de cambio</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row p-2" id="rowManagerPriceNew">
 
-                    <div class="row p-2" id="rowManagerPriceNew">
-                        <div class="col-sm">
-                            <input type="text" id="coinManagerPriceNew" class="form-control" placeholder="Moneda">
+                                <div class="col-sm">
+                                    <input type="text" id="bankManagerPriceNew" class="form-control" placeholder="Banco">
+                                </div>
+                            </div>
+
+                            <div class="row p-2" id="rowManagerPriceNew">
+                                <div class="col-sm">
+                                    <input type="text" id="coinManagerPriceNew" class="form-control" placeholder="Moneda">
+                                </div>
+                            </div>
+
+                            <div class="row p-2" id="rowManagerPriceNew">
+                                <div class="col-sm">
+                                    <input type="text" id="valueManagerPriceNew" class="form-control" placeholder="Precio">
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="row p-2" id="rowManagerPriceNew">
-                        <div class="col-sm">
-                            <input type="text" id="valueManagerPriceNew" class="form-control" placeholder="Precio">
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="currencyprice.AddCoin()">Agregar</button>
                     </div>
                 </div>
-                </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary"  data-dismiss="modal" onclick="currencyprice.AddCoin()">Agregar</button>
             </div>
         </div>
-    </div>
-</div>
+</section>

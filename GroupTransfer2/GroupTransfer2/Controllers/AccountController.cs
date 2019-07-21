@@ -20,12 +20,6 @@ namespace GroupTransfer2.Controllers
         private List<MSParameters> Parameter = new List<MSParameters>();
         MSutils MSutil = new MSutils();
 
-        //[Route("Login")]
-        //public IActionResult Login()
-        //{
-        //    return PartialView("Admin/_login");
-        //}
-
         [HttpGet]
         public IActionResult Login()
         {
@@ -33,7 +27,6 @@ namespace GroupTransfer2.Controllers
         }
 
         [HttpPost]
-        //[Route("Login")]
         public async Task<IActionResult> Login(Users user)
         {
             ModelState.Remove("usr_ID");
@@ -51,6 +44,8 @@ namespace GroupTransfer2.Controllers
                 Parameter.Add(par);
                 par = new MSParameters("LoginPassword", user.usr_Pswd);
                 Parameter.Add(par);
+
+                GeneralFuntions functions;
                 //string 
                 DataTable LoginUser = MSutil.ExecuteStopProcedure("ps_ValidateUserLogin", Parameter);
                 if (LoginUser.Rows[0]["authentication"].ToString() == "Success")
@@ -58,12 +53,12 @@ namespace GroupTransfer2.Controllers
 
                     Parameter.Clear();
 
-                    par = new MSParameters("usr_id", LoginUser.Rows[0]["usr_ID"].ToString());
+                    par = new MSParameters("usr_id", functions.Base64Decode(LoginUser.Rows[0]["usr_ID"].ToString()));
 
                     Parameter.Add(par);
 
                     DataTable UserDetails = MSutil.ExecuteStopProcedure("ps_GetUserById", Parameter);
-                    user.usr_ID = Convert.ToInt32(UserDetails.Rows[0][0].ToString());
+                    user.usr_ID = UserDetails.Rows[0][0].ToString();
                     user.usr_Name = UserDetails.Rows[0][1].ToString();
                     user.usr_Email = UserDetails.Rows[0][2].ToString();
                     user.usr_Nameperson = UserDetails.Rows[0][3].ToString();

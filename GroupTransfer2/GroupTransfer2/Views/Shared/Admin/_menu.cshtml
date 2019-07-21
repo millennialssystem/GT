@@ -3,7 +3,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#212529;padding-top:0;padding-bottom:0;">
     @*<div class="container">*@
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Grupo Transferxpress    </a>
+        <a class="navbar-brand js-scroll-trigger" asp-action="Index" asp-controller="Admin">Grupo Transferxpress    </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -12,7 +12,17 @@
             <ul class="navbar-nav text-uppercase ml-auto">
                 @if (User.Identity.IsAuthenticated)
                 {
+                    @*@using (Ajax.BeginForm())
+            {
 
+            }*@
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-action="RegisterCurrency" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="currencyprice.Init()">Tasas de Cambio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-action="UsersManagement" asp-controller="Admin" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main"
+                           @*data-ajax-success="success" *@>Usuarios</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><i class="fa fa-user fa-lg"></i></a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -22,10 +32,10 @@
                         </div>
 
                         @*<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li>@User.Identity.Name</li>
-                            <div class="dropdown-divider"></div>
-                            <li><a asp-action="Logout" class="dropdown-item"><i class="fa fa-sign-out-alt fa-lg"></i> Cerrar Sesión</a></li>
-                        </ul>*@
+                    <li>@User.Identity.Name</li>
+                    <div class="dropdown-divider"></div>
+                    <li><a asp-action="Logout" class="dropdown-item"><i class="fa fa-sign-out-alt fa-lg"></i> Cerrar Sesión</a></li>
+                </ul>*@
                     </li>
                 }
             </ul>

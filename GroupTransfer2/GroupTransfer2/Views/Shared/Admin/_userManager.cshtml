@@ -1,0 +1,62 @@
+﻿@model GroupTransfer2.Models.Users
+
+<div class="container">
+
+    <h4>Users</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="RegisterUser">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @*<div class="form-group">
+                        <label asp-for="usr_ID" class="control-label"></label>
+                        <input asp-for="usr_ID" class="form-control" />
+                        <span asp-validation-for="usr_ID" class="text-danger"></span>
+                    </div>*@
+                <div class="form-group">
+                    <label asp-for="usr_Name" class="control-label"></label>
+                    <input asp-for="usr_Name" class="form-control" />
+                    <span asp-validation-for="usr_Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="usr_Email" class="control-label"></label>
+                    <input asp-for="usr_Email" class="form-control" />
+                    <span asp-validation-for="usr_Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="usr_Nameperson" class="control-label"></label>
+                    <input asp-for="usr_Nameperson" class="form-control" />
+                    <span asp-validation-for="usr_Nameperson" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="usr_Birthday" class="control-label"></label>
+                    <input asp-for="usr_Birthday" class="form-control" />
+                    <span asp-validation-for="usr_Birthday" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="lan_ID" class="control-label"></label>
+                    <input asp-for="lan_ID" class="form-control" />
+                    <span asp-validation-for="lan_ID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="pro_id" class="control-label"></label>
+                    <input asp-for="pro_id" class="form-control" />
+                    <span asp-validation-for="pro_id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="usr_Pswd" class="control-label"></label>
+                    <input asp-for="usr_Pswd" class="form-control" />
+                    <span asp-validation-for="usr_Pswd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>

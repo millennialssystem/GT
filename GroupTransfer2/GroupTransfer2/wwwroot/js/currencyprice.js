@@ -5,15 +5,18 @@
     UpdateCoins: new Array(),
     Init: function () {
         var el = document.getElementById("tosell");
-        el.addEventListener('input', function (event) {
-            currencyprice.CalculateToSell(event)
-        });
+        if (el != undefined) {
+            el.addEventListener('input', function (event) {
+                currencyprice.CalculateToSell(event)
+            });
+        }
         el = document.getElementById("totransfer");
-        el.addEventListener('input', function (event) {
-            currencyprice.CalculateToSell(event)
-        });
-
-        if (document.getElementById("valuescurrencyprice") != undefined) {
+        if (el != undefined) {
+            el.addEventListener('input', function (event) {
+                currencyprice.CalculateToSell(event)
+            });
+        }
+        if (document.getElementById("currencypricetbody") != undefined) {
             this.Initcurrencyprice(document.getElementById("valuescurrencyprice").value, document.getElementById("currencypricetbody"), document.getElementById("lastupdatelable"), document.getElementById("typemoneda"), document.getElementById("typemonedato"));
         }
         if (document.getElementById("managerPrice") != undefined) {
@@ -311,5 +314,8 @@
 
         });
         $('[data-toggle="tooltip"]').tooltip();
-    }
+    },
+    //dismiss: function () {
+    //    $('#EditUserModal').modal('hide');
+    //}
 };

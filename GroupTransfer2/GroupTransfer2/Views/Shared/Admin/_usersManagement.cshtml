@@ -1,5 +1,129 @@
-﻿@model List<Users>
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<GroupTransfer2.Models.Users>
 
+@{
+//Layout = "Admin/_AdminLayout";
+}
+
+<section id="usersManagement">
+    @*<div class="container">*@
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+            <h2 class="section-heading text-uppercase">Usuarios</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+            <div class="float-right py-3">
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditUserModal">
+                        @**@
+                        <a href="@Url.Action("EditUser", "Admin", new { id = "" })" data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#EditUserModal">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </li>
+                    @*<li class="list-inline-item text-center">
+                            background-color:#fed136;
+                            background-color:#fed136;
+                            <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()" style="width:40px;height:40px;line-height:40px;">
+                                <i class="fas fa-share-square"></i>
+                            </a>
+                        </li>*@
+                    @*class="linkbuttoncircle text-center"*@
+                </ul>
+            </div>
+            @*<p>
+                    <a asp-action="Create">Create New</a>
+                </p>*@
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl table-striped">
+                <thead class="titlemanagerprice">
+                    <tr class="rounded-left rounded-right">
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.usr_ID)
+                            </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.usr_Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.usr_Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.usr_Nameperson)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.usr_Birthday)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.lan_ID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.pro_id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.usr_Pswd)
+                            </th>*@
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count() > 0)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.usr_ID)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usr_Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usr_Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usr_Nameperson)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usr_Birthday)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.lan_ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.pro_id)
+                                    </td>*@
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.usr_Pswd)
+                                    </td>*@
+                                <td>
+                                    @*@Html.ActionLink("Edit", "", new { id = item.usr_ID }) |*@
+                                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                                    @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                                    <ul class="list-inline social-buttons">
+                                        <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditUserModal">
+                                            @* @Html.ActionLink("", "EditUser", "Admin", new { id=item.usr_ID },{ })*@
+                                            @**@
+
+                                            <a href="@Url.Action("EditUser", "Admin", new { id = item.usr_ID })" data-toggle="tooltip" data-html="true" data-placement="right" title="Editar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#EditUserModal">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item text-center">
+                                            <a href="#" data-toggle="tooltip" data-html="true" data-placement="right" title="Eliminar" style="width:40px;height:40px;line-height:40px;background-color:#d60f22;">
+                                                <i class="fas fa-minus"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="EditUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <partial name="Admin/User/_EditUser" model="new Users()"/>
+        </div>
+    @*</div>*@
+    @*<a href="~/Views/Shared/Admin/User/_EditUser.cshtml">~/Views/Shared/Admin/User/_EditUser.cshtml</a>*@
+</section>

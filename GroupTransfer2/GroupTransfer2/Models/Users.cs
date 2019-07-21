@@ -9,8 +9,8 @@ namespace GroupTransfer2.Models
     public class Users
     {
         [Key]
-        public int usr_ID { get; set; }
-        [Required]
+        public string usr_ID { get; set; }
+        [Required(ErrorMessage = "Por favor ingrese el Usuario")]
         [Display(Name = "Usuario")]
         [MaxLength(20)]
         public string usr_Name { get; set; }
@@ -31,7 +31,7 @@ namespace GroupTransfer2.Models
         public int lan_ID { get; set; }
         [Required]
         public int pro_id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Por favor ingrese su contraseña")]
         [Display(Name = "Contraseña")]
         [DataType(DataType.Password)]
         public string usr_Pswd { get; set; }
