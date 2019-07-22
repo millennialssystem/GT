@@ -7,7 +7,7 @@
             });
         }
 
-
+        
         var managerpackage = document.getElementById("managerpackage");
         if (managerpackage != undefined) {
             document.getElementById("btnphonecustomer").addEventListener('click', function (event) {
@@ -18,11 +18,27 @@
                 package.addphonesdiv("beneficiaryphone", document.getElementById("inputphonebeneficiary").value);
             });
 
-            document.getElementById("btnsavepackage").addEventListener('click', function (event) {
-                package.AddPackage(
-                    document.getElementById("codegtackinput")
-                );
+            
+            $("#formmanagerpackage input,#formmanagerpackage textarea").jqBootstrapValidation({
+                preventSubmit: true,
+                submitError: function ($form, event, errors) {
+                    debugger;
+                    // additional error messages or events
+                },
+                submitSuccess: function ($form, event) {
+                    debugger;
+                },
+                filter: function () {                    
+                    return $(this).is(":visible");
+                },
             });
+
+            //document.getElementById("btnsavepackage").addEventListener('click', function (event) {
+                
+            //    package.AddPackage(
+            //        document.getElementById("codegtackinput")
+            //    );
+            //});
 
             document.getElementById("addcontainerpackage").addEventListener('click', function (event) {
                 package.containerpackagechange(event);
