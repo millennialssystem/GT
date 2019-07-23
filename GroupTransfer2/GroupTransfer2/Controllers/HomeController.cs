@@ -76,19 +76,55 @@ namespace GroupTransfer2.Controllers
 
         [Route("Setpackage")]
         public IActionResult Setpackage(PackageModel package)
-        {
-            var si = 2;
-            //MSParameters par = new MSParameters("ref", reference);
-            //Parameter.Add(par);
-            //par = new MSParameters("detail", detail);
-            //Parameter.Add(par);
-            //par = new MSParameters("progress", progress);
-            //Parameter.Add(par);
-            //MSutil.ExecuteStopProcedureNotResult("Setpackage", Parameter);
+        {            
 
-            //return new JsonResult("true");
+            MSParameters par = new MSParameters("ref", package.Pck_ref);
+            Parameter.Add(par);
 
-            return View();
+            par = new MSParameters("detailSend", package.Pck_detailSend);
+            Parameter.Add(par);
+            par = new MSParameters("progress", package.Pck_progress);
+            Parameter.Add(par);
+            par = new MSParameters("IdCustomer", package.Pck_IdCustomer);
+            Parameter.Add(par);
+            par = new MSParameters("NameCustomer", package.Pck_NameCustomer);
+            Parameter.Add(par);
+            par = new MSParameters("LastNameCustomer", package.Pck_LastNameCustomer);
+            Parameter.Add(par);
+            par = new MSParameters("AgeCustomer", package.Pck_AgeCustomer);
+            Parameter.Add(par);
+            par = new MSParameters("PhoneCustomer", package.Pck_PhoneCustomer[0] + ";" + package.Pck_PhoneCustomer[1] + ";" + package.Pck_PhoneCustomer[2]);
+            Parameter.Add(par);
+            par = new MSParameters("AddressCustomer", package.Pck_AddressCustomer);
+            Parameter.Add(par);
+            par = new MSParameters("EmailCustomer", package.Pck_EmailCustomer);
+            Parameter.Add(par);
+            par = new MSParameters("NameLastnamebeneficiary", package.Pck_NameLastnamebeneficiary);
+            Parameter.Add(par);
+            par = new MSParameters("Phonebeneficiary", package.Pck_Phonebeneficiary[0] + ";" + package.Pck_Phonebeneficiary[1] + ";" + package.Pck_Phonebeneficiary[2]);
+            Parameter.Add(par);
+            par = new MSParameters("Addressbeneficiary", package.Pck_Addressbeneficiary);
+            Parameter.Add(par);
+            par = new MSParameters("NameCollector", package.Pck_NameCollector);
+            Parameter.Add(par);
+            par = new MSParameters("IdCollector", package.Pck_IdCollector);
+            Parameter.Add(par);
+            par = new MSParameters("PriceByKg", package.Pck_PriceByKg);
+            Parameter.Add(par);
+            par = new MSParameters("KgInSuitCase", package.Pck_KgInSuitCase);
+            Parameter.Add(par);
+            par = new MSParameters("Coin", package.Pck_Coin);
+            Parameter.Add(par);
+            par = new MSParameters("TypeChange", package.Pck_TypeChange);
+            Parameter.Add(par);
+            par = new MSParameters("TotalPrice", package.Pck_TotalPrice);
+            Parameter.Add(par);
+            par = new MSParameters("Date", package.Pck_Date);
+            Parameter.Add(par);
+            par = new MSParameters("detailArticles", package.Pck_detailArticles);
+            Parameter.Add(par);
+
+            return new JsonResult(MSutil.ExecuteStopProcedureToJson("Setpackage", Parameter));
         }
 
         [Route("Getpackage")]

@@ -52,8 +52,40 @@
                     </div>
                 </div>
             </div>
+            @* Begin Send package *@
+            <div class="row border border-warning rounded-top" id="datasend">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <strong>DATOS ENVÍO:</strong>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-lg-8">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Detalles del envío</span>
+                                </div>
+                                <textarea class="form-control" id="insendpackagedetal" aria-label="Detalles del envío"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col col-lg-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="sendprogress">PROGRESO</span>
+                                </div>
+                                <input type="number" class="form-control" placeholder="50" id="insendprogress" aria-label="sendprogress" aria-describedby="sendprogress">
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+            @* End Send package *@
             <!-- Data customer Begin -->
-            <div class="row border border-warning rounded-top" id="datacustomer">
+            <div class="row border border-warning" id="datacustomer">
                 <div class="container ">
                     <div class="row">
                         <div class="col col-lg-12">
@@ -66,7 +98,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="namecustomer">NOMBRES</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Jose Miguel" aria-label="namecustomer" required aria-describedby="namecustomer">
+                                <input type="text" class="form-control" placeholder="Jose Miguel" id="innamecustomer" aria-label="namecustomer" aria-describedby="namecustomer">
                             </div>
                         </div>
                         <div class="col col-lg-4">
@@ -74,7 +106,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="identificationcustomer">IDENTIFICACION</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="123456" aria-label="identificationcustomer" aria-describedby="identificationcustomer">
+                                <input type="text" class="form-control" placeholder="123456" id="inidentificationcustomer" aria-label="identificationcustomer" aria-describedby="identificationcustomer">
                             </div>
                         </div>
                     </div>
@@ -85,7 +117,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="lastnamecustomer">APELLIDOS</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Perez Marquez" aria-label="lastnamecustomer" aria-describedby="lastnamecustomer">
+                                <input type="text" class="form-control" placeholder="Perez Marquez" id="inlastnamecustomer" aria-label="lastnamecustomer" aria-describedby="lastnamecustomer">
                             </div>
                         </div>
                         <div class="col col-lg-4">
@@ -93,7 +125,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="agecustomer">EDAD</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="18" aria-label="agecustomer" aria-describedby="agecustomer">
+                                <input type="text" class="form-control" placeholder="18" id="inagecustomer" aria-label="agecustomer" aria-describedby="agecustomer">
                             </div>
                         </div>
                     </div>
@@ -136,7 +168,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="directioncustomer">DIRECCION DE PROCEDENCIA</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="" aria-label="directioncustomer" aria-describedby="directioncustomer">
+                                <input type="text" class="form-control" placeholder="" id="indirectioncustomer" aria-label="directioncustomer" aria-describedby="directioncustomer">
                             </div>
                         </div>
                     </div>
@@ -147,7 +179,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="emailcustomer">CORREO ELECTRONICO</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="" aria-label="emailcustomer" aria-describedby="emailcustomer">
+                                <input type="text" class="form-control" placeholder="" id="inemailcustomer" aria-label="emailcustomer" aria-describedby="emailcustomer">
                             </div>
                         </div>
                     </div>
@@ -169,7 +201,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="namelastnamebeneficiary">NOMBRES Y APELLIDOS</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" aria-label="namelastnamebeneficiary" aria-describedby="namelastnamebeneficiary">
+                                <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" id="innamelastnamebeneficiary" aria-label="namelastnamebeneficiary" aria-describedby="namelastnamebeneficiary">
                             </div>
                         </div>
                     </div>
@@ -213,7 +245,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="deliverybeneficiary">DIRECCION DE ENTREGA</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="" aria-label="deliverybeneficiary" aria-describedby="deliverybeneficiary">
+                                <input type="text" class="form-control" placeholder="" id="indeliverybeneficiary" aria-label="deliverybeneficiary" aria-describedby="deliverybeneficiary">
                             </div>
                         </div>
                     </div>
@@ -235,7 +267,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="namecollector">NOMBRES RECAUDADOR</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" aria-label="namecollector" aria-describedby="namecollector">
+                                <input type="text" class="form-control" placeholder="Jose Miguel Perez Marquez" id="innamecollector" aria-label="namecollector" aria-describedby="namecollector">
                             </div>
                         </div>
 
@@ -244,7 +276,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="idcollector">ID RECAUDADOR</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="123456" aria-label="idcollector" aria-describedby="idcollector">
+                                <input type="text" class="form-control" placeholder="123456" id="inidcollector" aria-label="idcollector" aria-describedby="idcollector">
                             </div>
                         </div>
                     </div>
@@ -255,7 +287,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="pricebykg">PRECIO POR KG</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="pricebykg" aria-describedby="pricebykg">
+                                <input type="text" class="form-control" id="inpricebykg" aria-label="pricebykg" aria-describedby="pricebykg">
                             </div>
                         </div>
                         <div class="col col-lg-6">
@@ -263,7 +295,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="kginsuitcase">TOTAL KG EN VALIJA</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="kginsuitcase" aria-describedby="kginsuitcase">
+                                <input type="text" class="form-control" id="inkginsuitcase" aria-label="kginsuitcase" aria-describedby="kginsuitcase">
                             </div>
                         </div>
                     </div>
@@ -274,7 +306,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="detailpackagecoin">MONEDA</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="detailpackagecoin" aria-describedby="detailpackagecoin">
+                                <input type="text" class="form-control" id="indetailpackagecoin" aria-label="detailpackagecoin" aria-describedby="detailpackagecoin">
                             </div>
                         </div>
                         <div class="col col-lg-6">
@@ -282,7 +314,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="detailexchangerate">TIPO DE CAMBIO</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="detailexchangerate" aria-describedby="detailexchangerate">
+                                <input type="text" class="form-control" id="indetailexchangerate" aria-label="detailexchangerate" aria-describedby="detailexchangerate">
                             </div>
                         </div>
                     </div>
@@ -293,17 +325,17 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="detailpaytotal">TOTAL A CANCELAR</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="detailpaytotal" aria-describedby="detailpaytotal">
+                                <input type="text" class="form-control" id="indetailpaytotal" aria-label="detailpaytotal" aria-describedby="detailpaytotal">
                             </div>
                         </div>
-                        <div class="col col-lg-6">
+                        @*<div class="col col-lg-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="detailpackagedate">FECHA</span>
                                 </div>
                                 <input type="text" class="form-control" aria-label="detailpackagedate" aria-describedby="detailpackagedate">
                             </div>
-                        </div>
+                        </div>*@
                     </div>
 
                     <div class="row">
@@ -327,7 +359,7 @@
                 </div>
                 <div class="col col-lg-6 ">
                     <a href="#managerpackage">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block"  id="btnsavepackage">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" id="btnsavepackage">
                             Guardar
                         </button>
                     </a>

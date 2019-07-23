@@ -41,6 +41,10 @@ namespace GroupTransfer2.Models
         [MaxLength(50)]
         public string Pck_LastNameCustomer { get; set; }
 
+        [Required]
+        [Display(Name = "EDAD")]
+        public int Pck_AgeCustomer { get; set; }
+
         [Display(Name = "TELEFONOS")]
         public List<string> Pck_PhoneCustomer { get; set; }
 
