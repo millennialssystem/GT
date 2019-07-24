@@ -1,4 +1,5 @@
 ﻿var package = {
+    printpackagevalues: null,
     Init: function () {
         var btnsearchpackage = document.getElementById("btnsearchpackage");
         if (btnsearchpackage != undefined) {
@@ -7,6 +8,9 @@
             });
         }
 
+        document.getElementById("btnprintpackage").addEventListener('click', function (event) {
+            package.printpackage($("#refpackageprint").text(),package.printpackagevalues);
+        });
 
         var managerpackage = document.getElementById("managerpackage");
         if (managerpackage != undefined) {
@@ -34,13 +38,6 @@
                 },
             });
 
-            //document.getElementById("btnsavepackage").addEventListener('click', function (event) {
-
-            //    package.AddPackage(
-            //        document.getElementById("codegtackinput")
-            //    );
-            //});
-
             document.getElementById("addcontainerpackage").addEventListener('click', function (event) {
                 package.containerpackagechange(event);
             });
@@ -51,8 +48,12 @@
 
             document.getElementById("codegtackinput").addEventListener('input', function (event) {
                 package.Editpackage($("input#codegtackinput").val());
-            });
+            });                       
         }
+    },
+    printpackage: function(ref,item){
+        var frame = document.getElementById('el_iframe').contentWindow.document;
+        debugger;
     },
     clearManager: function () {       
         $("textarea#insendpackagedetal").val("");
@@ -93,12 +94,42 @@
             success: function (result) {                
                 var item = JSON.parse(result)[0];
                 if (item != undefined) {
+                    package.printpackagevalues = item;
                     detail.innerText = item.Pck_detailSend;
                     progress.style.width = item.pck_progress + "%";
-                    progress.innerText = item.pck_progress + "%";
-                    debugger;
+                    progress.innerText = item.pck_progress + "%";                    
                     $('#datepackageprint').text(utils.getDateGT(item.Pck_Date, "yyyy-mm-dd"));
                     $('#refpackageprint').text(ref.value);
+
+                    $('#namecustomerprint').text(item.Pck_NameCustomer);
+                    $('#identificationcustomerprint').text(item.Pck_IdCustomer);
+                    $('#lastnamecustomerprint').text(item.Pck_LastNameCustomer);
+                    $('#agecustomerprint').text(item.Pck_AgeCustomer);
+                    var customerphoneprint = item.Pck_PhoneCustomer.split(";");
+                    $('#customerphone1print').text(customerphoneprint[0]);
+                    $('#customerphone2print').text(customerphoneprint[1]);
+                    $('#customerphone3print').text(customerphoneprint[2]);
+                    $('#directioncustomerprint').text(item.Pck_AddressCustomer);
+                    $('#emailcustomerprint').text(item.Pck_EmailCustomer);
+
+                    $('#namelastnamebeneficiaryprint').text(item.Pck_NameLastnamebeneficiary);
+                    var beneficiaryphoneprint = item.Pck_Phonebeneficiary.split(";");
+                    $('#beneficiaryphone1print').text(beneficiaryphoneprint[0]);
+                    $('#beneficiaryphone2print').text(beneficiaryphoneprint[1]);
+                    $('#beneficiaryphone3print').text(beneficiaryphoneprint[2]);
+                    $('#deliverybeneficiaryprint').text(item.Pck_Addressbeneficiary);
+
+                    $('#nemaecollectorprint').text(item.Pck_NameCollector);
+                    $('#idcollectorprint').text(item.Pck_IdCollector);
+                    $('#detailarticlesprint').text(item.Pck_detailArticles);
+                    $('#pricebykgprint').text(item.Pck_PriceByKg);
+                    $('#kginsuitcaseprint').text(item.Pck_KgInSuitCase);
+                    $('#detailpackagecoinprint').text(item.Pck_Coin);
+                    $('#detailexchangerateprint').text(item.Pck_TypeChange);
+                    $('#detailpaytotalprint').text(item.Pck_TotalPrice);
+                    $('#detailpackagedateprint').text(utils.getDateGT(item.Pck_Date, "yyyy-mm-dd"));
+                    $('#namelastnamecustomerprint').text(item.Pck_NameCustomer + " " + item.Pck_LastNameCustomer);                 
+                    $('#identificationcustomerdeclareprint').text(item.Pck_IdCustomer);
 
                     $("#Getpackagessend").addClass("show");
                     $("#Getpackagesdeclaration").addClass("show");
