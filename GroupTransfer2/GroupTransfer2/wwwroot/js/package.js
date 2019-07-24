@@ -54,6 +54,41 @@
     printpackage: function(ref,item){
         var frame = document.getElementById('el_iframe').contentWindow.document;
         debugger;
+
+        frame.getElementById("datepackageprint").innerText = utils.getDateGT(item.Pck_Date, "yyyy-mm-dd");        
+        frame.getElementById("refpackageprint").innerText = ref;
+
+        frame.getElementById("namecustomerprint").innerText = item.Pck_NameCustomer;   
+        frame.getElementById("identificationcustomerprint").innerText = item.Pck_IdCustomer;   
+        frame.getElementById("lastnamecustomerprint").innerText = item.Pck_LastNameCustomer;   
+        frame.getElementById("agecustomerprint").innerText = item.Pck_AgeCustomer;   
+        var customerphoneprint = item.Pck_PhoneCustomer.split(";");
+        frame.getElementById("customerphone1print").innerText = customerphoneprint[0];  
+        frame.getElementById("customerphone2print").innerText = customerphoneprint[1];  
+        frame.getElementById("customerphone3print").innerText = customerphoneprint[2];  
+        frame.getElementById("directioncustomerprint").innerText = item.Pck_AddressCustomer;
+        frame.getElementById("emailcustomerprint").innerText = item.Pck_EmailCustomer;
+
+        frame.getElementById("namelastnamebeneficiaryprint").innerText = item.Pck_NameLastnamebeneficiary;        
+        var beneficiaryphoneprint = item.Pck_Phonebeneficiary.split(";");
+        frame.getElementById("beneficiaryphone1print").innerText = beneficiaryphoneprint[0]; 
+        frame.getElementById("beneficiaryphone2print").innerText = beneficiaryphoneprint[1]; 
+        frame.getElementById("beneficiaryphone3print").innerText = beneficiaryphoneprint[2]; 
+        frame.getElementById("deliverybeneficiaryprint").innerText = item.Pck_Addressbeneficiary;        
+
+        frame.getElementById("nemaecollectorprint").innerText = item.Pck_NameCollector; 
+        frame.getElementById("idcollectorprint").innerText = item.Pck_IdCollector;         
+        frame.getElementById("detailarticlesprint").innerText = item.Pck_detailArticles;         
+        frame.getElementById("pricebykgprint").innerText = item.Pck_PriceByKg;  
+        frame.getElementById("kginsuitcaseprint").innerText = item.Pck_KgInSuitCase;  
+        frame.getElementById("detailpackagecoinprint").innerText = item.Pck_Coin;         
+        frame.getElementById("detailexchangerateprint").innerText = item.Pck_TypeChange;
+        frame.getElementById("detailpaytotalprint").innerText = item.Pck_TotalPrice;
+        frame.getElementById("detailpackagedateprint").innerText = utils.getDateGT(item.Pck_Date, "yyyy-mm-dd");
+        frame.getElementById("namelastnamecustomerprint").innerText = item.Pck_NameCustomer + " " + item.Pck_LastNameCustomer; 
+        frame.getElementById("identificationcustomerdeclareprint").innerText = item.Pck_IdCustomer; 
+
+        document.getElementById('el_iframe').contentWindow.print();
     },
     clearManager: function () {       
         $("textarea#insendpackagedetal").val("");
