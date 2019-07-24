@@ -1,7 +1,17 @@
 ﻿var utils = {
-    getDateGT: function (fecha) {
-        var fechaformateada = new Date(fecha);
-        return fechaformateada.getDate() + "/" + (fechaformateada.getMonth() + 1) + "/" + fechaformateada.getFullYear() + " " + fechaformateada.getHours() + ":" + fechaformateada.getMinutes();
+    getDateGT: function (fecha, todate) {        
+        switch (todate) {
+            case "yyyy-mm-dd":
+                var fechaformateada = new Date(fecha);                
+                return utils.completeLeft(fechaformateada.getDate().toString(), "0", 2)+"/"+
+                    utils.completeLeft((fechaformateada.getMonth() + 1).toString(), "0", 2) + "/" +
+                    fechaformateada.getFullYear();
+                break;
+            default:
+                var fechaformateada = new Date(fecha);
+                return fechaformateada.getDate() + "/" + (fechaformateada.getMonth() + 1) + "/" + fechaformateada.getFullYear() + " " + fechaformateada.getHours() + ":" + fechaformateada.getMinutes();
+                break;
+        }       
     },
     mensajecorecto: function (obj, texto) {
         $('#' + obj).html("<div class='alert alert-success'>");
@@ -22,9 +32,9 @@
             .append('</div>');
     },
     completeRight: function (cadena, item, length) {
-        return (cadena.length < length) ? completeRight(cadena + item, item, length) : cadena;
+        return (cadena.length < length) ? this.completeRight(cadena + item, item, length) : cadena;
     },
     completeLeft: function (cadena, item, length) {
-        return (cadena.length < length) ? completeLeft(item + cadena, item, length) : cadena;
+        return (cadena.length < length) ? this.completeLeft(item + cadena, item, length) : cadena;
     }
 }

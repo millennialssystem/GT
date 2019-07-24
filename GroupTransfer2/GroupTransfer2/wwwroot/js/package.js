@@ -90,15 +90,24 @@
             data: {
                 reference: ref.value
             },
-            success: function (result) {
-                var item = JSON.parse(result);
-                if (item.length > 0) {
-                    detail.innerText = item[0].pck_detail;
-                    progress.style.width = item[0].pck_progress + "%";
-                    progress.innerText = item[0].pck_progress + "%";
-                    MostrarOcultarPackageDetail.style.display = "block";
+            success: function (result) {                
+                var item = JSON.parse(result)[0];
+                if (item != undefined) {
+                    detail.innerText = item.Pck_detailSend;
+                    progress.style.width = item.pck_progress + "%";
+                    progress.innerText = item.pck_progress + "%";
+                    debugger;
+                    $('#datepackageprint').text(utils.getDateGT(item.Pck_Date, "yyyy-mm-dd"));
+                    $('#refpackageprint').text(ref.value);
+
+                    $("#Getpackagessend").addClass("show");
+                    $("#Getpackagesdeclaration").addClass("show");
+                    $("#mensagepackage").removeClass("show");
                 } else {
+                    $("#Getpackagessend").removeClass("show");
+                    $("#Getpackagesdeclaration").removeClass("show");
                     utils.mensajeIncorecto("mensagepackage", "Referencia no encontrada");
+                    $("#mensagepackage").addClass("show");
                 }
             }
         });

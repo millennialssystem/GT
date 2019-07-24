@@ -41,292 +41,296 @@
                         </div>
                     </div>
                 </div>
+                <div class="collapse" id="mensagepackage"></div>
+                <div class="collapse" id="Getpackagessend">
 
-                <div class="row" style="margin-bottom:15px">
-                    <div class="col-lg-2 text-center">
-                        <div class="rounded subtitlelefdet">
-                            <span>Progreso:</span>
+                    <div class="row" style="margin-bottom:15px">
+                        <div class="col-lg-2 text-center">
+                            <div class="rounded subtitlelefdet">
+                                <span>Progreso:</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="progress" style="min-height:30px; ">
+                                <div class="progress-bar" role="progressbar" id="progresspackage" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="col-lg-10">
-                        <div class="progress" style="min-height:30px; ">
-                            <div class="progress-bar" role="progressbar" id="progresspackage" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
+
+                    <div class="row">
+                        <div class="col-lg-2 text-center">
+                            <div class="rounded subtitlelefdet">
+                                <span>Detalles:</span>
+                            </div>
                         </div>
 
+                        <div class="col-lg-10">
+                            <div class="rounded detailpackage">
+                                <span id="detailpackage"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-lg-2 text-center">
-                        <div class="rounded subtitlelefdet">
-                            <span>Detalles:</span>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-10">
-                        <div class="rounded detailpackage">
-                            <span id="detailpackage"></span>
-                        </div>
-                    </div>
-                </div>
-
                 <br />
             </div>
-        </div>
+            </div>
         <br />
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">DECLARACION</h2>
+        <div class="collapse" id="Getpackagesdeclaration">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">DECLARACION</h2>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col col-lg-4 titlepackage" style="border-top-left-radius: 20px;">
+            <div class="row">
+                <div class="col col-lg-3 titlepackage" style="border-top-left-radius: 20px;">
 
+                </div>
+                <div class="col col-lg-5 titlepackage">
+                    <strong>FECHA:</strong> <span id="datepackageprint"></span>
+                </div>
+                <div class="col col-lg-4 titlepackage" style="border-top-right-radius: 20px;">
+                    <strong>CODIGO G-TRACK:</strong> <span id="refpackageprint"></span>
+                </div>
             </div>
-            <div class="col col-lg-5 titlepackage">
-                <strong>FECHA:</strong> 15/07/2019
+            <!-- Data customer Begin -->
+            <div class="row border border-warning" id="datacustomerprint">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <strong>DATOS DEL CLIENTE:</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-8">
+                            <strong>
+                                <label class=" printcanchor20 labelcolor">NOMBRE:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor75 text-center" id="namecustomerprint">Jose Miguel</label>
+                        </div>
+                        <div class="col col-lg-4">
+                            <strong>
+                                <label class="text-center printcanchor45 labelcolor">IDENTIFICACION:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor50 text-center" id="identificationcustomerprint">123456</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-lg-8">
+                            <strong>
+                                <label class=" printcanchor20 labelcolor">APELLIDOS:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor75 text-center" id="lastnamecustomerprint">Marquez otro</label>
+                        </div>
+                        <div class="col col-lg-4">
+                            <strong>
+                                <label class=" printcanchor20 labelcolor">EDAD:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor75 text-center" id="agecustomerprint">18</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-lg-2">
+                            <strong>
+                                <label class=" printcanchor20 labelcolor">TELEFONOS:</label>
+                            </strong>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="border-bottom text-center printcanchor75 text-center" id="customerphone1print">04242609898</label>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="border-bottom text-center printcanchor75 text-center" id="customerphone2print">04242609898</label>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="border-bottom text-center printcanchor75 text-center" id="customerphone3print">04242609898</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <strong>
+                                <label class="printcanchor25 labelcolor">DIRECCION DE PROCEDENCIA:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor74 text-center" id="directioncustomerprint">123456</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <strong>
+                                <label class="printcanchor25 labelcolor">CORREO ELECTRONICO:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor74 text-center" id="emailcustomerprint">123456</label>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="col col-lg-3 titlepackage" style="border-top-right-radius: 20px;">
-                <strong>CODIGO G-TRACK:</strong> 74568
+            <!-- Data customer End -->
+            <!-- Data beneficiary Begin -->
+            <div class="row border border-warning" id="databeneficiaryprint">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <strong>DATOS DEL BENEFICIARIO:</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <strong>
+                                <label class="printcanchor25 labelcolor">NOMBRES Y APELLIDOS:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor74 text-center" id="namelastnamebeneficiaryprint">123456</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-2">
+                            <strong>
+                                <label class=" printcanchor20 labelcolor">TELEFONOS:</label>
+                            </strong>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone1print">18</label>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone2print">28</label>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone3print">38</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <strong>
+                                <label class="printcanchor25 labelcolor">DIRECCION DE ENTREGA:</label>
+                            </strong>
+                            <label class="border-bottom printcanchor74 text-center" id="deliverybeneficiaryprint">123456</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-lg-12 text-center">
+                            <strong>
+                                <label class="labelcolor">TIEMPO ESTIMADO DE ENTREGA: <u>15 DIAS HABILES CONTANDO DESDE EL MOMENTO DE LA FECHA DE PAGO</u></label>
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-        <!-- Data customer Begin -->
-        <div class="row border border-warning" id="datacustomerprint">
-            <div class="container ">
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <strong>DATOS DEL CLIENTE:</strong>
+            <!-- Data beneficiary End -->
+            <!-- Data detail Begin -->
+            <div class="row border border-warning rounded-bottom" id="datadetailprint">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col col-lg-12 text-justify">
+                            <strong>
+                                <p style="text-indent: 40px;">
+                                    Estimado cliente, por medio de la presente queremos darle las gracias por elegirnos para realizar sus encomiendas Perú/Venezuela – Venezuela/Perú, NUESTRO RECAUDADOR EL SR (A) <span id="nemaecollectorprint">Angel</span> con IDENTIFICACION:<span id="idcollectorprint">123456</span>, procederá a realizar el retiro de su valija, por favor sírvase a detallar de forma resumida los artículos que desea enviar:
+                                </p>
+                            </strong>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col col-lg-8">
-                        <strong>
-                            <label class=" printcanchor20 labelcolor">NOMBRE:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor75 text-center" id="namecustomerprint">Jose Miguel</label>
-                    </div>
-                    <div class="col col-lg-4">
-                        <strong>
-                            <label class="text-center printcanchor45 labelcolor">IDENTIFICACION:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor50 text-center" id="identificationcustomerprint">123456</label>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col col-lg-8">
-                        <strong>
-                            <label class=" printcanchor20 labelcolor">APELLIDOS:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor75 text-center" id="lastnamecustomerprint">Marquez otro</label>
-                    </div>
-                    <div class="col col-lg-4">
-                        <strong>
-                            <label class=" printcanchor20 labelcolor">EDAD:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor75 text-center" id="agecustomerprint">18</label>
-                    </div>
-                </div>
+                    <div class="row">
+                        <div class="col col-lg-12 text-justify">
 
-                <div class="row">
-                    <div class="col col-lg-2">
-                        <strong>
-                            <label class=" printcanchor20 labelcolor">TELEFONOS:</label>
-                        </strong>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone1print">04242609898</label>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone2print">04242609898</label>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="customerphone3print">04242609898</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <strong>
-                            <label class="printcanchor25 labelcolor">DIRECCION DE PROCEDENCIA:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor74 text-center" id="directioncustomerprint">123456</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <strong>
-                            <label class="printcanchor25 labelcolor">CORREO ELECTRONICO:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor74 text-center" id="emailcustomerprint">123456</label>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- Data customer End -->
-        <!-- Data beneficiary Begin -->
-        <div class="row border border-warning" id="databeneficiaryprint">
-            <div class="container ">
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <strong>DATOS DEL BENEFICIARIO:</strong>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <strong>
-                            <label class="printcanchor25 labelcolor">NOMBRES Y APELLIDOS:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor74 text-center" id="namelastnamebeneficiaryprint">123456</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-lg-2">
-                        <strong>
-                            <label class=" printcanchor20 labelcolor">TELEFONOS:</label>
-                        </strong>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone1print">18</label>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone2print">28</label>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="border-bottom text-center printcanchor75 text-center" id="beneficiaryphone3print">38</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <strong>
-                            <label class="printcanchor25 labelcolor">DIRECCION DE ENTREGA:</label>
-                        </strong>
-                        <label class="border-bottom printcanchor74 text-center" id="deliverybeneficiaryprint">123456</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col col-lg-12 text-center">
-                        <strong>
-                            <label class="labelcolor">TIEMPO ESTIMADO DE ENTREGA: <u>15 DIAS HABILES CONTANDO DESDE EL MOMENTO DE LA FECHA DE PAGO</u></label>
-                        </strong>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- Data beneficiary End -->
-        <!-- Data detail Begin -->
-        <div class="row border border-warning rounded-bottom" id="datadetailprint">
-            <div class="container ">
-                <div class="row">
-                    <div class="col col-lg-12 text-justify">
-                        <strong>
-                            <p style="text-indent: 40px;">
-                                Estimado cliente, por medio de la presente queremos darle las gracias por elegirnos para realizar sus encomiendas Perú/Venezuela – Venezuela/Perú, NUESTRO RECAUDADOR EL SR (A) <span id="nemaecollectorprint">Angel</span> con IDENTIFICACION:<span id="idcollectorprint">123456</span>, procederá a realizar el retiro de su valija, por favor sírvase a detallar de forma resumida los artículos que desea enviar:
+                            <p id="detailarticlesprint" style="text-indent: 40px;">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
-                        </strong>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col col-lg-12 text-justify">
+                        </div>
+                    </div>
 
-                        <p id="detailarticlesprint" style="text-indent: 40px;">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-
+                    <br />
+                    <div class="row">
+                        <div class="col col-lg-5">
+                            <label class="">PRECIO POR KG FIJADO ES DE:</label>
+                            <label class="border-bottom  text-center printcanchor40" id="pricebykgprint">50</label>
+                        </div>
+                        <div class="col col-lg-4">
+                            <label class="">TOTAL KG EN VALIJA:</label>
+                            <label class="border-bottom  text-center printcanchor45" id="kginsuitcaseprint">50</label>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="">MONEDA:</label>
+                            <label class="border-bottom  text-center printcanchor45" id="detailpackagecoinprint">Bolivares</label>
+                        </div>
                     </div>
+                    <div class="row">
+                        <!-- id="" id="" id=""-->
+                        <div class="col col-lg-4">
+                            <label class="">TIPO DE CAMBIO::</label>
+                            <label class="border-bottom  text-center printcanchor50" id="detailexchangerateprint">50</label>
+                        </div>
+                        <div class="col col-lg-5">
+                            <label class="">TOTAL A CANCELAR:</label>
+                            <label class="border-bottom  text-center printcanchor45" id="detailpaytotalprint">50</label>
+                        </div>
+                        <div class="col col-lg-3">
+                            <label class="">FECHA:</label>
+                            <label class="border-bottom  text-center printcanchor45" id="detailpackagedateprint">Bolivares</label>
+                        </div>
+                    </div>
+                    <ul class="ulbulletpoint text-justify">
+                        <li>
+                            Por medio de la presente <strong>TRASNFER & CARGO</strong>, tiene la responsabilidad de realizar el envió de la paquetería en el tiempo acordado.
+                        </li>
+                        <li>
+                            Le recordamos que el tiempo estimado para la recepción de su paquetería es de 15 días hábiles.
+                        </li>
+                        <li>
+                            Ud. podrá realizar seguimiento a su paquetería llamando a nuestro numero +51 1 7790487 o al WhatsApp +51 916935767 indicando su numero de G-TRACK el cual le a sido asignado el momento de que realice el pago.
+                        </li>
+                        <li>
+                            Yo, <strong><span id="namelastnamecustomerprint">Jose Manrrique</span></strong>, con identificación <strong> #<span id="identificationcustomerprint">123456</span></strong> hago constar BAJO JURAMENTO que todos los artículos aquí contenidos son de procedencia legal de los cuales poseo factura y registro de compra, de igual manera me hago responsable en caso de que exista alguna violación o alteración que pueda contener los artículos aquí contenidos y autorizo plenamente a Grupo Transfersxpress para llegado el caso, suministre mis datos personales tales como identificación, dirección, números telefónicos entre otros a los distintos organismos de seguridad según el país donde se remite o recibe.
+                        </li>
+                        <li>
+                            Recuerde solicitar su boleta como soporte pago de su operación.
+                        </li>
+                    </ul>
                 </div>
-
-                <br />
-                <div class="row">
-                    <div class="col col-lg-5">
-                        <label class="">PRECIO POR KG FIJADO ES DE:</label>
-                        <label class="border-bottom  text-center printcanchor40" id="pricebykgprint">50</label>
-                    </div>
-                    <div class="col col-lg-4">
-                        <label class="">TOTAL KG EN VALIJA:</label>
-                        <label class="border-bottom  text-center printcanchor45" id="kginsuitcaseprint">50</label>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="">MONEDA:</label>
-                        <label class="border-bottom  text-center printcanchor45" id="detailpackagecoinprint">Bolivares</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- id="" id="" id=""-->
-                    <div class="col col-lg-4">
-                        <label class="">TIPO DE CAMBIO::</label>
-                        <label class="border-bottom  text-center printcanchor50" id="detailexchangerateprint">50</label>
-                    </div>
-                    <div class="col col-lg-5">
-                        <label class="">TOTAL A CANCELAR:</label>
-                        <label class="border-bottom  text-center printcanchor45" id="detailpaytotalprint">50</label>
-                    </div>
-                    <div class="col col-lg-3">
-                        <label class="">FECHA:</label>
-                        <label class="border-bottom  text-center printcanchor45" id="detailpackagedateprint">Bolivares</label>
-                    </div>
-                </div>
-                <ul class="ulbulletpoint text-justify">
-                    <li>
-                        Por medio de la presente <strong>TRASNFER & CARGO</strong>, tiene la responsabilidad de realizar el envió de la paquetería en el tiempo acordado.
-                    </li>
-                    <li>
-                        Le recordamos que el tiempo estimado para la recepción de su paquetería es de 15 días hábiles.
-                    </li>
-                    <li>
-                        Ud. podrá realizar seguimiento a su paquetería llamando a nuestro numero +51 1 7790487 o al WhatsApp +51 916935767 indicando su numero de G-TRACK el cual le a sido asignado el momento de que realice el pago.
-                    </li>
-                    <li>
-                        Yo, <strong><span id="namelastnamecustomerprint">Jose Manrrique</span></strong>, con identificación <strong> #<span id="identificationcustomerprint">123456</span></strong> hago constar BAJO JURAMENTO que todos los artículos aquí contenidos son de procedencia legal de los cuales poseo factura y registro de compra, de igual manera me hago responsable en caso de que exista alguna violación o alteración que pueda contener los artículos aquí contenidos y autorizo plenamente a Grupo Transfersxpress para llegado el caso, suministre mis datos personales tales como identificación, dirección, números telefónicos entre otros a los distintos organismos de seguridad según el país donde se remite o recibe.
-                    </li>
-                    <li>
-                        Recuerde solicitar su boleta como soporte pago de su operación.
-                    </li>
-                </ul>
             </div>
+            <!-- Data detail End -->
+            <!-- Data save Begin -->
+            <br />
+            <div class="row text-center" id="datadetailsave">
+                <div class="col col-lg-3 ">
+                </div>
+                <div class="col col-lg-6 ">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="btnprintpackage">Imprimir</button>
+                </div>
+            </div>
+            <!-- Data save End -->
         </div>
-        <!-- Data detail End -->
-        <!-- Data save Begin -->
-        <br />
-        <div class="row text-center" id="datadetailsave">
-            <div class="col col-lg-3 ">
-            </div>
-            <div class="col col-lg-6 ">
-                <button type="button" class="btn btn-primary btn-lg btn-block" id="btnprintpackage">Imprimir</button>
-            </div>
-        </div>
-        <!-- Data save End -->
     </div>
 
 
