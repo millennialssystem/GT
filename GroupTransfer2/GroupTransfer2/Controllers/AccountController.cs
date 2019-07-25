@@ -35,8 +35,10 @@ namespace GroupTransfer2.Controllers
             ModelState.Remove("usr_Birthday");
             ModelState.Remove("lan_ID");
             ModelState.Remove("pro_id");
+            ModelState.Remove("usr_is_deleted");
+            ModelState.Remove("usr_Pswd_Confirm");
 
-            List<Users> users = new List<Users>();
+            //List<Users> users = new List<Users>();
 
             if (ModelState.IsValid)
             {
@@ -46,8 +48,9 @@ namespace GroupTransfer2.Controllers
                 Parameter.Add(par);
 
                 GeneralFuntions functions;
-                //string 
+
                 DataTable LoginUser = MSutil.ExecuteStopProcedure("ps_ValidateUserLogin", Parameter);
+
                 if (LoginUser.Rows[0]["authentication"].ToString() == "Success")
                 {
 
@@ -72,17 +75,8 @@ namespace GroupTransfer2.Controllers
 
                     ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
-                    //var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-
-                    //var claims = new List<Claim>
-                    //{
-                    //    new Claim(ClaimTypes.Name, user.usr_Nameperson)
-                    //};
-                    //ClaimsIdentity userIdentity = new ClaimsIdentity(claims);
-                    //ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
                     return RedirectToAction("Index", "Admin");
                 }
                 else
@@ -90,20 +84,6 @@ namespace GroupTransfer2.Controllers
                     TempData["UserLoginFailed"] = "Error de inicio de sesion. Por favor ingrese las credenciales correctas...";
                     return PartialView("Admin/_login");
                 }
-                //User user = new User(_user.Rows[0][0], _user.Rows[0][1], _user.Rows[0][2], _user.Rows[0][3], _user.Rows[0][4], _user.Rows[0][5], _user.Rows[0][6], _user.Rows[0][7], _user.Rows[0][8]);
-                //foreach (DataRow row in _user.Rows)
-                //{
-                //    User user = new User()
-                //    {
-                //        usr_Name = row[0].ToString(),
-                //        usr_Email = row[1].ToString(),
-                //        usr_Nameperson = row[2].ToString(),
-                //        usr_Birthday = Convert.ToDateTime(row[3].ToString()),
-                //        lan_ID = Convert.ToInt32(row[4].ToString()),
-                //        pro_id = Convert.ToInt32(row[5].ToString())
-                //    };
-                //    users.Add(user);
-                //}
             }
             else
             {

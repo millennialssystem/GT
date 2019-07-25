@@ -16,19 +16,20 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
-                        @if (TempData["alert"] != null)
+                        @if (TempData["result"] != null)
                         {
-                            <p class="alert alert-danger">
-                                @TempData["alert"]
-                            </p>
-                        }
-                    </div>
-                    <div class="col-12">
-                        @if (TempData["success"] != null)
-                        {
-                            <p class="alert alert-success">
-                                @TempData["success"]
-                            </p>
+                            @if (TempData["result"].ToString() == "Success")
+                            {
+                                <p class="alert alert-success">
+                                    @TempData["message"]
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="alert alert-danger">
+                                    @TempData["message"]
+                                </p>
+                            }
                         }
                     </div>
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -79,18 +80,34 @@
                             <span asp-validation-for="pro_id" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label asp-for="usr_Pswd" class="control-label"></label>
-                            <input asp-for="usr_Pswd" class="form-control" />
-                            <span asp-validation-for="usr_Pswd" class="text-danger"></span>
-                        </div>
-                    </div>
+                    @{
+                        if (TempData["mode"] != null)
+                        {
+                            if (TempData["mode"].ToString() == "Insert")
+                            {
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="usr_Pswd" class="control-label"></label>
+                                        <input asp-for="usr_Pswd" class="form-control" />
+                                        <span asp-validation-for="usr_Pswd" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="usr_Pswd_Confirm" class="control-label"></label>
+                                        <input asp-for="usr_Pswd_Confirm" class="form-control" />
+                                        <span asp-validation-for="usr_Pswd_Confirm" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+
                 </div>
 
-               @*<div>
-                    <a asp-action="Index">Back to List</a>
-                </div>*@
+                    @*<div>
+            <a asp-action="Index">Back to List</a>
+        </div>*@
             </div>
 
             <div class="modal-footer">

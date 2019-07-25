@@ -33,7 +33,8 @@ namespace GroupTransfer2.Services
                     usr_Nameperson = row[3].ToString(),
                     usr_Birthday = Convert.ToDateTime(row[4].ToString()),
                     lan_ID = Convert.ToInt32(row[5].ToString()),
-                    pro_id = Convert.ToInt32(row[6].ToString())
+                    pro_id = Convert.ToInt32(row[6].ToString()),
+                    usr_is_deleted = Convert.ToInt32(row[8].ToString())
                 };
             }
         }
