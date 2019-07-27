@@ -6,11 +6,12 @@
             btnsearchpackage.addEventListener('click', function (event) {
                 package.Getpackage(document.getElementById("refpackage"), document.getElementById("detailpackage"), document.getElementById("progresspackage"), document.getElementById("MostrarOcultarPackageDetail"))
             });
+            document.getElementById("btnprintpackage").addEventListener('click', function (event) {
+                package.printpackage($("#refpackageprint").text(), package.printpackagevalues);
+            });
         }
 
-        document.getElementById("btnprintpackage").addEventListener('click', function (event) {
-            package.printpackage($("#refpackageprint").text(),package.printpackagevalues);
-        });
+        
 
         var managerpackage = document.getElementById("managerpackage");
         if (managerpackage != undefined) {

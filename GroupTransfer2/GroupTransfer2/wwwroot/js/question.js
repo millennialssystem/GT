@@ -4,11 +4,11 @@
         if (managerQuestionmensajes != undefined)
             this.InitcurrencyManagerQuestionmensajes(managerQuestionmensajes);
     },
-    InitcurrencyManagerQuestionmensajes: function (managerQuestionmensajes) {
+    InitcurrencyManagerQuestionmensajes: function (managerQuestionmensajes) {        
         $.ajax({
-            type: 'POST',
-            url: 'Home/GetMensagges',
-            success: function (result) {
+            type: 'Get',
+            url: 'Admin/GetMensagges',
+            success: function (result) {                
                 JSON.parse(result).forEach(function (item) {
                     var row = document.createElement("div");
                     row.className = "row p-2 text-center";
@@ -79,14 +79,14 @@
             }
         });
     },
-    atent: function(men_id) {
+    atent: function (men_id) {        
         $.ajax({
-            type: 'POST',
-            url: 'Home/Attent',
+            type: 'Get',
+            url: 'Admin/Attent',
             data: {
                 id: men_id
             },
-            success: function (result) {
+            success: function (result) {                
                 document.getElementById("rowManagerPackagedetail" + men_id).style.display = "none";
                 document.getElementById("rowManagerPackagemensaje" + men_id).style.display = "none";
                 utils.mensajecorecto("mensagemanagerquestion", "Mensaje atendido");

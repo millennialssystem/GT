@@ -36,7 +36,7 @@ namespace GroupTransfer2.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-        
+
 
         [HttpGet]
         public IActionResult RegisterCurrency()
@@ -55,7 +55,46 @@ namespace GroupTransfer2.Controllers
 
             return PartialView("Admin/User/_usersManagement", model);
         }
+        #region Coin
+        [HttpGet]
+        public IActionResult AddCoin(string name, string value, string bank)
+        {
+            MSParameters par = new MSParameters("name", name);
+            Parameter.Add(par);
+            par = new MSParameters("valor", value);
+            Parameter.Add(par);
+            par = new MSParameters("bank", bank);
+            Parameter.Add(par);
+            return new JsonResult(MSutil.ExecuteStopProcedureToJson("AddCurrenPrice", Parameter));
+        }
+        [HttpGet]
+        public IActionResult UpdateCoins(string id, string name, string value, string bank)
+        {
+            MSParameters par = new MSParameters("name", name);
+            Parameter.Add(par);
+            par = new MSParameters("valor", value);
+            Parameter.Add(par);
+            par = new MSParameters("bank", bank);
+            Parameter.Add(par);
+            par = new MSParameters("id", id);
+            Parameter.Add(par);
+            MSutil.ExecuteStopProcedureNotResult("UpdateCurrenPrice", Parameter);
 
+            return new JsonResult("true");
+        }
+
+        [HttpGet]
+        public IActionResult InactiveCoin(int id)
+        {
+            MSParameters par = new MSParameters("id", id.ToString());
+            Parameter.Add(par);
+            MSutil.ExecuteStopProcedureNotResult("SetInactivateCurrenPrice", Parameter);
+
+            return new JsonResult("true");
+        }
+        #endregion
+
+        #region Package
         [HttpGet]
         public IActionResult Getpackage(string reference)
         {
@@ -116,6 +155,25 @@ namespace GroupTransfer2.Controllers
 
             return new JsonResult(MSutil.ExecuteStopProcedureToJson("Setpackage", Parameter));
         }
+        #endregion
+
+        #region Question
+        [HttpGet]
+        public IActionResult Attent(int id)
+        {
+            MSParameters par = new MSParameters("id", id.ToString());
+            Parameter.Add(par);
+            MSutil.ExecuteStopProcedureNotResult("Attent", Parameter);
+
+            return new JsonResult("true");
+        }
+
+        [HttpGet]
+        public IActionResult GetMensagges()
+        {
+            return new JsonResult(MSutil.ExecuteStopProcedureToJson("GetMensagges", Parameter));
+        }
+        #endregion
 
         [HttpGet]
         public IActionResult EditUser(string id)
@@ -127,7 +185,8 @@ namespace GroupTransfer2.Controllers
                 TempData["mode"] = "Insert";
                 return PartialView("Admin/User/_EditUser");
             }
-            else {
+            else
+            {
                 TempData["mode"] = "Update";
                 DataTable UserDetails = new DataTable();
 
@@ -180,7 +239,8 @@ namespace GroupTransfer2.Controllers
                 Parameter.Add(new MSParameters("_usr_ID", funtions.Base64Decode(user.usr_ID)));
             }
 
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
 
                 DataTable result = MSutil.ExecuteStopProcedure(accion, Parameter);
 
