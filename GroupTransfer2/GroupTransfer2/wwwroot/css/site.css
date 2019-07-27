@@ -57,3 +57,13 @@
     color: #FFF !important;
     line-height: 40px;
 }
+
+.MenuGT {
+    background-color: #212529 !important;
+    height: 54px !important;
+}
+
+.gtlogo {
+    width: 180px;
+    padding-top: 15px;
+}
