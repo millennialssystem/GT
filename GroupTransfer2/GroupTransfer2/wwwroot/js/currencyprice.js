@@ -23,16 +23,16 @@
             this.InitcurrencyManagerPrice(document.getElementById("valuescurrencyprice").value, document.getElementById("managerPrice"));
         }
     },
-    AddCoin: function () {
+    AddCoin: function () {        
         $.ajax({
-            type: 'POST',
-            url: 'Home/AddCoin',
+            type: 'Get',
+            url: 'Admin/AddCoin',
             data: {
                 name: document.getElementById("coinManagerPriceNew").value,
                 value: document.getElementById("valueManagerPriceNew").value,
                 bank: document.getElementById("bankManagerPriceNew").value
             },
-            success: function (result) {
+            success: function (result) {                
                 prc_id = JSON.parse(result)[0].id;
                 var row = document.createElement("div");
                 row.className = "row p-2";
@@ -74,7 +74,7 @@
                 /*Begin Disable*/
                 /*Begin Disable*/
                 var desactivar = document.createElement("div");
-                desactivar.className = "col col-lg-2";
+                desactivar.className = "col col-lg-2 text-center";
 
                 var listActions = document.createElement("ul");
                 listActions.className = "list-inline social-buttons";
@@ -82,7 +82,7 @@
                 var listItem = document.createElement("li");
                 listItem.className = "list-inline-item";
 
-                listActions.appendChild(listItem);
+                listActions.appendChild(listItem);               
 
                 var btnDesactivar = document.createElement("a");
                 btnDesactivar.id = "rowManagerPrice" + prc_id;
@@ -91,7 +91,7 @@
                 btnDesactivar.setAttribute("data-html", "true");
                 btnDesactivar.setAttribute("data-placement", "right");
                 btnDesactivar.setAttribute("title", "Eliminar");
-                btnDesactivar.style = "height: 40px;width: 40px;line-height: 40px;background-color:#fed136;color:#fff;";
+                btnDesactivar.style = "height: 40px;width: 40px;line-height: 40px;background-color:#d60f22;color:#fff;";
                 btnDesactivar.addEventListener('click', function (event) {
                     Inactivate(prc_id)
                 });
@@ -143,32 +143,31 @@
             this.UpdateCoins.push(row);
     },
     UpdateCurrencyPrice: function () {       
-        this.UpdateCoins.forEach(function (item) {
+        this.UpdateCoins.forEach(function (item) {            
             $.ajax({
-                type: 'POST',
-                url: 'Home/UpdateCoins',
+                type: 'Get',
+                url: 'Admin/UpdateCoins',
                 data: {
                     id: item,
                     name: document.getElementById("coinManagerPrice" + item).value,
                     value: document.getElementById("valueManagerPrice" + item).value,
                     bank: document.getElementById("bankManagerPrice" + item).value
                 },
-                success: function (result) {
-
+                success: function (result) {                    
                 }
             });
         });
 
 
     },
-    Inactivate: function (prc_id) {
+    Inactivate: function (prc_id) {        
         $.ajax({
-            type: 'POST',
-            url: 'Home/InactiveCoin',
+            type: 'Get',
+            url: 'Admin/InactiveCoin',
             data: {
                 id: prc_id
             },
-            success: function (result) {
+            success: function (result) {                
                 document.getElementById("rowManagerPrice" + prc_id).style.display = "none";
             }
         });

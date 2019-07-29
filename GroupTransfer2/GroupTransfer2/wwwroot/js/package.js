@@ -15,6 +15,8 @@
             });
         }
 
+        
+
         var managerpackage = document.getElementById("managerpackage");
         if (managerpackage != undefined) {
             document.getElementById("btnphonecustomer").addEventListener('click', function (event) {
@@ -28,8 +30,7 @@
 
             $("#formmanagerpackage input,#formmanagerpackage textarea").jqBootstrapValidation({
                 preventSubmit: true,
-                submitError: function ($form, event, errors) {
-                    debugger;
+                submitError: function ($form, event, errors) {                    
                     // additional error messages or events
                 },
                 submitSuccess: function ($form, event) {
@@ -55,8 +56,7 @@
         }
     },
     printpackage: function(ref,item){
-        var frame = document.getElementById('el_iframe').contentWindow.document;
-        debugger;
+        var frame = document.getElementById('el_iframe').contentWindow.document;       
 
         frame.getElementById("datepackageprint").innerText = utils.getDateGT(item.Pck_Date, "yyyy-mm-dd");        
         frame.getElementById("refpackageprint").innerText = ref;
@@ -181,14 +181,15 @@
             }
         });
     },
-    Editpackage: function (ref) {
+    Editpackage: function (ref) {       
         $.ajax({
-            type: 'POST',
-            url: 'Home/Getpackage',
+            type: 'Get',
+            url: 'Admin/Getpackage',
             data: {
                 reference: ref
             },
-            success: function (result) {                
+            success: function (result) {    
+                package.clearManager();
                 var paquete = JSON.parse(result)[0];
                 if (paquete != undefined) {
                     $("textarea#insendpackagedetal").val(paquete.Pck_detailSend);
@@ -220,10 +221,7 @@
                     $("input#indetailexchangerate").val(paquete.Pck_TypeChange);
                     $("input#indetailpaytotal").val(paquete.Pck_TotalPrice);
                     $("textarea#detailarticlessend").val(paquete.Pck_detailArticles);
-                }
-                else {
-                    package.clearManager();
-                }
+                }                
             }
         });
     },
@@ -266,18 +264,17 @@
             if (document.getElementById("beneficiaryphone" + i).children.length > 0) {
                 params.Pck_Phonebeneficiary[i - 1] = document.getElementById("beneficiaryphone" + i).children[0].children[1].innerText;
             }
-        }
+        }        
         $.ajax({
-            type: 'POST',
-            url: 'Home/Setpackage',
+            type: 'Post',
+            url: 'Admin/Setpackage',
             data: {
                 package: params
                 //reference: document.getElementById("refManagerPackageNew").value,
                 //detail: document.getElementById("detailManagerPackageNew").value,
                 //progress: document.getElementById("progressManagerPackageNew").value
             },
-            success: function (result) {
-                debugger;
+            success: function (result) {                
                 utils.mensajecorecto("mensagemanagerpackage", "Informacion agregada correctamente");
             }
         });
@@ -307,6 +304,8 @@
         var obj = document.getElementById("codegtackinput");
         switch (item.currentTarget.id) {
             case "addcontainerpackage":
+                obj.value = "";
+                package.clearManager();
                 obj.disabled = true;
                 break;
             case "editcontainerpackage":
