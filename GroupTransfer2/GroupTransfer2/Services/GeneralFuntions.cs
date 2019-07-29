@@ -38,5 +38,17 @@ namespace GroupTransfer2.Services
                 };
             }
         }
+
+        public IEnumerable<Profile> ConvertToProfileReadings(DataTable dataTable)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                yield return new Profile
+                {
+                    pro_id = Convert.ToInt32(row[0].ToString()),
+                    pro_name = row[1].ToString()
+                };
+            }
+        }
     }
 }

@@ -1,124 +1,114 @@
 ﻿@model GroupTransfer2.Models.Users
-<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title text-uppercase" id="exampleModalLongTitle">Usuario</h5>
-            @**@
-            @*<button type="button" class="close" asp-action="UsersManagement" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="currencyprice.dismiss();">
-                <span aria-hidden="true">&times;</span>
-            </button>*@
-            <a class="close" asp-action="UsersManagement" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </a>
-        </div>
-        @**@
-        <form asp-action="EditUser" asp-controller="Admin" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#EditUserModal">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-12">
-                        @if (TempData["result"] != null)
+    <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="exampleModalLongTitle">Usuario</h5>
+        <a class="close" asp-action="UsersManagement" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </div>
+    <form asp-action="EditUser" asp-controller="Admin" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#contentModal">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-12" id="result">
+                    @if (TempData["result"] != null)
+                    {
+                        @if (TempData["result"].ToString() == "Success")
                         {
-                            @if (TempData["result"].ToString() == "Success")
-                            {
-                                <p class="alert alert-success">
-                                    @TempData["message"]
-                                </p>
-                            }
-                            else
-                            {
-                                <p class="alert alert-danger">
-                                    @TempData["message"]
-                                </p>
-                            }
+                            <p class="alert alert-success">
+                                @TempData["message"]
+                            </p>
                         }
-                    </div>
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="usr_ID" class="control-label" hidden></label>
-                        <input asp-for="usr_ID" class="form-control" hidden />
-                        <span asp-validation-for="usr_ID" class="text-danger" hidden></span>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label asp-for="usr_Name" class="control-label"></label>
-                            <input asp-for="usr_Name" class="form-control" />
-                            <span asp-validation-for="usr_Name" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label asp-for="usr_Email" class="control-label"></label>
-                            <input asp-for="usr_Email" class="form-control" />
-                            <span asp-validation-for="usr_Email" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label asp-for="usr_Nameperson" class="control-label"></label>
-                            <input asp-for="usr_Nameperson" class="form-control" />
-                            <span asp-validation-for="usr_Nameperson" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label asp-for="usr_Birthday" class="control-label"></label>
-                            <input asp-for="usr_Birthday" class="form-control" />
-                            <span asp-validation-for="usr_Birthday" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label asp-for="lan_ID" class="control-label"></label>
-                            <input asp-for="lan_ID" class="form-control" />
-                            <span asp-validation-for="lan_ID" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label asp-for="pro_id" class="control-label"></label>
-                            <input asp-for="pro_id" class="form-control" />
-                            <span asp-validation-for="pro_id" class="text-danger"></span>
-                        </div>
-                    </div>
-                    @{
-                        if (TempData["mode"] != null)
+                        else
                         {
-                            if (TempData["mode"].ToString() == "Insert")
-                            {
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label asp-for="usr_Pswd" class="control-label"></label>
-                                        <input asp-for="usr_Pswd" class="form-control" />
-                                        <span asp-validation-for="usr_Pswd" class="text-danger"></span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label asp-for="usr_Pswd_Confirm" class="control-label"></label>
-                                        <input asp-for="usr_Pswd_Confirm" class="form-control" />
-                                        <span asp-validation-for="usr_Pswd_Confirm" class="text-danger"></span>
-                                    </div>
-                                </div>
-                            }
+                            <p class="alert alert-danger">
+                                @TempData["message"]
+                            </p>
                         }
                     }
-
                 </div>
-
-                    @*<div>
-            <a asp-action="Index">Back to List</a>
-        </div>*@
-            </div>
-
-            <div class="modal-footer">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <input type="submit" value="Guardar" class="btn btn-primary" />
-                    <a class="btn btn-secondary" data-dismiss="modal" asp-action="UsersManagement" asp-controller="Admin" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main">Close</a>
+                    <label asp-for="usr_ID" class="control-label" hidden></label>
+                    <input asp-for="usr_ID" class="form-control" hidden />
+                    <span asp-validation-for="usr_ID" class="text-danger" hidden></span>
                 </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="usr_Name" class="control-label"></label>
+                        <input asp-for="usr_Name" class="form-control" />
+                        <span asp-validation-for="usr_Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="usr_Email" class="control-label"></label>
+                        <input asp-for="usr_Email" class="form-control" />
+                        <span asp-validation-for="usr_Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="usr_Nameperson" class="control-label"></label>
+                        <input asp-for="usr_Nameperson" class="form-control" />
+                        <span asp-validation-for="usr_Nameperson" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="usr_Birthday" class="control-label"></label>
+                        <input asp-for="usr_Birthday" class="form-control" />
+                        <span asp-validation-for="usr_Birthday" class="text-danger"></span>
+                    </div>
+                </div>
+                @*<div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="lan_ID" class="control-label"></label>
+                        <input asp-for="lan_ID" class="form-control" />
+                        <span asp-validation-for="lan_ID" class="text-danger"></span>
+                    </div>
+                </div>*@
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="pro_id" class="control-label"></label>
+                        <select asp-for="pro_id" asp-items="Model.profile" class="form-control">
+                            <option value=""></option>
+                        </select>
+                        <span asp-validation-for="pro_id" class="text-danger"></span>
+                    </div>
+                </div>
+                @{
+                    if (TempData["mode"] != null)
+                    {
+                        if (TempData["mode"].ToString() == "Insert")
+                        {
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="usr_Pswd" class="control-label"></label>
+                                    <input asp-for="usr_Pswd" class="form-control" />
+                                    <span asp-validation-for="usr_Pswd" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="usr_Pswd_Confirm" class="control-label"></label>
+                                    <input asp-for="usr_Pswd_Confirm" class="form-control" />
+                                    <span asp-validation-for="usr_Pswd_Confirm" class="text-danger"></span>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+
             </div>
-        </form>
-    </div>
-</div>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        </div>
+
+        <div class="modal-footer">
+            <div class="form-group">
+                <input id="usrSave" type="submit" value="Guardar" class="btn btn-primary" />
+                <a class="btn btn-secondary" data-dismiss="modal" asp-action="UsersManagement" asp-controller="Admin" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main">Close</a>
+            </div>
+        </div>
+    </form>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

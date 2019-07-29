@@ -1,16 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Administration";
-    //Layout = "Admin/_AdminLayout";
 }
 
-
     <partial name="Admin/_menu" />
+
     <div id="main" class="container">
         <partial name="_currencyprice" />
-        
-        @*<partial name="Admin/_managerPrice" />*@
-        @*<partial name="Admin/_usersManagement" />*@
     </div>
+
+    <partial name="Admin/_EditModal" />
+
     <div class="fixed-bottom card">
         <partial name="_footer" />
     </div>

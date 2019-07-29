@@ -8,9 +8,12 @@
             });
         }
 
-        document.getElementById("btnprintpackage").addEventListener('click', function (event) {
-            package.printpackage($("#refpackageprint").text(),package.printpackagevalues);
-        });
+        var btnprintpackage = document.getElementById("btnprintpackage");
+        if (btnprintpackage != undefined) {
+            btnprintpackage.addEventListener('click', function (event) {
+                package.printpackage($("#refpackageprint").text(), package.printpackagevalues);
+            });
+        }
 
         var managerpackage = document.getElementById("managerpackage");
         if (managerpackage != undefined) {

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GroupTransfer2.Controllers
@@ -19,6 +20,7 @@ namespace GroupTransfer2.Controllers
         private List<MSParameters> Parameter = new List<MSParameters>();
         MSutils MSutil = new MSutils();
         private GeneralFuntions funtions = new GeneralFuntions();
+        [HttpGet]
         public IActionResult Index()
         {
             ViewBag.Versionjs = WebSetting.Versionjs;
@@ -60,11 +62,12 @@ namespace GroupTransfer2.Controllers
         public IActionResult EditUser(string id)
         {
             Users user = new Users();
-
+            
             if (string.IsNullOrEmpty(id) && string.IsNullOrWhiteSpace(id))
             {
                 TempData["mode"] = "Insert";
-                return PartialView("Admin/User/_EditUser");
+                user.OnGet();
+                return PartialView("Admin/User/_EditUser", user);
             }
             else {
                 TempData["mode"] = "Update";
@@ -83,17 +86,19 @@ namespace GroupTransfer2.Controllers
                 user.lan_ID = Convert.ToInt32(UserDetails.Rows[0][5].ToString());
                 user.pro_id = Convert.ToInt32(UserDetails.Rows[0][6].ToString());
                 user.usr_is_deleted = Convert.ToInt32(UserDetails.Rows[0][7].ToString());
+                user.OnGet();
 
                 return PartialView("Admin/User/_EditUser", user);
             }
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult EditUser(Users user)
         {
+            ModelState.Remove("usr_usr_is_deleted");
 
             string accion;
-            ModelState.Remove("usr_usr_is_deleted");
 
             Parameter.Clear();
             Parameter.Add(new MSParameters("_usr_Name", user.usr_Name));
@@ -119,18 +124,28 @@ namespace GroupTransfer2.Controllers
                 Parameter.Add(new MSParameters("_usr_ID", funtions.Base64Decode(user.usr_ID)));
             }
 
+            user.OnGet();
+
             if (ModelState.IsValid) {
 
                 DataTable result = MSutil.ExecuteStopProcedure(accion, Parameter);
 
                 TempData["result"] = result.Rows[0][0].ToString();
                 TempData["message"] = result.Rows[0][1].ToString();
+                if (TempData["mode"].ToString() == "Insert")
+                {
+                    if (TempData["result"].ToString() == "Success")
+                    {
+                        TempData["mode"] = "Update";
+                        user.usr_ID = result.Rows[0][2].ToString();
+                    }
+                }
 
-                return PartialView("Admin/User/_EditUser");
+                return PartialView("Admin/User/_EditUser", user);
             }
             else
             {
-                return PartialView("Admin/User/_EditUser");
+                return PartialView("Admin/User/_EditUser", user);
             }
         }
 

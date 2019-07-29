@@ -1,11 +1,7 @@
 ﻿@model IEnumerable<GroupTransfer2.Models.Users>
 
-@{
-//Layout = "Admin/_AdminLayout";
-}
 
 <section id="usersManagement">
-    @*<div class="container">*@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
             <h2 class="section-heading text-uppercase">Usuarios</h2>
@@ -13,25 +9,13 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
             <div class="float-right py-3">
                 <ul class="list-inline social-buttons">
-                    <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditUserModal">
-                        @**@
-                        <a href="@Url.Action("EditUser", "Admin", new { id = "" })" data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#EditUserModal">
-                            <i class="fas fa-plus"></i>
+                    <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditModal">
+                        <a asp-action="EditUser" asp-controller="Admin" asp-route-id="" data-toggle="tooltip" data-html="true" data-placement="right" title="Agregar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#contentModal">
+                            <i class="fas fa-user-plus"></i>
                         </a>
                     </li>
-                    @*<li class="list-inline-item text-center">
-                        background-color:#fed136;
-                        background-color:#fed136;
-                        <a href="#" data-toggle="tooltip" data-placement="right" data-html="true" title="Actualizar" onclick="currencyprice.UpdateCurrencyPrice()" style="width:40px;height:40px;line-height:40px;">
-                            <i class="fas fa-share-square"></i>
-                        </a>
-                    </li>*@
-                    @*class="linkbuttoncircle text-center"*@
                 </ul>
             </div>
-            @*<p>
-                <a asp-action="Create">Create New</a>
-            </p>*@
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             @if (TempData["result"] != null)
@@ -54,9 +38,6 @@
             <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl table-striped">
                 <thead class="titlemanagerprice text-left">
                     <tr class="rounded-left rounded-right">
-                        @*<th>
-                            @Html.DisplayNameFor(model => model.usr_ID)
-                        </th>*@
                         <th>
                             @Html.DisplayNameFor(model => model.usr_Name)
                         </th>
@@ -69,15 +50,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.usr_Birthday)
                         </th>
-                        @*<th>
-                            @Html.DisplayNameFor(model => model.lan_ID)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.pro_id)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.usr_Pswd)
-                        </th>*@
                         <th></th>
                     </tr>
                 </thead>
@@ -87,9 +59,6 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                @*<td>
-                                    @Html.DisplayFor(modelItem => item.usr_ID)
-                                </td>*@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.usr_Name)
                                 </td>
@@ -102,40 +71,25 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.usr_Birthday)
                                 </td>
-                                @*<td>
-                                    @Html.DisplayFor(modelItem => item.lan_ID)
-                                </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.pro_id)
-                                </td>*@
-                                @*<td>
-                                    @Html.DisplayFor(modelItem => item.usr_Pswd)
-                                </td>*@
-                                <td>
-                                    @*@Html.ActionLink("Edit", "", new { id = item.usr_ID }) |*@
-                                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                                    @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
                                     <ul class="list-inline social-buttons">
-                                        <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditUserModal">
-                                            @* @Html.ActionLink("", "EditUser", "Admin", new { id=item.usr_ID },{ })*@
-                                            @**@
-
-                                            <a href="@Url.Action("EditUser", "Admin", new { id = item.usr_ID })" data-toggle="tooltip" data-html="true" data-placement="right" title="Editar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#EditUserModal">
-                                                <i class="fas fa-edit"></i>
+                                        <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditModal">
+                                            <a asp-action="EditUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Editar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#contentModal">
+                                                <i class="fas fa-user-edit"></i>
                                             </a>
                                         </li>
                                         @if ((item.usr_is_deleted) == 0)
                                         {
                                             <li class="list-inline-item text-center">
-                                                <a href="@Url.Action("InactivateUser", "Admin", new { id = item.usr_ID })" data-toggle="tooltip" data-html="true" data-placement="right" title="Desactivar" style="width:40px;height:40px;line-height:40px;background-color:#d60f22;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts()">
-                                                    <i class="fas fa-user-alt-slash"></i>
+                                                <a asp-action="InactivateUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Desactivar" style="width:40px;height:40px;line-height:40px;background-color:#d60f22;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts();site.toolTips();">
+                                                    <i class="fas fa-user-times"></i>
                                                 </a>
                                             </li>
                                         }
                                         else
                                         {
                                             <li class="list-inline-item text-center">
-                                                <a href="@Url.Action("InactivateUser", "Admin", new { id = item.usr_ID })" data-toggle="tooltip" data-html="true" data-placement="right" title="Activar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts()">
+                                                <a asp-action="InactivateUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Activar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts();site.toolTips();">
                                                     <i class="fas fa-user-check"></i>
                                                 </a>
                                             </li>
@@ -149,9 +103,4 @@
             </table>
         </div>
     </div>
-    <div class="modal fade" id="EditUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <partial name="Admin/User/_EditUser" model="new Users()"/>
-        </div>
-    @*</div>*@
-    @*<a href="~/Views/Shared/Admin/User/_EditUser.cshtml">~/Views/Shared/Admin/User/_EditUser.cshtml</a>*@
 </section>

@@ -10,6 +10,20 @@ $(document).ready(function (e) {
 
 var site = {
     hideAlerts: function () {
-        setTimeout(function () { $(".alert").alert('close'); }, 3000);
+        setTimeout(function () { $(".alert").alert('close'); }, 1500);
+    },
+    hideModals: function (myModal) {
+        $(myModal).modal('hide');
+    },
+    toolTips: function (element) {
+        $('[data-toggle="tooltip"]').tooltip();
+    },
+    disabledElement: function (element) {
+        $(element).addClass('disabled');
+        $(element).attr('disabled')
+
+    },
+    showModal: function (myModal) {
+        $(myModal).modal('show');
     }
 };
