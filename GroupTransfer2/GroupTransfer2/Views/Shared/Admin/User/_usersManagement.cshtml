@@ -35,72 +35,74 @@
             }
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl table-striped">
-                <thead class="titlemanagerprice text-left">
-                    <tr class="rounded-left rounded-right">
-                        <th>
-                            @Html.DisplayNameFor(model => model.usr_Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.usr_Email)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.usr_Nameperson)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.usr_Birthday)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Count() > 0)
-                    {
-                        @foreach (var item in Model)
+            <div class="card">
+                <table class="table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl table-striped rounded">
+                    <thead class="titlemanagerprice text-left">
+                        <tr class="rounded-left rounded-right">
+                            <th>
+                                @Html.DisplayNameFor(model => model.usr_Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.usr_Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.usr_Nameperson)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.usr_Birthday)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Count() > 0)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.usr_Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.usr_Email)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.usr_Nameperson)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.usr_Birthday)
-                                </td>
-                                <td>
-                                    <ul class="list-inline social-buttons">
-                                        <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditModal">
-                                            <a asp-action="EditUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Editar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#contentModal">
-                                                <i class="fas fa-user-edit"></i>
-                                            </a>
-                                        </li>
-                                        @if ((item.usr_is_deleted) == 0)
-                                        {
-                                            <li class="list-inline-item text-center">
-                                                <a asp-action="InactivateUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Desactivar" style="width:40px;height:40px;line-height:40px;background-color:#d60f22;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts();site.toolTips();">
-                                                    <i class="fas fa-user-times"></i>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.usr_Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.usr_Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.usr_Nameperson)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.usr_Birthday)
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline social-buttons">
+                                            <li class="list-inline-item text-center" data-toggle="modal" data-target="#EditModal">
+                                                <a asp-action="EditUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Editar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#contentModal">
+                                                    <i class="fas fa-user-edit"></i>
                                                 </a>
                                             </li>
-                                        }
-                                        else
-                                        {
-                                            <li class="list-inline-item text-center">
-                                                <a asp-action="InactivateUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Activar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts();site.toolTips();">
-                                                    <i class="fas fa-user-check"></i>
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
-                                </td>
-                            </tr>
+                                            @if ((item.usr_is_deleted) == 0)
+                                            {
+                                                <li class="list-inline-item text-center">
+                                                    <a asp-action="InactivateUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Desactivar" style="width:40px;height:40px;line-height:40px;background-color:#d60f22;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts();site.toolTips();">
+                                                        <i class="fas fa-user-times"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="list-inline-item text-center">
+                                                    <a asp-action="InactivateUser" asp-controller="Admin" asp-route-id="@item.usr_ID" data-toggle="tooltip" data-html="true" data-placement="right" title="Activar" style="width:40px;height:40px;line-height:40px;" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.hideAlerts();site.toolTips();">
+                                                        <i class="fas fa-user-check"></i>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
                         }
-                    }
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </section>

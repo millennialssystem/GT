@@ -49,6 +49,22 @@ namespace GroupTransfer2.Controllers
         }
 
         [HttpGet]
+        public IActionResult RegisterPackage()
+        {
+            //ViewBag.currencyprice = MSutil.ExecuteStopProcedureToJson("Getcurrentprice", Parameter);
+
+            return PartialView("Admin/_managerPackage");
+        }
+
+        [HttpGet]
+        public IActionResult RegisterQuestions()
+        {
+            //ViewBag.currencyprice = MSutil.ExecuteStopProcedureToJson("Getcurrentprice", Parameter);
+
+            return PartialView("Admin/_managerQuestions");
+        }
+
+        [HttpGet]
         public IActionResult UsersManagement()
         {
             DataTable users = MSutil.ExecuteStopProcedure("ps_GetUsersLists", Parameter);
