@@ -81,7 +81,7 @@
 
         <!-- Bootstrap core JavaScript -->
         @*<script src="~/lib/agency/vendor/jquery/jquery.min.js?v=@ViewBag.Versionjs"></script>
-            <script src="~/lib/agency/vendor/bootstrap/js/bootstrap.bundle.min.js?v=@ViewBag.Versionjs"></script>*@
+        <script src="~/lib/agency/vendor/bootstrap/js/bootstrap.bundle.min.js?v=@ViewBag.Versionjs"></script>*@
 
         <!--Jquery Ajax Unobtrusive-->
         <script src="~/lib/agency/vendor/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js?v=@ViewBag.Versionjs"></script>
@@ -96,6 +96,12 @@
         <!-- Custom scripts for this template -->
         <script src="~/lib/agency/js/agency.min.js?v=@ViewBag.Versionjs"></script>
         @* End agency *@
+
+        <script src="~/js/utils.js?v=@ViewBag.Versionjs"></script>
+        <script src="~/js/currencyprice.js?v=@ViewBag.Versionjs"></script>
+        <script src="~/js/package.js?v=@ViewBag.Versionjs"></script>
+        <script src="~/js/question.js?v=@ViewBag.Versionjs"></script>                
+        <script src="~/js/site.js?v=@ViewBag.Versionjs"></script>
     </environment>
     <environment exclude="Development">
         @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -110,10 +116,12 @@
                 crossorigin="anonymous"
                 integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
         </script>*@
-
+        
+        
+    @* Begin Agency *@
         <script src="~/lib/agency/vendor/jquery/jquery.min.js"></script>
         <script src="~/lib/agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        @* Begin Agency *@
+
 
         <!-- Bootstrap core JavaScript -->
         @*<script src="~/lib/agency/vendor/jquery/jquery.min.js?v=@ViewBag.Versionjs"></script>
@@ -132,13 +140,8 @@
         <!-- Custom scripts for this template -->
         <script src="~/lib/agency/js/agency.min.js?v=@ViewBag.Versionjs"></script>
         @* End agency *@
-
+        <script src="~/js/site.min.js?v=@ViewBag.Versionjs"></script>
     </environment>
-    <script src="~/js/utils.js?v=@ViewBag.Versionjs"></script>
-    <script src="~/js/currencyprice.js?v=@ViewBag.Versionjs"></script>
-    <script src="~/js/package.js?v=@ViewBag.Versionjs"></script>
-    <script src="~/js/question.js?v=@ViewBag.Versionjs"></script>
-    <script src="~/js/site.js?v=@ViewBag.Versionjs"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
