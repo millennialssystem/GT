@@ -45,19 +45,19 @@ namespace GroupTransfer2.Models
         ////[Required]
         //public int lan_ID { get; set; }
         [Required(ErrorMessage = "Por favor ingrese su Contraseña actual")]
-        [StringLength(15, ErrorMessage = " La contraseña debe contener una longitud entre {1} y {0} caracteres", MinimumLength = 5)]
+        [StringLength(15, ErrorMessage = " La contraseña debe contener una longitud entre 5 y 15 caracteres", MinimumLength = 5)]
         [Display(Name = "Contraseña actual")]
         [DataType(DataType.Password)]
         public string usr_Pswd_Old { get; set; }
 
         [Required(ErrorMessage = "Por favor ingrese su nueva Contraseña")]
-        [StringLength(15, ErrorMessage =" La contraseña debe contener una longitud entre {1} y {0} caracteres", MinimumLength = 5)]
+        [StringLength(15, ErrorMessage =" La contraseña debe contener una longitud entre 5 y 15 caracteres", MinimumLength = 5)]
         [Display(Name = "Contraseña nueva")]
         [DataType(DataType.Password)]
         public string usr_Pswd { get; set; }
 
         [Required(ErrorMessage = "Por favor confirme su nueva contraseña")]
-        [StringLength(15, ErrorMessage = " La contraseña debe contener una longitud entre {1} y {0} caracteres", MinimumLength = 5)]
+        [StringLength(15, ErrorMessage = " La contraseña debe contener una longitud entre 5 y 15 caracteres", MinimumLength = 5)]
         [Display(Name = "Confirme su nueva contraseña")]
         [DataType(DataType.Password)]
         [Compare("usr_Pswd", ErrorMessage = "La contraseña nueva no coincide")]
