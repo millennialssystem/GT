@@ -20,6 +20,7 @@ namespace GroupTransfer2.Controllers
         private List<MSParameters> Parameter = new List<MSParameters>();
         MSutils MSutil = new MSutils();
         private GeneralFuntions funtions = new GeneralFuntions();
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -29,15 +30,6 @@ namespace GroupTransfer2.Controllers
 
             return View();
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            return RedirectToAction("Login", "Account");
-        }
-
 
 
         [HttpGet]

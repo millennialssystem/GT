@@ -9,24 +9,38 @@
         <ul class="navbar-nav text-uppercase ml-auto">
             @if (User.Identity.IsAuthenticated)
             {
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" asp-action="RegisterCurrency" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="currencyprice.Init()">Tasas de Cambio</a>
-                </li>
+
+                if(User.Claims.Where(c => c.Type == "#currencyprice").Select(c => c.Type).DefaultIfEmpty("Failed").First() != "Failed")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-action="RegisterCurrency" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="currencyprice.Init()">Tasas de Cambio</a>
+                    </li>
+                }
+                if (User.Claims.Where(c => c.Type == "#package").Select(c => c.Type).DefaultIfEmpty("Failed").First() != "Failed")
+                {
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" asp-action="RegisterPackage" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="package.Init()">Paquetes</a>
                 </li>
+                }
+                if (User.Claims.Where(c => c.Type == "#questions").Select(c => c.Type).DefaultIfEmpty("Failed").First() != "Failed")
+                {
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" asp-action="RegisterQuestions" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="question.Init()">Mensajes</a>
                 </li>
+                }
+                if (User.Claims.Where(c => c.Type == "#users").Select(c => c.Type).DefaultIfEmpty("Failed").First() != "Failed")
+                {
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" asp-action="UsersManagement" asp-controller="Admin" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main" data-ajax-success="site.toolTips()">Usuarios</a>
                 </li>
+                }
                 <li class="nav-item dropdown">
                     <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><i class="fas fa-user-circle fa-lg"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <h6 class="dropdown-header">@User.Identity.Name</h6>
                         <div class="dropdown-divider"></div>
-                        <a asp-action="Logout" class="dropdown-item"><i class="fas fa-sign-out-alt fa-lg"></i> Cerrar Sesión</a>
+                        <a asp-action="ChangePassword" asp-controller="Account" class="dropdown-item" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#main"><i class="fas fa-sign-out-alt fa-lg"></i> Cambiar Contraseña</a>
+                        <a asp-action="Logout" asp-controller="Account" class="dropdown-item"><i class="fas fa-sign-out-alt fa-lg"></i> Cerrar Sesión</a>
                     </div>
                 </li>
             }

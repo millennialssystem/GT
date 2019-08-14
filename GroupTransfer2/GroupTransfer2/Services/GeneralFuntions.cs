@@ -50,5 +50,17 @@ namespace GroupTransfer2.Services
                 };
             }
         }
+
+        public IEnumerable<UserProfileAccess> ConvertToProfileAccessReadings(DataTable dataTable)
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                yield return new UserProfileAccess
+                {
+                    acc_id = Convert.ToInt32(row[0].ToString()),
+                    acc_key = row[1].ToString()
+                };
+            }
+        }
     }
 }

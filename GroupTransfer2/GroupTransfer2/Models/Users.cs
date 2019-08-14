@@ -46,13 +46,13 @@ namespace GroupTransfer2.Models
         public int lan_ID { get; set; }
 
         [Required(ErrorMessage = "Por favor ingrese su Contraseña")]
-        [StringLength(15, ErrorMessage =" La contraseña debe contener una longitud entre {0} y {2} caracteres", MinimumLength = 8)]
+        [StringLength(15, ErrorMessage =" La contraseña debe contener una longitud entre {0} y {2} caracteres", MinimumLength = 5)]
         [Display(Name = "Contraseña")]
         [DataType(DataType.Password)]
         public string usr_Pswd { get; set; }
 
         [Required(ErrorMessage = "Por favor confirme su contraseña")]
-        [StringLength(15, ErrorMessage = " La contraseña debe contener una longitud entre {0} y {2} caracteres", MinimumLength = 8)]
+        [StringLength(15, ErrorMessage = " La contraseña debe contener una longitud entre {0} y {2} caracteres", MinimumLength = 5)]
         [Display(Name = "Confirme su contraseña")]
         [DataType(DataType.Password)]
         [Compare("usr_Pswd", ErrorMessage = "La contraseña no coincide")]
@@ -66,6 +66,8 @@ namespace GroupTransfer2.Models
 
         public SelectList profile { get; set; }
 
+        public List<UserProfileAccess> userAccess { get; set; }
+
         public void OnGet()
         {
             Parameter.Clear();
@@ -75,6 +77,15 @@ namespace GroupTransfer2.Models
             var profileObj = profilers;
             
             profile = new SelectList(profilers,nameof(Profile.pro_id),nameof(Profile.pro_name),nameof(Users.pro_id));
+        }
+
+        public void OnGetProfileAccess()
+        {
+            Parameter.Clear();
+
+            Parameter.Add(new MSParameters("userProfileId", this.pro_id));
+
+            userAccess = funtions.ConvertToProfileAccessReadings(msUtils.ExecuteStopProcedure("ps_GetProfileAcces", Parameter)).ToList();
         }
     }
 }
