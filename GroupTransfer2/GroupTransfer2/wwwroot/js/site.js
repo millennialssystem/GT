@@ -1,5 +1,6 @@
 ﻿$(function () {
     $('[data-toggle="tooltip"]').tooltip();
+    $('.anyClass').perfectScrollbar();
 });
 
 $(document).ready(function (e) {    

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="anyClass">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,6 +16,7 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="~/lib/agency/css/agency.min.css?v=@ViewBag.Versioncss" />
+        <link rel="stylesheet" href="~/lib/agency/vendor/perfect-scrollbar/css/perfect-scrollbar.css?v=@ViewBag.Versioncss" />
         @* End Agency *@
     </environment>
     <environment exclude="Development">
@@ -95,12 +96,13 @@
 
         <!-- Custom scripts for this template -->
         <script src="~/lib/agency/js/agency.min.js?v=@ViewBag.Versionjs"></script>
+        <script src="~/lib/agency/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js?v=@ViewBag.Versionjs"></script>
         @* End agency *@
 
         <script src="~/js/utils.js?v=@ViewBag.Versionjs"></script>
         <script src="~/js/currencyprice.js?v=@ViewBag.Versionjs"></script>
         <script src="~/js/package.js?v=@ViewBag.Versionjs"></script>
-        <script src="~/js/question.js?v=@ViewBag.Versionjs"></script>                
+        <script src="~/js/question.js?v=@ViewBag.Versionjs"></script>
         <script src="~/js/site.js?v=@ViewBag.Versionjs"></script>
     </environment>
     <environment exclude="Development">

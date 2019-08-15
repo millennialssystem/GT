@@ -45,7 +45,7 @@
 }
 
 .action {
-    text-align: center;
+    /*text-align: center;*/
     height: 40px;
     width: 40px;
     line-height: 40px;
@@ -64,6 +64,19 @@
 }
 
 .gtlogo {
-    width: 180px;
-    padding-top: 15px;
+    width: 115px;
+    /*padding-top: 15px;*/
+}
+
+@media (min-width: 992px) {
+    .gtlogo-sm {
+        width: 150px;
+    }
+}
+
+.anyClass {
+    position: relative;
+    height: 100% !important;
+    width: 100% !important;
+    /*overflow-y: scroll;*/
 }

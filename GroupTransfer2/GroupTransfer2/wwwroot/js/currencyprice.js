@@ -225,12 +225,14 @@
     },
     InitcurrencyManagerPrice: function (tasas, managerPrice) {
         JSON.parse(tasas).forEach(function (item) {
-            var row = document.createElement("div");
-            row.className = "row p-2";
-            row.id = "rowManagerPrice" + item.prc_id;
+            var tr = document.createElement("tr");
+            var tdBank = document.createElement("td");
+            //var row = document.createElement("div");
+            //row.className = "row p-2";
+            //row.id = "rowManagerPrice" + item.prc_id;
             /*Begin Bank */
-            var bankDiv = document.createElement("div");
-            bankDiv.className = "col-sm";
+            //var bankDiv = document.createElement("div");
+            //bankDiv.className = "col-sm";
             var bank = document.createElement("input");
             bank.id = "bankManagerPrice" + item.prc_id;
             bank.type = "text";
@@ -240,12 +242,14 @@
             bank.addEventListener('change', function (event) {
                 currencyprice.WillUpdateCurrencyPrice(item.prc_id)
             });
-            bankDiv.appendChild(bank);
+            //bankDiv.appendChild(bank);
+            tdBank.appendChild(bank);
             /*End Bank */
 
             /*Begin coin */
-            var coinDiv = document.createElement("div");
-            coinDiv.className = "col-sm";
+            var tdCoin = document.createElement("td");
+            //var coinDiv = document.createElement("div");
+            //coinDiv.className = "col-sm";
             var coin = document.createElement("input");
             coin.id = "coinManagerPrice" + item.prc_id;
             coin.type = "text";
@@ -254,12 +258,14 @@
             coin.addEventListener('change', function (event) {
                 currencyprice.WillUpdateCurrencyPrice(item.prc_id)
             });
-            coinDiv.appendChild(coin);
+            tdCoin.appendChild(coin);
+            //coinDiv.appendChild(coin);
             /*End coin */
 
             /*Begin value */
-            var valueDiv = document.createElement("div");
-            valueDiv.className = "col-sm";
+            var tdValue = document.createElement("td");
+            //var valueDiv = document.createElement("div");
+            //valueDiv.className = "col-sm";
             var value = document.createElement("input");
             value.id = "valueManagerPrice" + item.prc_id;
             value.type = "text";
@@ -268,13 +274,14 @@
             value.addEventListener('change', function (event) {
                 currencyprice.WillUpdateCurrencyPrice(item.prc_id)
             });
-            valueDiv.appendChild(value);
+            //valueDiv.appendChild(value);
+            tdValue.appendChild(value);
             /*End value */
 
 
             /*Begin Disable*/
-            var desactivar = document.createElement("div");
-            desactivar.className = "col col-lg-2 text-center";
+            var tdDesactivar = document.createElement("td");
+            tdDesactivar.className = "text-center";
 
             var listActions = document.createElement("ul");
             listActions.className = "list-inline social-buttons";
@@ -302,14 +309,19 @@
             btnDesactivar.appendChild(iconDesactivar);
             listItem.appendChild(btnDesactivar);
             listActions.appendChild(listItem);
-            desactivar.appendChild(listActions);
+            tdDesactivar.appendChild(listActions);
             /*End Disable*/
 
-            managerPrice.appendChild(row);
-            row.appendChild(bankDiv);
-            row.appendChild(coinDiv);
-            row.appendChild(valueDiv);
-            row.appendChild(desactivar);
+            //managerPrice.appendChild(row);
+            tr.appendChild(tdBank);
+            tr.appendChild(tdCoin);
+            tr.appendChild(tdValue);
+            tr.appendChild(tdDesactivar);
+            managerPrice.appendChild(tr);
+            //row.appendChild(bankDiv);
+            //row.appendChild(coinDiv);
+            //row.appendChild(valueDiv);
+            //row.appendChild(desactivar);
 
         });
         $('[data-toggle="tooltip"]').tooltip();
