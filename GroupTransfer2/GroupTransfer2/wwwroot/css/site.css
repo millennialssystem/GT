@@ -80,3 +80,13 @@
     width: 100% !important;
     /*overflow-y: scroll;*/
 }
+
+.headMaster{
+    height: 500px;
+}
+
+@media (min-width: 992px) {
+    .headMaster-sm {
+        height: 700px;
+    }
+}
